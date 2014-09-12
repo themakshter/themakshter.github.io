@@ -1,5 +1,7 @@
 $(function() {
 	checkScreen();
+	window.onresize = checkScreen;
+
 });
 
 var checkScreen = function(){
@@ -7,10 +9,12 @@ var checkScreen = function(){
 
 	var screenSize = $(window).width();
 
-	//if smaller screen
-	if(screenSize < md){
-		//TODO: remove row-eq-height	
-	}else{
-		//add row-eq-height
+
+	if(screenSize < md){ //smaller screen
+		$(".double-row").removeClass("row-eq-height").addClass("row");
+		$(".second").addClass("col-second");
+	}else{	//bigger screen
+		$(".double-row").removeClass("row").addClass("row-eq-height");
+		$(".second").removeClass("col-second");
 	}
 }

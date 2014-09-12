@@ -19,6 +19,14 @@
 	border-bottom-right-radius: 5px;
 }
 
+.col-second{
+	margin-top: 75px;
+}
+
+.dummy{
+	height: 75px;
+}
+
 .icon{
 	width:  100px;
 	height: 100px;
