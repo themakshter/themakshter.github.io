@@ -19,6 +19,10 @@
 	border-bottom-right-radius: 5px;
 }
 
+.box-headings{
+	color: black;
+}
+
 .col-second{
 	margin-top: 75px;
 }
