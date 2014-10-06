@@ -5,7 +5,7 @@ $(function() {
 });
 
 var checkScreen = function(){
-	var md =992;
+	var md =980;
 
 	var screenSize = $(window).width();
 
