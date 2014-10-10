@@ -1,4 +1,4 @@
-ecswebpage
+themakshter.github.io
 ==========
 
-Personal Website on ECS page. Found at user.ecs.soton.ac.uk/mak1g11
+Personal Website. Found at the [GitHub Page](http://themakshter.github.io) or [my ecs page](http://users.ecs.soton.ac.uk).
