@@ -1,0 +1,19 @@
+start,end,label,description,type
+19/08/1993,19/08/1993,Birth,Born in Muzaffarabd,Personal
+16/08/2006,24/05/2009,Preparatory School Islamabad,Appeared in O Levels in 2009 and received 9 As and 1 B,Education
+24/08/2009,31/05/2011,Beaconhouse Educational Complex,"Appeared in A Levels in 2010 and 2011, receiving 2 A*s, 2 As and 1 B",Education
+25/09/2011,22/05/2015,University of Southampton,"Studied MEng Computer Science, graduating with First Class Honours",Education
+23/06/2013,29/08/2013,Micro Focus Ltd.,Interned as Product Development Intern,Career
+23/06/2014,29/08/2014,JP Morgan Chase & Co.,Interned as Project Manager,Career
+15/08/2015,11/01/2016,FactSet Europe Ltd.,Working as Software Engineer,Career
+25/02/2012,04/04/2012,Fractal Viewer,Visualisation of a Mandelbrot Set and Julia Set viewer,Projects
+15/04/2012,08/05/2012,Crossword Puzzle,Implmentation of a simple crossword puzzle with clues,Projects
+25/04/2013,10/05/2013,KNN Data Classifier,K-nearest neighbour classifer to identify different types of fish,Projects
+10/03/2013,15/04/2014,LittleNic to Java cross-compiler,Cross compiler to convert LittleNic code to correct Java code,Projects
+15/12/2013,05/01/2014,The Clanger,Implmentation of a virtual world themed from the old BBC show Clangers,Projects
+20/11/2013,10/01/2014,Type Pong,Web pong game mixed with typing as a group project,Projects
+01/10/2013,05/06/2014,Privacy Matters,"Individual project, involving visualisation of company privacy policies",Projects
+13/11/2014,07/01/2015,Agent Elman,Agent designed as group to compete with others in the TAC,Projects
+29/10/2014,09/10/2014,IdeaBoard,"Note taking application implementing a board abstraction, as a group project",Projects
+02/10/2014,11/01/2015,Mobile Intervention Authoring,"Masters year GDP, improving intervention authoring tool and creating intervention",Projects
+01/03/2015,25/04/2015,NHS Waiting Times Applications,Application using open data to show A & E Hospitals with lowest waiting time as a group project,Projects
