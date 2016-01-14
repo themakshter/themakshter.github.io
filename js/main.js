@@ -53,7 +53,7 @@
 
     // Define domElement and sourceFile
     var domElement = "#timeline";
-    var sourceFile = "./data/timeline.csv";
+    var sourceFile = "./data/own_timeline.csv";
 
     // Read in the data and construct the timeline
     d3.csv(sourceFile, function(dataset) {
