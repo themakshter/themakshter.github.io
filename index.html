@@ -1,57 +1,286 @@
-<html>
-
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-    <title>Mohammad Ali Khan - Personal Web Page</title>
+	<title>Mohammad Ali Khan</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/main.css">
+	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
 </head>
-
 <body>
-	<h1>Mohammad Ali Khan</h1>
-    <h1>About Me</h1>
-    <h2></h2>
-    <p>I am 22 year old computer scientist who is extremely passionate about web development and data visualisation. Currently residing in London, I graduated from the University of Southampton and currently work at FactSet. I consider myself best in Java but I have spent a great deal of time developing numerous web applications so I have a decent amount of experience in web-related technologies and languages such as JavaScript  </p>
-    <h2></h2>
-    <p></p>
-    <h1>Education</h1>
-    <h2>University of Southampton</h2>
-    <p></p>
-    <h2>Beaconhouse Educational Complex</h2>
-    <p></p>
-    <h1>Experience</h1>
-    <h2>FactSet Ltd. Europe</h2>
-    <h2>J.P. Morgan</h2>
-    <h2>Micro Focus Ltd.</h2>
-    <h1>Skills</h1>
-    <h2>Development skills</h2>
-    <h2>Tools</h2>
-    <h2>Spoken languages</h2>
-    <h1>Projects</h1>
-    <h2>Fractal Viewer</h2>
-    <p>Created a graphical user interface (GUI) using Java and the Swing and AWT libraries which displays a visual representation of a Mandelbrot set to the user. It also allows them to zoom into the set visualisation as well as viewing the visualisation of the Julia set for a specific point on the Mandlebrot set. The produced images can be saved along with options of different colouring schemes for the visualisation as well as numerous visualisation algorithms.</p>
-    <h2>Crossword Puzzle</h2>
-    <p>A crossword puzzle application made in Java using Swing and AWT libraries . It provides a clean and simple user interface and allows users to easily type across the boxes with their answers. Clues are provided and hovering the mouse over them highlights the corresponding boxes to be filled in. Functionality exist to inform the users of correctly filled answers as well as allowing users to save and load crossword puzzles.</p>
-    <h2>The Clangers</h2>
-    <p>Created a a small world filled with Clangers on the moon. Written in C++ with OpenGL 3.3+, this world allows the user to explore the world while also providing an automatic tour of the main features consisting of numerous clangers, mmon terrain, boats and other models. All the models present in the world were created in Blender.</p>
-    <h2>Type Pong</h2>
-    <p>A game aiming to improve typing speeds created as a group project. Users play pong while typing, moving the paddle as they type the words correctly. Users can play against the AI in levels, where AI gets better with time, or in challenge mode, where AI is perfect and users try to last as long as possible. Users can also play against each other as well as view their high scores. The backend of the application was built in Python while the game itself was built in JavaScript. 
-	The application can currently be found here .</p>
-    <h2>Privacy Matters</h2>
-    <p>For my third year project, I created Privacy Matters, an online resource showing the information companies in the United Kingdom store and share. Users can search for their desired companies and view reasons for processing data, the data processed, whom it is processed from and whom it is shared with. Data visualisations such as an overview of the information collected as compared to the general median/average are also provided. Moreover, users can view similar companies to the ones they are looking at. The backend of this application was coded in Java with the Play Framework while the front end was written in HTML, CSS and JavaScript . The database used was MongoDB. 
-	The application can currently be found here . The final report on my project is also available here .</p>
-    <h2>IdeaBoard</h2>
-    <p>I teamed up with coursemate to create a note-taking web applicaiton for my Web Development module. We tried to abstract the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour. This application has a NodeJS backend with a MongoDB database while the front end is written in HTML,CSS and JavaScript 
-	The application can currently be found here . The user manual for this application is available here and the technical manual is available here .</p>
-    <h2>Mobile Intervention Authoring</h2>
-    <p>For our group development project, my group and I worked on improving and extending a mobile intervention editor to create an intervention for cochlear implant users. This project involved adding features to add media files on the web-based intervention editor and functionality to play these media files on the intervention client application. Lastly, the intervention was created with numerous optimisations on the editor and run on the client application. The intervention editor was written mostly in CoffeeScript with BackboneJS and the client application was for Android devices. The report for this project can be found here.</p>
-    <h2>NHS Waiting Times Application</h2>
-    <p>A group project to create an applicaiton which, given a location, would find you the closest hospitals with the least amount of waiting times for Accident and Emergency (A &amp; E). This application uses open data from the NHS in the form of percentage of patients seen in the first four hours of coming to the hospital as well as hospital ratings. Moreover, it combines with OpenStreetMap to provide the location on the map. This application can be used on the web or on a mobile phone just as easily and was made with the help of basic HTML, CSS and JavaScript. A report for the project can be found here. </p>
-    <h1>Interests</h1>
-    <h2>Web Development</h2>
-    <h2>Video Games</h2>
-    <h2>Football</h2>
-    <h2>Fantasy Novels</h2>
-    <h1>Contact</h1>
+	<div class="container">
+		<h1 class="text-center">Mohammad Ali Khan</h1>
+		<br>
+		<br>
+		<div id="top" class="row-eq-height double-row">
+			<div id="identity" class="col-xs-10 col-xs-offset-1 col-sm-10 col-md-6 col-md-offset-0 box ">
+				<h2 class="text-center">About Me</h2>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-6 ">
+						<div class="text-center">
+							<img id="closeup" src="img/ali.jpg" class="img-rounded img-responsive" />
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 ">
+						<p class="text-justify">
+							I am a fourth year student studying MEng Computer Science at the University of Southampton. From a technial point of view, I am most proficient in Java while my interests are web development, data visualisation and machine learning. I am also very passionate about football and video games.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div id="contact" class="col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 box text-center second">
+				<h2 class="text-center">Contact Me</h2>
+				<p>
+					<a href="https://www.facebook.com/themakshter">
+						<img src="img/facebook_icon.png" alt="Facebook" class="img-rounded icon"></a>
+					<a href="https://twitter.com/themakshter">
+						<img src="img/twitter_icon.png" alt="Twitter" class="img-rounded icon"></a>
+					<a href="https://plus.google.com/+MohammadAliKhan_themakshter/posts">
+						<img src="img/googleplus_icon.png" alt="Google Plus" class="img-rounded icon"></a>
+					<br>
+					<a href="https://www.linkedin.com/in/themakshter">
+						<img src="img/linkedin_icon.png" alt="LinkedIn" class="img-rounded icon"></a>
+					<a href="mailto:mohammad_ali93@live.com">
+						<img src="img/email_icon.png" alt="Email" class="img-rounded icon"></a>
+					<a href="https://github.com/themakshter">
+						<img src="img/github_icon.png" alt="GitHub" class="img-rounded icon"></a>
+				</p>
+			</div>
+		</div>
+		<div class="dummy"></div>
+		<div id="middle" class="row-eq-height double-row">
+			<div id="skills" class="col-xs-10 col-sm-10 col-xs-offset-1 col-md-6 col-md-offset-0 box">
+				<h2 class="text-center">Skills</h2>
+				<ul id="skill-list">
+					<li>
+						<h3>Progamming Languages</h3>
+					</li>
+					<ul class="item-list play">
+						<li>Java</li>
+						<li>JavaScript</li>
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>Visual Basic for Applications (VBA)</li>
+						<li>C++</li>
+						<li>C</li>
+						<li>PHP</li>
+						<li>Python</li>
+						<li>Perl</li>
+					</ul>
+					<li>
+						<h3>Frameworks and other technologies</h3>
+					</li>
+					<ul class="item-list play">
+						<li>SQL</li>
+						<li>MongoDB</li>
+						<li>Play Framework</li>
+						<li>Twitter Bootstrap</li>
+						<li>OpenGL</li>
+						<li>NodeJS</li>
+					</ul>
+					<li>
+						<h3>Other Skills</h3>
+					</li>
+					<ul class="item-list play">
+						<li>Project Management</li>
+						<li>Blender</li>
+						<li>Microsoft Excel</li>
+					</ul>
+				</ul>
+				<h4 class="text-center">
+					My full resume is available
+					<a href="files/resume_mohammad_ali_khan.pdf">here</a>
+					.
+				</h4>
+			</div>
+			<div id="projects" class="col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 box second text-justify">
+				<h2 class="text-center">Projects</h2>
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#fractalViewer">
+							<h4 class="panel-title">
+								<div class="box-headings">Fractal Viewer</div>
+							</h4>
+						</div>
+						<div id="fractalViewer" class="panel-collapse collapse">
+							<div class="panel-body">
+								<img src="img/fractal_viewer.png" alt="Fractal Viewer Screenshot" class="img-rounded img-responsive">
+								This application, made <strong>Java using the Swing and AWT libraries</strong>
+								, displays a
+								<a href="http://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a>
+								to the user and allows them to zoom into it as they wish. Users can also view the
+								<a href="http://en.wikipedia.org/wiki/Julia_set">Julia set</a>
+								for a specific point on the Mandlebrot set and also save the image. The Mandlebrot set is available in three different calculation algorithms and two colour schemes.
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#crosswordApp">
+							<h4 class="panel-title">
+								<div class="box-headings">Crossword Puzzle</div>
+							</h4>
+						</div>
+						<div id="crosswordApp" class="panel-collapse collapse">
+							<div class="panel-body">
+								<img src="img/crossword_puzzle.png" class="img-responsive img-rounded" alt="Crossword Screenshot">
+								This application was also made in <strong>Java using Swing and AWT libraries</strong>
+								. It is a straightforward crossword puzzle, allowing users to easily type across the boxes with their answers. The clues can be easily highlighted and there is also functionality to inform the users of which ones have been correctly filled.
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#dancingSchool">
+							<h4 class="panel-title">
+								<div class="box-headings">Dancing School</div>
+							</h4>
+						</div>
+						<div id="dancingSchool" class="panel-collapse collapse">
+							<div class="panel-body">
+								This project consisted of a number of web forms of a dancing on which users can add new dancing students, add examination scores, pay outstanding fees and view existing information. The data was stored in a
+								<strong>SQL database</strong>
+								and the frontend was coded in
+								<strong>PHP</strong>
+								.
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#clangers">
+							<h4 class="panel-title">
+								<div class="box-headings">The Clangers</div>
+							</h4>
+						</div>
+						<div id="clangers" class="panel-collapse collapse">
+							<div class="panel-body">
+								<img src="img/the_clangers.png" alt="The Clangers Screenshot" class="img-rounded img-responsive">
+								This application depicted a small world filled with Clangers. Coded in
+								<strong>C++ with OpenGL 3.3+</strong>
+								, this application allows the user to explore the world while also providing an automatic tour of the main features. The models were created in
+								<strong>Blender</strong>
+								.
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#typePong">
+							<h4 class="panel-title">
+								<div class="box-headings">Type Pong</div>
+							</h4>
+						</div>
+						<div id="typePong" class="panel-collapse collapse">
+							<div class="panel-body">
+								<img src="img/type_pong.png" alt="Type Pong Screenshot" class="img-rounded img-responsive">
+								This application was created as a group project and aims to improve typing speeds. Users play pong while typing, moving the paddle as the get the words right. Users can play against the AI in levels, where AI gets better with time, or in challenge mode, where AI is perfect and users have to last as long as possible. Users can also play against each other and view their high scores. The backend of the application was build in
+								<strong>Python</strong>
+								while the game itself was built in
+								<strong>JavaScript</strong>
+								.
+								<br>
+								The application can currently be found
+								<a href="http://mystical-hawk-370.appspot.com/">here</a>
+								.
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#privacyMatters">
+							<h4 class="panel-title">
+								<div class="box-headings">Privacy Matters</div>
+							</h4>
+						</div>
+						<div id="privacyMatters" class="panel-collapse collapse">
+							<div class="panel-body">
+								<img src="img/privacy_matters.png" alt="Privacy Matters Screenshot" class="img-rounded img-responsive">
+								For my third year project, I created Privacy Matters, an online resource showing the information UK companies store and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies. The backend of this application was coded in
+								<strong>Java with the Play Framework</strong>
+								while the front end was written in
+								<strong>HTML, CSS and JavaScript</strong>
+								. The database used was
+								<strong>MongoDB</strong>
+								.
+								<br>
+								The application can currently be found
+								<a href="http://privacymatters.herokuapp.com/">here</a>
+								. The final report on my project is also available
+								<a href="files/mak1g11_final_report.pdf">here</a>
+								.
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#ideaboard">
+							<h4 class="panel-title">
+								<div class="box-headings">IdeaBoard</div>
+							</h4>
+						</div>
+						<div id="ideaboard" class="panel-collapse collapse">
+							<div class="panel-body">
+									<video class ="img-responsive" controls width="960">
+										<source  src="video/ideaboard.mov"></video>
+								I teamed up with coursemate to create a note-taking web applicaiton for my Web Development module. We tried to abstract the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour. This application has a <b>NodeJS</b> backend with a <b>MongoDB</b> database while the front end is written in <b>HTML</b>,<b>CSS</b> and <b>JavaScript</b>
+								<br>
+								The application can currently be found
+								<a href="https://infinite-tundra-1304.herokuapp.com/">here</a>
+								. The user manual for this application is available
+								<a href="https://infinite-tundra-1304.herokuapp.com/manuals/userManual.html">here</a>
+								and the technical manual is available
+								<a href="https://infinite-tundra-1304.herokuapp.com/manuals/technicalManual.html">here</a>
+								.
+							</div>
+						</div>
+					</div>
+										<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#mobileIntervention">
+							<h4 class="panel-title">
+								<div class="box-headings">Mobile Intervention Authoring</div>
+							</h4>
+						</div>
+						<div id="mobileIntervention" class="panel-collapse collapse">
+							<div class="panel-body">
+								<img src="img/intervention_editor.png" alt="Intervention Editor Screenshot" class="img-rounded img-responsive">
+								For our group development project, my group and I worked on improving and extending a mobile intervention editor to create an intervention for cochlear implant users. This project involved adding features to add media files on the web-based intervention editor and functionality to play these media files on the intervention client application. Lastly, the intervention was created with numerous optimisation on the editor and run on the client application.
+								The intervention editor was written mostly in <b>CoffeeScript</b> with <b>BackboneJS</b> and the client application was for <b>Android</b> devices.
+								The report for this project can be found <a href="files/gdp19_final_report.pdf">here</a>.
+							</div>
+						</div>
+					</div>
+											<div class="panel panel-default">
+						<div class="panel-heading clickable" data-toggle="collapse" data-parent="#accordion" href="#nhsWaitingTimesApplication">
+							<h4 class="panel-title">
+								<div class="box-headings">NHS Waiting Times Application</div>
+							</h4>
+						</div>
+						<div id="nhsWaitingTimesApplication" class="panel-collapse collapse">
+							<div class="panel-body">
+								<img src="img/nhs_waiting_times_map.png" alt="NHS Waiting Times Application Hospital Map" class="img-rounded img-responsive">								
+								For our Open Data Innovation module, my group and I worked together to create an applicaiton which, given a location, would find you the closest hospitals with the least amount of waiting times for Accident and Emergency (A &amp; E). This application uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings. Moreover, it combines with OpenStreetMap to provide the location on the map. This application can be used on the web or on a mobile phone just as easily and was made with the help of basic <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>. A report for the project can be found <a href="files/comp6214_group_report.pdf">here</a>.
+								<br/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dummy"></div>
+		<div id="bottom" class="row">
+			<div id="interests" class="col-xs-10 col-sm-10 col-xs-offset-1 col-md-6 col-md-offset-3 box">
+				<h2 class="text-center">Interests</h2>
+				<ul class="item-list dash">
+					<li>Web Development</li>
+					<li>Data Visualisation</li>
+					<li>Video Games</li>
+					<li>Fallout</li>
+					<li>Football</li>
+					<li>Mass Effect</li>
+					<li>DotA 2</li>
+				</ul>
+			</div>
+		</div>
+		<div class="dummy"></div>
+	</div>
 </body>
-<footer>
-</footer>
 </html>
-
