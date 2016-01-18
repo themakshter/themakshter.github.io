@@ -1,18 +1,18 @@
 start,end,label,description,type
-2006-08-16,2009-05-24,Preparatory School Islamabad,Appeared in O Levels in 2009 and received 9 As and 1 B,Education
-2009-08-24,2011-05-31,Beaconhouse Educational Complex,"Appeared in A Levels in 2010 and 2011, receiving 2 A*s, 2 As and 1 B",Education
-2011-09-25,2015-05-22,University of Southampton,"Studied MEng Computer Science, graduating with First Class Honours",Education
-2013-06-23,2013-08-29,Micro Focus Ltd.,Interned as Product Development Intern,Career
-2014-06-23,2014-08-29,JP Morgan Chase & Co.,Interned as Project Manager,Career
-2015-08-15,2016-01-11,FactSet Europe Ltd.,Working as Software Engineer,Career
-2012-02-25,2012-04-04,Fractal Viewer,Visualisation of a Mandelbrot Set and Julia Set viewer,Projects
-2012-04-15,2012-05-08,Crossword Puzzle,Implmentation of a simple crossword puzzle with clues,Projects
-2013-04-25,2013-05-10,KNN Data Classifier,K-nearest neighbour classifer to identify different types of fish,Projects
-2013-03-10,2014-04-15,LittleNic to Java cross-compiler,Cross compiler to convert LittleNic code to correct Java code,Projects
-2013-12-15,2014-01-05,The Clanger,Implmentation of a virtual world themed from the old BBC show Clangers,Projects
-2013-11-20,2014-01-10,Type Pong,Web pong game mixed with typing as a group project,Projects
-2013-10-01,2014-06-05,Privacy Matters,"Individual project, involving visualisation of company privacy policies",Projects
-2014-11-13,2015-01-07,Agent Elman,Agent designed as group to compete with others in the TAC,Projects
-2014-10-29,2014-10-09,IdeaBoard,"Note taking application implementing a board abstraction, as a group project",Projects
-2014-10-02,2015-01-11,Mobile Intervention Authoring,"Masters year GDP, improving intervention authoring tool and creating intervention",Projects
-2015-03-01,2015-04-25,NHS Waiting Times Applications,Application using open data to show A & E Hospitals with lowest waiting time as a group project,Projects
+2006-08-16,2009-05-24,Preparatory School Islamabad,Appeared in O Levels in 2009 and received 9 As and 1 B,education
+2009-08-24,2011-05-31,Beaconhouse Educational Complex,"Appeared in A Levels in 2010 and 2011, receiving 2 A*s, 2 As and 1 B",education
+2011-09-25,2015-05-22,University of Southampton,"Studied MEng Computer Science, graduating with First Class Honours",education
+2013-06-23,2013-08-29,Micro Focus Ltd.,Interned as Product Development Intern,career
+2014-06-23,2014-08-29,JP Morgan Chase & Co.,Interned as Project Manager,career
+2015-08-15,2016-01-11,FactSet Europe Ltd.,Working as Software Engineer,career
+2012-02-25,2012-04-04,Fractal Viewer,Visualisation of a Mandelbrot Set and Julia Set viewer,projects
+2012-04-15,2012-05-08,Crossword Puzzle,Implmentation of a simple crossword puzzle with clues,projects
+2013-04-25,2013-05-10,KNN Data Classifier,K-nearest neighbour classifer to identify different types of fish,projects
+2013-03-10,2014-04-15,LittleNic to Java cross-compiler,Cross compiler to convert LittleNic code to correct Java code,projects
+2013-12-15,2014-01-05,The Clanger,Implmentation of a virtual world themed from the old BBC show Clangers,projects
+2013-11-20,2014-01-10,Type Pong,Web pong game mixed with typing as a group project,projects
+2013-10-01,2014-06-05,Privacy Matters,"Individual project, involving visualisation of company privacy policies",projects
+2014-11-13,2015-01-07,Agent Elman,Agent designed as group to compete with others in the TAC,projects
+2014-10-29,2014-10-09,IdeaBoard,"Note taking application implementing a board abstraction, as a group project",projects
+2014-10-02,2015-01-11,Mobile Intervention Authoring,"Masters year GDP, improving intervention authoring tool and creating intervention",projects
+2015-03-01,2015-04-25,NHS Waiting Times Applications,Application using open data to show A & E Hospitals with lowest waiting time as a group project,projects

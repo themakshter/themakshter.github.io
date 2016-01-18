@@ -58,7 +58,6 @@
 }
 
 .interval {
-    fill: #AAFFFF;
     stroke-width: 6;
     cursor : default;
     pointer-events: true;
@@ -94,6 +93,23 @@
     border-color: black;
     background-color: #FFFFFF;
 }
+
+/* bar types */
+
+.education{
+    fill:#FFD1A1;
+}
+
+.career{
+    fill:#BFFFA1;  
+}
+
+.projects{
+    fill:#A1FFEA;
+}
+
+
+
 
 .tooltip {
     width: auto;

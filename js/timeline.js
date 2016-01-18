@@ -218,7 +218,8 @@ function timeline(domElement) {
         var intervals = d3.select("#band" + bandNum).selectAll(".interval");
         intervals.append("rect")
             .attr("width", "100%")
-            .attr("height", "100%");
+            .attr("height", "100%")
+            .attr("class",function (d) {return d.type;} )
         intervals.append("text")
             .attr("class", "intervalLabel")
             .attr("x", 1)
