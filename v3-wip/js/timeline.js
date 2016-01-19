@@ -138,6 +138,10 @@ function timeline(domElement) {
 
         // Convert yearStrings into dates
         data.items.forEach(function (item){
+            if(item.end === "now"){
+                item.end = new Date().yyyymmdd();   
+            }            
+            
             item.start = parseDate(item.start);
             if (item.end == "") {
                 //console.log("1 item.start: " + item.start);
@@ -347,8 +351,8 @@ function timeline(domElement) {
 
         function getHtml(element, d) {
             var html;
-            if (element.attr("class") == "interval") {
-                html = d.label + "<br>" + toYear(d.start) + " - " + toYear(d.end) ;
+            if (element.attr("class").indexOf("interval") > -1){
+                html = d.label + "<br>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) ;
             } else {
                 html = d.label + "<br>" + toYear(d.start);
             }
@@ -505,6 +509,33 @@ function timeline(domElement) {
         if (year > 0) return year.toString();
         if (bcString[0] == '-') return bcString + (-year);
         return (-year) + bcString;
+    }
+
+    function toNiceDate(date){
+        var today = new Date();
+        if(today.equalsDate(date)){
+            return "Now";
+        }
+        else{
+            var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+            var yyyy = date.getFullYear()
+            var mm = date.getMonth(); // getMonth() is zero-based
+            var dd  = date.getDate().toString();
+            return monthNames[mm] + " " + yyyy ; // padding              
+        }
+    }
+
+    Date.prototype.yyyymmdd = function() {
+        var yyyy = this.getFullYear().toString();
+        var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+        var dd  = this.getDate().toString();
+        return yyyy +"-"+ (mm[1]?mm:"0"+mm[0]) +"-"+ (dd[1]?dd:"0"+dd[0]); // padding
+    };
+
+    Date.prototype.equalsDate = function(date){
+        return this.getFullYear() === date.getFullYear()
+        &&     this.getMonth() === date.getMonth()
+        &&     this.getDate() === date.getDate(); 
     }
 
     return timeline;
