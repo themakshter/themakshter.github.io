@@ -226,6 +226,7 @@ function timeline(domElement) {
             .attr("class",function (d) {return d.type;} )
         intervals.append("text")
             .attr("class", "intervalLabel")
+            .style("font-weight","bold")
             .attr("x", 1)
             .attr("y", 10)
             .text(function (d) { return getInitials(d.label); });
@@ -351,12 +352,13 @@ function timeline(domElement) {
 
         function getHtml(element, d) {
             var html;
-            if (element.attr("class").indexOf("interval") > -1){
-                html = d.label + "<br>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) ;
+            html = "<b>"+ d.label + "</b>" + "<br />";
+            if (element.attr("class").indexOf("interval") > -1){                
+                html+=  "<i>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) + "</i><br />" ;
             } else {
-                html = d.label + "<br>" + toYear(d.start);
+                html = "<i>" + toYear(d.start) + "</i><br />";
             }
-            html += "<br>" + d.description;
+            html += d.description;
             return html;
         }
 

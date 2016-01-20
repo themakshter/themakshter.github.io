@@ -115,11 +115,11 @@
     width: auto;
     position: absolute;
     visibility: hidden;
-    color : black;
     cursor:default;
-    background-color: #FFFFEE;
+    background-color: #F8F8F8  ;
     border: 1px solid;
     padding: 4px;
     shape-rendering: crispEdges;
     pointer-events: none;
+    font-family:sans-serif;
 }
