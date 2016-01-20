@@ -189,7 +189,7 @@ function timeline(domElement) {
         band.h = height * (sizeFactor || 1);
         band.trackOffset = 4;
         // Prevent tracks from getting too high
-        band.trackHeight = Math.min((band.h - band.trackOffset) / data.nTracks, 20);
+        band.trackHeight = (band.h - band.trackOffset) / data.nTracks;
         band.itemHeight = band.trackHeight * 0.8,
         band.parts = [],
         band.instantWidth = 100; // arbitray value
@@ -228,7 +228,7 @@ function timeline(domElement) {
             .attr("class", "intervalLabel")
             .attr("x", 1)
             .attr("y", 10)
-            .text(function (d) { return d.label; });
+            .text(function (d) { return getInitials(d.label); });
 
         var instants = d3.select("#band" + bandNum).selectAll(".instant");
         instants.append("circle")
@@ -312,7 +312,7 @@ function timeline(domElement) {
             .attr("x", function(d) { return d[2];})
             .attr("width", labelWidth)
             .attr("height", labelHeight)
-            .style("opacity", 1);
+            .style("opacity", .75);
 
         var labels = bandLabels.append("text")
             .attr("class", function(d) { return d[1];})
@@ -524,6 +524,15 @@ function timeline(domElement) {
             return monthNames[mm] + " " + yyyy ; // padding              
         }
     }
+
+    function getInitials(str){
+      var initials = "";
+      var words = str.split(" ");
+      for(var word of words){
+        initials+= word.substring(0,1);
+      }
+      return initials;
+    };
 
     Date.prototype.yyyymmdd = function() {
         var yyyy = this.getFullYear().toString();
