@@ -288,7 +288,7 @@ function timeline(domElement) {
                     function(min, max) { return toYear(max); },
                     "End of the selected interval", band.x + band.w - 152, labelTop],
                 ["middle", "bandMidLabel", (band.w - labelWidth) / 2, band.w / 2,
-                    function(min, max) { return max.getUTCFullYear() - min.getUTCFullYear(); },
+                    function(min, max) { return (max.getUTCFullYear() - min.getUTCFullYear()) + " years"; },
                     "Length of the selected interval", band.x + band.w / 2 - 75, labelTop]
             ];
 
