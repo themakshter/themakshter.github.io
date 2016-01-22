@@ -60,8 +60,8 @@
 
         timeline(domElement)
             .data(dataset)
-            .band("mainBand", 0.70)
-            .band("naviBand", 0.20)
+            .band("mainBand", 0.75)
+            .band("naviBand", 0.15)
             .xAxis("mainBand")
             .tooltips("mainBand")
             .xAxis("naviBand")
