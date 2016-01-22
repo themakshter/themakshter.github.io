@@ -179,7 +179,7 @@ function timeline(domElement) {
     // band
     //
 
-    timeline.band = function (bandName, sizeFactor) {
+    timeline.band = function (bandName, sizeFactor,addText) {
 
         var band = {};
         band.id = "band" + bandNum;
@@ -224,23 +224,32 @@ function timeline(domElement) {
             .attr("width", "100%")
             .attr("height", "100%")
             .attr("class",function (d) {return d.type;} )
-        intervals.append("text")
-            .attr("class", "intervalLabel")
-            .style("font-weight","bold")
-            .attr("x", 1)
-            .attr("y", 10)
-            .text(function (d) { return getInitials(d.label); });
+        
+        if(addText)
+            intervals.append("text")
+                .attr("class", "intervalLabel")
+                .style("font-weight","bold")
+                .attr("x", 1)
+                .attr("y", 10)
+                .attr("dy",0)
+                .text(function (d) { return d.shortlabel;})
+                .call(wrap,function(d){return band.xScale(d.end) - band.xScale(d.start);});
+
+        
 
         var instants = d3.select("#band" + bandNum).selectAll(".instant");
         instants.append("circle")
             .attr("cx", band.itemHeight / 2)
             .attr("cy", band.itemHeight / 2)
-            .attr("r", 5);
-        instants.append("text")
-            .attr("class", "instantLabel")
-            .attr("x", 15)
-            .attr("y", 10)
-            .text(function (d) { return d.label; });
+            .attr("r", 5)
+            .attr("class", function(d) {return d.type;});
+         
+         if(addText)            
+            instants.append("text")
+                .attr("class", "instantLabel")
+                .attr("x", 15)
+                .attr("y", 10)
+                .text(function (d) { return d.label; });
 
         band.addActions = function(actions) {
             // actions - array: [[trigger, function], ...]
@@ -546,6 +555,30 @@ function timeline(domElement) {
       }
       return initials;
     };
+
+    function wrap(text, width) {
+        text.each(function() {
+            var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, // ems
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+            while (word = words.pop()) {
+                line.push(word);
+                tspan.text(line.join(" "));
+                if (tspan.node().getComputedTextLength() > width) {
+                    line.pop();
+                    tspan.text(line.join(" "));
+                    line = [word];
+                    tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                }
+            }
+    });
+}
 
     Date.prototype.yyyymmdd = function() {
         var yyyy = this.getFullYear().toString();
