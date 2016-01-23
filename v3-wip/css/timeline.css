@@ -70,17 +70,13 @@
     /*pointer-events: true;*/
 }
 
-.instantLabel {
-    fill : blue;
-    font: 10px sans-serif;
-    shape-rendering: crispEdges;
-}
-
-.intervalLabel {
+.periodLabel {
     fill : black;
     font: 10px sans-serif;
     shape-rendering: crispEdges;
+
 }
+
 
 .item {
     cursor : default;

@@ -227,8 +227,7 @@ function timeline(domElement) {
         
         if(addText)
             intervals.append("text")
-                .attr("class", "intervalLabel")
-                .style("font-weight","bold")
+                .attr("class", "intervalLabel periodLabel")
                 .attr("x", 1)
                 .attr("y", 10)
                 .attr("dy",.0)
@@ -246,7 +245,7 @@ function timeline(domElement) {
          
          if(addText)            
             instants.append("text")
-                .attr("class", "instantLabel")
+                .attr("class", "instantLabel periodLabel")
                 .attr("x", 15)
                 .attr("y", 10)
                 .text(function (d) { return d.label; });
@@ -365,7 +364,7 @@ function timeline(domElement) {
             if (element.attr("class").indexOf("interval") > -1){                
                 html+=  "<i>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) + "</i><br />" ;
             } else {
-                html = "<i>" + toYear(d.start) + "</i><br />";
+                html+= "<i>" + toNiceDate(d.start) + "</i><br />";
             }
             html += d.description;
             return html;
