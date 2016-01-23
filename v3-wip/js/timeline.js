@@ -231,9 +231,9 @@ function timeline(domElement) {
                 .style("font-weight","bold")
                 .attr("x", 1)
                 .attr("y", 10)
-                .attr("dy",0)
+                .attr("dy",.0)
                 .text(function (d) { return d.shortlabel;})
-                .call(wrap,function(d){return band.xScale(d.end) - band.xScale(d.start);});
+                .call(wrap,band);
 
         
 
@@ -556,8 +556,8 @@ function timeline(domElement) {
       return initials;
     };
 
-    function wrap(text, width) {
-        text.each(function() {
+    function wrap(text,band) {
+        text.each(function(d) {
             var text = d3.select(this),
             words = text.text().split(/\s+/).reverse(),
             word,
@@ -567,6 +567,7 @@ function timeline(domElement) {
             y = text.attr("y"),
             dy = parseFloat(text.attr("dy")),
             tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+            width = band.xScale(d.end) - band.xScale(d.start);
             while (word = words.pop()) {
                 line.push(word);
                 tspan.text(line.join(" "));
