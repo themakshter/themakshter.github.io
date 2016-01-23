@@ -374,9 +374,6 @@ function timeline(domElement) {
                     ? event.pageY + 10
                     : event.pageY - 30;
 
-            tooltip.transition()
-                   .duration(200);
-
             tooltip
                 .html(makeTooltip(d))
                 .style({
@@ -388,8 +385,6 @@ function timeline(domElement) {
         }
 
         function hideTooltip () {
-           tooltip.transition()
-                   .duration(600);
             tooltip.style("visibility", "hidden");
         }
 
