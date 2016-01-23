@@ -72,8 +72,9 @@
 
 .periodLabel {
     fill : black;
-    font: 10px sans-serif;
+    font-size: 10px;
     shape-rendering: crispEdges;
+    font-weight:bold;
 
 }
 
@@ -111,11 +112,12 @@
     width: auto;
     position: absolute;
     visibility: hidden;
-    cursor:default;
     background-color: #F8F8F8  ;
     border: 1px solid;
-    padding: 4px;
+    padding: 5px;
     shape-rendering: crispEdges;
     pointer-events: none;
     font-family:sans-serif;
+    transition: all 0.3s ease-in-out;
 }
+
