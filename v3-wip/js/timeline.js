@@ -567,11 +567,11 @@ function timeline(domElement) {
             y = text.attr("y"),
             dy = parseFloat(text.attr("dy")),
             tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-            width = band.xScale(d.end) - band.xScale(d.start);
+            allowedwidth = band.xScale(d.end) - band.xScale(d.start);
             while (word = words.pop()) {
                 line.push(word);
                 tspan.text(line.join(" "));
-                if (tspan.node().getComputedTextLength() > width) {
+                if (tspan.node().getComputedTextLength() > allowedwidth) {
                     line.pop();
                     tspan.text(line.join(" "));
                     line = [word];
