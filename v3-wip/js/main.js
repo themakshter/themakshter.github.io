@@ -63,7 +63,7 @@
             .band("mainBand", 0.75,true)
             .band("naviBand", 0.15,false)
             .xAxis("mainBand")
-            //.tooltips("mainBand")
+            .tooltips("mainBand")
             .xAxis("naviBand")
             .labels("mainBand")
             .labels("naviBand")

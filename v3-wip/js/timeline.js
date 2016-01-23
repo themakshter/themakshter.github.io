@@ -45,8 +45,8 @@ function timeline(domElement) {
 
     var tooltip = d3.select("body")
         .append("div")
-        .attr("class", "original-tooltip")
-        .style("visibility", "visible");
+        .attr("class", "tooltip")
+        .style("visibility","hidden");
 
     //--------------------------------------------------------------------------
     //
@@ -223,45 +223,7 @@ function timeline(domElement) {
             .attr("y", function (d) { return band.yScale(d.track); })
             .attr("height", band.itemHeight)
             .attr("class", function (d) { return d.instant ? "part instant" : "part interval";})
-            .attr("id",function(d){ return toIdString(d.label);})
-            .on('mouseover', function(d,i) {
-                if(!addText)
-                    return;
-                var tooltipWidth = 300;
-                var thisHeight = this.attributes.height.value;
-                var mouseCoordinates = d3.mouse(this.parentNode);
-                var mouseX = mouseCoordinates[0];
-                var mouseY = mouseCoordinates[1];
-                    var x = mouseX < band.x + band.w / 2 ? mouseX + 10 : mouseX - tooltipWidth*.9 - 10;
-                    var y = mouseY < band.y + band.h / 2 ? mouseY + 10 : mouseY - thisHeight - 30;
-                    var fo = svg.append('foreignObject')
-                        .attr({
-                            'x': x,
-                            'y': y,
-                            'width':tooltipWidth,
-                            'class': 'svg-tooltip'
-                        })
-                        .style({
-                            'top':x,
-                            'left':y
-                        });
-                    var div = fo.append('xhtml:div')
-                        .append('div')
-                        .attr({
-                            'class': 'tooltip'
-                        });
-                    div.append('p')
-                        .attr('class', 'lead')
-                        .html(makeTooltip(d));
-                    var foHeight = div[0][0].getBoundingClientRect().height;
-                    fo.attr({
-                        'height': foHeight
-                    });
-                })
-                .on('mouseout', function() {
-                    svg.selectAll('.svg-tooltip').remove();
-                    svg.selectAll('polygon').remove();
-                });
+            .attr("id",function(d){ return toIdString(d.label);});
 
         var intervals = d3.select("#band" + bandNum).selectAll(".interval");
         intervals.append("rect")
@@ -402,35 +364,32 @@ function timeline(domElement) {
             ["mouseout", hideTooltip]
         ]);
 
-        function getHtml(element, d) {
-            var html;
-            html = "<b>"+ d.label + "</b>" + "<br />";
-            if (element.attr("class").indexOf("interval") > -1){
-                html+=  "<i>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) + "</i><br />" ;
-            } else {
-                html+= "<i>" + toNiceDate(d.start) + "</i><br />";
-            }
-            html += d.description;
-            return html;
-        }
-
         function showTooltip (d) {
+            var tooltipWidth = 300;
 
             var x = event.pageX < band.x + band.w / 2
                     ? event.pageX + 10
-                    : event.pageX - 110,
+                    : event.pageX - tooltipWidth -10,
                 y = event.pageY < band.y + band.h / 2
-                    ? event.pageY + 30
+                    ? event.pageY + 10
                     : event.pageY - 30;
 
+            tooltip.transition()
+                   .duration(200);
+
             tooltip
-                .html(getHtml(d3.select(this), d))
-                .style("top", y + "px")
-                .style("left", x + "px")
-                .style("visibility", "visible");
+                .html(makeTooltip(d))
+                .style({
+                    'top':y+"px",
+                    'left':x+"px",
+                    'width':tooltipWidth,
+                    'visibility':'visible'
+                })
         }
 
         function hideTooltip () {
+           tooltip.transition()
+                   .duration(600);
             tooltip.style("visibility", "hidden");
         }
 

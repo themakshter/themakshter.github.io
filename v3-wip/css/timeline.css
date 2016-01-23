@@ -113,17 +113,13 @@ svg {
     margin: 0 auto;
 }
 
-.tooltip {
-    padding: 10px;
-    color: #4A22FF;
-}
-
-.original-tooltip{
-    width: auto;
+.tooltip{
     position: absolute;
     visibility: hidden;
-    background-color: #F8F8F8  ;
+    background-color: #F8F8F8 ;
     border: 1px solid;
     padding: 5px;
+    opacity:0.8;
     shape-rendering: crispEdges;
+    transition: all 0.3s ease-in-out;
 }
