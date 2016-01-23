@@ -108,7 +108,17 @@
 
 
 /* tool tip*/
+svg {
+    display: block;
+    margin: 0 auto;
+}
+
 .tooltip {
+    padding: 10px;
+    color: #4A22FF;
+}
+
+.original-tooltip{
     width: auto;
     position: absolute;
     visibility: hidden;
@@ -116,8 +126,4 @@
     border: 1px solid;
     padding: 5px;
     shape-rendering: crispEdges;
-    pointer-events: none;
-    font-family:sans-serif;
-    transition: all 0.3s ease-in-out;
 }
-

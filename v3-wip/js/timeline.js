@@ -45,7 +45,7 @@ function timeline(domElement) {
 
     var tooltip = d3.select("body")
         .append("div")
-        .attr("class", "tooltip")
+        .attr("class", "original-tooltip")
         .style("visibility", "visible");
 
     //--------------------------------------------------------------------------
@@ -139,9 +139,9 @@ function timeline(domElement) {
         // Convert yearStrings into dates
         data.items.forEach(function (item){
             if(item.end === "now"){
-                item.end = new Date().yyyymmdd();   
-            }            
-            
+                item.end = new Date().yyyymmdd();
+            }
+
             item.start = parseDate(item.start);
             if (item.end == "") {
                 //console.log("1 item.start: " + item.start);
@@ -193,6 +193,11 @@ function timeline(domElement) {
         band.itemHeight = band.trackHeight * 0.8,
         band.parts = [],
         band.instantWidth = 100; // arbitray value
+        var foWidth = 300;
+        var anchor = {'w': band.w/3, 'h': band.h/3};
+        var t = 50, k = 15;
+        var tip = {'w': (3/4 * t), 'h': k};
+
 
         band.xScale = d3.time.scale()
             .domain([data.minDate, data.maxDate])
@@ -218,15 +223,53 @@ function timeline(domElement) {
             .attr("y", function (d) { return band.yScale(d.track); })
             .attr("height", band.itemHeight)
             .attr("class", function (d) { return d.instant ? "part instant" : "part interval";})
-            .attr("id",function(d){ return toIdString(d.label);});
+            .attr("id",function(d){ return toIdString(d.label);})
+            .on('mouseover', function(d,i) {
+                if(!addText)
+                    return;
+                var tooltipWidth = 300;
+                var thisHeight = this.attributes.height.value;
+                var mouseCoordinates = d3.mouse(this.parentNode);
+                var mouseX = mouseCoordinates[0];
+                var mouseY = mouseCoordinates[1];
+                    var x = mouseX < band.x + band.w / 2 ? mouseX + 10 : mouseX - tooltipWidth*.9 - 10;
+                    var y = mouseY < band.y + band.h / 2 ? mouseY + 10 : mouseY - thisHeight - 30;
+                    var fo = svg.append('foreignObject')
+                        .attr({
+                            'x': x,
+                            'y': y,
+                            'width':tooltipWidth,
+                            'class': 'svg-tooltip'
+                        })
+                        .style({
+                            'top':x,
+                            'left':y
+                        });
+                    var div = fo.append('xhtml:div')
+                        .append('div')
+                        .attr({
+                            'class': 'tooltip'
+                        });
+                    div.append('p')
+                        .attr('class', 'lead')
+                        .html(makeTooltip(d));
+                    var foHeight = div[0][0].getBoundingClientRect().height;
+                    fo.attr({
+                        'height': foHeight
+                    });
+                })
+                .on('mouseout', function() {
+                    svg.selectAll('.svg-tooltip').remove();
+                    svg.selectAll('polygon').remove();
+                });
 
         var intervals = d3.select("#band" + bandNum).selectAll(".interval");
         intervals.append("rect")
             .attr("width", "100%")
             .attr("height", "100%")
-            .attr("class",function (d) {return d.type;} );
+            .attr("class",function (d) {return d.type;} )
 
-        if(addText){
+       if(addText){
             intervals.append("text")
                 .attr("class", "intervalLabel periodLabel")
                 .attr("x", 1)
@@ -234,11 +277,6 @@ function timeline(domElement) {
                 .attr("dy",.0)
                 .text(function (d) { return d.shortlabel;})
                 .call(wrap,band);
-            intervals.append("div")
-                .attr("class","mdl-tooltip mdl-tooltip--large")
-                .attr("for",function(d){ return toIdString(d.label);})
-                .text(function(d){ return d.description;});
-                //.text(function(d) { return "<b>"+d.label+"<b><br/>" + "<i>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) + "</i><br />" + d.description;})
         }
 
 
@@ -255,11 +293,6 @@ function timeline(domElement) {
                 .attr("x", 15)
                 .attr("y", 10)
                 .text(function (d) { return d.label; });
-            instants.append("div")
-                .attr("class","mdl-tooltip mdl-tooltip--large")
-                .attr("for",function(d){ return toIdString(d.label);})
-                .text(function(d){ return d.description;});
-                //.text(function(d) { return "<b>"+d.label+"<b><br/>" + "<i>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) + "</i><br />" + d.description;})
          }
         band.addActions = function(actions) {
             // actions - array: [[trigger, function], ...]
@@ -553,7 +586,7 @@ function timeline(domElement) {
             var yyyy = date.getFullYear()
             var mm = date.getMonth(); // getMonth() is zero-based
             var dd  = date.getDate().toString();
-            return monthNames[mm] + " " + yyyy ; // padding              
+            return monthNames[mm] + " " + yyyy ; // padding
         }
     }
 
@@ -590,6 +623,14 @@ function timeline(domElement) {
             }
         });
     }
+
+    function makeTooltip(d){
+       html = "<b>"+d.label+"</b><br/><i>"+toNiceDate(d.start);
+       if(!d.instant)
+            html+=" - " + toNiceDate(d.end);
+       html+="</i><br/>"+d.description;
+       return html;
+    };
 
     function toIdString(label){
         return label.toLowerCase().replaceAll(" ","_")
