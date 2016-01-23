@@ -217,15 +217,16 @@ function timeline(domElement) {
             .enter().append("svg")
             .attr("y", function (d) { return band.yScale(d.track); })
             .attr("height", band.itemHeight)
-            .attr("class", function (d) { return d.instant ? "part instant" : "part interval";});
+            .attr("class", function (d) { return d.instant ? "part instant" : "part interval";})
+            .attr("id",function(d){ return toIdString(d.label);});
 
         var intervals = d3.select("#band" + bandNum).selectAll(".interval");
         intervals.append("rect")
             .attr("width", "100%")
             .attr("height", "100%")
-            .attr("class",function (d) {return d.type;} )
-        
-        if(addText)
+            .attr("class",function (d) {return d.type;} );
+
+        if(addText){
             intervals.append("text")
                 .attr("class", "intervalLabel periodLabel")
                 .attr("x", 1)
@@ -233,8 +234,13 @@ function timeline(domElement) {
                 .attr("dy",.0)
                 .text(function (d) { return d.shortlabel;})
                 .call(wrap,band);
+            intervals.append("div")
+                .attr("class","mdl-tooltip mdl-tooltip--large")
+                .attr("for",function(d){ return toIdString(d.label);})
+                .text(function(d){ return d.description;});
+                //.text(function(d) { return "<b>"+d.label+"<b><br/>" + "<i>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) + "</i><br />" + d.description;})
+        }
 
-        
 
         var instants = d3.select("#band" + bandNum).selectAll(".instant");
         instants.append("circle")
@@ -242,14 +248,19 @@ function timeline(domElement) {
             .attr("cy", band.itemHeight / 2)
             .attr("r", 5)
             .attr("class", function(d) {return d.type;});
-         
-         if(addText)            
+
+         if(addText){
             instants.append("text")
                 .attr("class", "instantLabel periodLabel")
                 .attr("x", 15)
                 .attr("y", 10)
                 .text(function (d) { return d.label; });
-
+            instants.append("div")
+                .attr("class","mdl-tooltip mdl-tooltip--large")
+                .attr("for",function(d){ return toIdString(d.label);})
+                .text(function(d){ return d.description;});
+                //.text(function(d) { return "<b>"+d.label+"<b><br/>" + "<i>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) + "</i><br />" + d.description;})
+         }
         band.addActions = function(actions) {
             // actions - array: [[trigger, function], ...]
             actions.forEach(function (action) {
@@ -361,7 +372,7 @@ function timeline(domElement) {
         function getHtml(element, d) {
             var html;
             html = "<b>"+ d.label + "</b>" + "<br />";
-            if (element.attr("class").indexOf("interval") > -1){                
+            if (element.attr("class").indexOf("interval") > -1){
                 html+=  "<i>" + toNiceDate(d.start) + " - " + toNiceDate(d.end) + "</i><br />" ;
             } else {
                 html+= "<i>" + toNiceDate(d.start) + "</i><br />";
@@ -577,8 +588,17 @@ function timeline(domElement) {
                     tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
                 }
             }
-    });
-}
+        });
+    }
+
+    function toIdString(label){
+        return label.toLowerCase().replaceAll(" ","_")
+    }
+
+    String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
 
     Date.prototype.yyyymmdd = function() {
         var yyyy = this.getFullYear().toString();
