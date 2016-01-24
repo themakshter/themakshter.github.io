@@ -67,6 +67,7 @@
             .xAxis("naviBand")
             .labels("mainBand")
             .labels("naviBand")
+            .legend("mainBand")
             .brush("naviBand", ["mainBand"])
             .redraw();
 

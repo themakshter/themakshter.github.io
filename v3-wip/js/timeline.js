@@ -400,7 +400,46 @@ function timeline(domElement) {
     timeline.legend = function (bandName) {
 
     var band = bands[bandName];
-    }
+
+    var legendData = [
+        { "id": "education", "title":"Education" },
+        { "id": "projects", "title":"Projects" },
+        { "id": "career", "title":"Career" }
+    ];
+
+    var legend = {
+        "width": 100, "height": 100,
+        "padding": 20, "itemPadding": 10,
+        "colorBlockSize": 15
+    };
+    var legendGroup = svg.append("g")
+        .attr("class", "legend")
+        .attr("transform", "translate(" + (band.w - legend.width - 2 * legend.padding) + "," + (band.h - legend.height - 2 * legend.padding) + ")");
+    var legendScale = d3.scale.ordinal()
+        .domain(legendData.map(function(d) { return d.id; }))
+        .rangeRoundBands([legend.padding, legend.height + legend.padding], 0.05);
+    legendGroup.append("div")
+            .attr({"x": legend.padding, "y": legend.padding,
+                   "width": legend.width, "height": legend.height,
+                   "fill": "#FAFAFA","opactiy":0.8});
+    var legendRows = legendGroup.selectAll(".legendRow")
+        .data(legendData)
+      .enter().append("g")
+        .attr("class", "legendRow")
+        .attr("transform", function(d) {
+            return "translate(" + (legend.padding + legend.itemPadding) + ", "
+                                + (legendScale(d.id) + 18) + ")"
+        });
+    legendRows.append("rect")
+        .attr("class", function(d) { return d.id; })
+        .attr({"x": 0, "y": -legend.colorBlockSize,
+               "width": legend.colorBlockSize, "height": legend.colorBlockSize});
+    legendRows.append("text")
+        .attr("x", legend.colorBlockSize + 5)
+        .text(function(d) { return d.title; });
+
+    return timeline;
+    };
 
     //----------------------------------------------------------------------
     //
