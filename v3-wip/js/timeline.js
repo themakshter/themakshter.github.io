@@ -297,13 +297,13 @@ function timeline(domElement) {
         var labelDefs = [
                 ["start", "bandMinMaxLabel", 0, 4,
                     function(min, max) { return toYear(min); },
-                    "Start of the selected interval", band.x + 30, labelTop],
+                    "Start of the selected interval", band.x + 350, labelTop],
                 ["end", "bandMinMaxLabel", band.w - labelWidth, band.w - 4,
                     function(min, max) { return toYear(max); },
-                    "End of the selected interval", band.x + band.w - 152, labelTop],
+                    "End of the selected interval", band.x + band.w + 150, labelTop],
                 ["middle", "bandMidLabel", (band.w - labelWidth) / 2, band.w / 2,
                     function(min, max) { return (max.getUTCFullYear() - min.getUTCFullYear()) + " years"; },
-                    "Length of the selected interval", band.x + band.w / 2 - 75, labelTop]
+                    "Length of the selected interval", band.x + band.w / 2 + 250, labelTop]
             ];
 
         var bandLabels = chart.append("g")
@@ -358,11 +358,12 @@ function timeline(domElement) {
 
         var band = bands[bandName];
 
-        band.addActions([
-            // trigger, function
-            ["mouseover", showTooltip],
-            ["mouseout", hideTooltip]
-        ]);
+   
+
+        var timelineParts = svg.selectAll(".part");
+
+        timelineParts.on("mouseover",showTooltip)
+                     .on("mouseout", hideTooltip);
 
         function showTooltip (d) {
             var tooltipWidth = 300;
@@ -390,6 +391,16 @@ function timeline(domElement) {
 
         return timeline;
     };
+
+//----------------------------------------------------------------------
+    //
+    // legend
+    //
+
+    timeline.legend = function (bandName) {
+
+    var band = bands[bandName];
+    }
 
     //----------------------------------------------------------------------
     //
