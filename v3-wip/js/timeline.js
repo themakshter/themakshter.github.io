@@ -435,7 +435,7 @@ function timeline(domElement) {
         .attr({"x": 0, "y": -legend.colorBlockSize,
                "width": legend.colorBlockSize, "height": legend.colorBlockSize});
     legendRows.append("text")
-        .attr("x", legend.colorBlockSize + 5)
+        .attr({"x": legend.colorBlockSize + 5,"y": -3})
         .text(function(d) { return d.title; });
 
     return timeline;
