@@ -370,10 +370,10 @@ function timeline(domElement) {
 
             var x = event.pageX < band.x + band.w / 2
                     ? event.pageX + 10
-                    : event.pageX - tooltipWidth -10,
+                    : event.pageX - tooltipWidth * 1.15,
                 y = event.pageY < band.y + band.h / 2
                     ? event.pageY + 10
-                    : event.pageY - 30;
+                    : event.pageY - 50;
 
             tooltip
                 .html(makeTooltip(d))
