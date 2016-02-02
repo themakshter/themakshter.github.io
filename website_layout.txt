@@ -56,7 +56,7 @@ Hindi
 <projects>
 
 Personal Website (HTML, CSS, JavaScript)
-
+This webpage. The current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it, as well as adding new features such as the timeline.
 
 NHS Waiting Times Application (HTML, CSS, JavaScript)
 A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A & E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. Project report can be found here. 
