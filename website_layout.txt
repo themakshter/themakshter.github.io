@@ -7,7 +7,7 @@ facebook,twitter,google+,github,linkedin,github,email,dotabuff
 
 <intro>
 I am a 22 year old computer scientist who is extremely passionate about web development and data visualisation. Currently residing in London, I graduated from the University of Southampton and am now working at FactSet as a Software Engineer. I consider myself best in Java but having spend a great amount of time developing numerous applications, I can claim good experience in web-related technologies such as JavaScript and some of its common frameworks and libraries such as jQuery,d3 and AngularJS.
-Outside of programming, I enjoy reading books; my favourite genre is fantasy and my favourite author is Brandon Sanderson. Moreover, I play many videos. While Dota 2 is my most regularly played game, the Mass Effect and Grand Theft Auto series are my all-time favourites in additon to the recent Fallout games. The remaining time is spent watching football games as well as taking part in matches myself. From the teams I watch on the television, I follow Chelsea F.C.
+Outside of programming, I enjoy reading books; my favourite genre is fantasy and my favourite author is Brandon Sanderson. Moreover, I play many videos. While Dota 2 is my most regularly played game, the Mass Effect and Grand Theft Auto series remain my all-time favourites in additon to the recent Fallout games. The remaining time is spent watching football games as well as taking part in matches myself. From the teams I watch on the television, I follow Chelsea F.C.
 
 <career>
 FactSet Europe Ltd.
