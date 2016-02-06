@@ -7,11 +7,12 @@ function timeline(domElement) {
     //
     // chart
     //
+    var parentWidth = $(domElement).parent().width();
 
     // chart geometry
     var margin = {top: 20, right: 20, bottom: 20, left: 20},
-        outerWidth = 1250,
-        outerHeight = 750,
+        outerWidth = Math.min(1250,parentWidth),
+        outerHeight = Math.min(750,parentWidth*0.6),
         width = outerWidth - margin.left - margin.right,
         height = outerHeight - margin.top - margin.bottom;
 
