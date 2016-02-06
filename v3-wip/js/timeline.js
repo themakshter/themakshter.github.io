@@ -11,8 +11,8 @@ function timeline(domElement) {
 
     // chart geometry
     var margin = {top: 20, right: 20, bottom: 20, left: 20},
-        outerWidth = Math.min(1250,parentWidth),
-        outerHeight = Math.min(750,parentWidth*0.6),
+        outerWidth = parentWidth,
+        outerHeight = parentWidth*0.6,
         width = outerWidth - margin.left - margin.right,
         height = outerHeight - margin.top - margin.bottom;
 
@@ -291,22 +291,20 @@ function timeline(domElement) {
         var band = bands[bandName],
             labelWidth = 46,
             labelHeight = 20,
-            labelTop = band.y + band.h - 10,
             y = band.y + band.h + 1,
             yText = 15;
-
+            
         var labelDefs = [
                 ["start", "bandMinMaxLabel", 0, 4,
                     function(min, max) { return toYear(min); },
-                    "Start of the selected interval", band.x + 350, labelTop],
+                    "Start of the selected interval"],
                 ["end", "bandMinMaxLabel", band.w - labelWidth, band.w - 4,
                     function(min, max) { return toYear(max); },
-                    "End of the selected interval", band.x + band.w + 150, labelTop],
+                    "End of the selected interval"],
                 ["middle", "bandMidLabel", (band.w - labelWidth) / 2, band.w / 2,
                     function(min, max) { return (max.getUTCFullYear() - min.getUTCFullYear()) + " years"; },
-                    "Length of the selected interval", band.x + band.w / 2 + 250, labelTop]
+                    "Length of the selected interval"]
             ];
-
         var bandLabels = chart.append("g")
             .attr("id", bandName + "Labels")
             .attr("transform", "translate(0," + (band.y + band.h + 1) +  ")")
@@ -315,13 +313,20 @@ function timeline(domElement) {
             .enter().append("g")
             .on("mouseover", function(d) {
                 tooltip.html(d[5])
-                    .style("top", d[7] + "px")
-                    .style("left", d[6] + "px")
+                    .style("top",function(){
+                            var y = event.pageY + labelHeight;
+                            return y + "px";
+                        })
+                    .style("left", function(){
+                            var x =  event.pageX < band.x + band.w / 2  ? event.pageX + 10 : event.pageX - labelWidth * 4;
+                            return x + "px";
+                        })
                     .style("visibility", "visible");
                 })
             .on("mouseout", function(){
                 tooltip.style("visibility", "hidden");
             });
+
 
         bandLabels.append("rect")
             .attr("class", "bandLabel")
