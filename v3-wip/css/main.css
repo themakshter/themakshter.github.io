@@ -1,13 +1,39 @@
-.icon{
-	width: 100px;
-	height: 100px;
-	padding: 5px;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
+.icon {
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-p{
-	text-align: justify;
+p {
+  text-align: justify;
+}
+
+.section-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.section-heading:before,
+.section-heading:after {
+  flex-grow: 1;
+  height: 5px;
+  content: '\a0';
+  background-color: #ddd;
+  position: relative;
+  top: 0.5em;
+ 	margin-left: 10px;
+}
+
+.section-heading:before{
+	margin-right: 10px;
+}
+
+.section-heading:after{
+	margin-right: 10px;
 }
