@@ -37,3 +37,7 @@ p {
 .section-heading:after{
 	margin-right: 10px;
 }
+
+.heading-icon {
+	font-size: 1em;
+}
