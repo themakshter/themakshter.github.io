@@ -9,6 +9,7 @@ facebook,twitter,google+,github,linkedin,github,email,dotabuff
 I am a computer scientist passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I am most experienced in Java and web-related technologies such as JavaScript and its numerous common frameworks and libraries. Outside of development, I enjoy reading books (favourite genre is fantasy and favourite author is Brandon Sanderson), playing video games (all time favourite games are Dota 2, the Mass Effect and Grand Theft Auto series) and watching football games (favourite team is Chelsea F.C.) as well as taking part in them myself. 
 Outside of development, I enjoy reading books; my favourite genre is fantasy and my favourite author is Brandon Sanderson. Moreover, I play many videos. While Dota 2 is my most regularly played game, the Mass Effect and Grand Theft Auto series remain my all-time favourites in additon to the recent Fallout games. The remaining time is spent watching football games as well as taking part in matches myself. From the teams I watch on the television, I follow Chelsea F.C.
 
+#more about web dev and some projects too#
 
 
 <career>
