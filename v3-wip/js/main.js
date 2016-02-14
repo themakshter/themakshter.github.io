@@ -74,6 +74,6 @@
 
         });
 
-         $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
+         $('.toc-wrapper').pushpin({ top: 0 });
          $('.scrollspy').scrollSpy();
     });
