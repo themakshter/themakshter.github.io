@@ -12,7 +12,7 @@ function timeline(domElement) {
     // chart geometry
     var margin = {top: 20, right: 20, bottom: 20, left: 20},
         outerWidth = parentWidth,
-        outerHeight = parentWidth*0.6,
+        outerHeight = parentWidth*0.75,
         width = outerWidth - margin.left - margin.right,
         height = outerHeight - margin.top - margin.bottom;
 
@@ -247,7 +247,7 @@ function timeline(domElement) {
         instants.append("circle")
             .attr("cx", band.itemHeight / 2)
             .attr("cy", band.itemHeight / 2)
-            .attr("r", 5)
+            .attr("r", band.itemHeight/4)
             .attr("class", function(d) {return d.type;});
 
          if(addText){
@@ -409,8 +409,8 @@ function timeline(domElement) {
 
     var legendData = [
         { "id": "education", "title":"Education" },
-        { "id": "projects", "title":"Projects" },
-        { "id": "career", "title":"Career" }
+        { "id": "experience", "title":"Experience" },
+        { "id": "projects", "title":"Projects" }
     ];
 
     var legend = {

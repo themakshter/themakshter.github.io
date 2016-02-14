@@ -1,8 +1,8 @@
 start,end,label,description,type,shortlabel
 2011-09-25,2015-05-22,University of Southampton,"Studied MEng Computer Science, graduating with First Class Honours",education,University of Southampton
-2013-06-23,2013-08-29,Micro Focus Ltd.,Interned as Product Development Intern,career,Micro Focus Ltd.
-2014-06-23,2014-08-29,J. P. Morgan,Interned as Project Manager,career,J.P. Morgan
-2015-08-15,now,FactSet Europe Ltd.,Working as Software Engineer,career,FactSet Europe Ltd.
+2013-06-23,2013-08-29,Micro Focus Ltd.,Interned as Product Development Intern,experience,Micro Focus Ltd.
+2014-06-23,2014-08-29,J. P. Morgan,Interned as Project Manager,experience,J.P. Morgan
+2015-08-15,now,FactSet Europe Ltd.,Working as Software Engineer,experience,FactSet Europe Ltd.
 2011-12-05,,Personal Website version 1,First version of this website,projects
 2012-04-04,,Fractal Viewer,Visualisation of a Mandelbrot Set and Julia Set viewer,projects
 2012-05-08,,Crossword Puzzle,Implmentation of a simple crossword puzzle with clues,projects
