@@ -1,3 +1,4 @@
+/*main*/
 .icon {
   width: 100px;
   height: 100px;
@@ -37,6 +38,32 @@ p {
 .section-heading:after{
 	margin-right: 10px;
 }
+
+#education .section-heading:before,
+#education .section-heading:after{
+  background-color: #ffd180;
+}
+
+#experience .section-heading:before,
+#experience .section-heading:after{
+  background-color: #b388ff;
+}
+
+#skills .section-heading:before,
+#skills .section-heading:after{
+  background-color: #b9f6ca;
+}
+
+#projects .section-heading:before,
+#projects .section-heading:after{
+  background-color: #80d8ff;
+}
+
+#timeline .section-heading:before,
+#timeline .section-heading:after{
+  background-color: #ff8a80;
+}
+
 
 .heading-icon {
 	font-size: 1em;
