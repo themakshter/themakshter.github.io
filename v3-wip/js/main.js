@@ -54,10 +54,10 @@
 
         // Define domElement and sourceFile
         var domElement = "#chart";
-        var sourceFile = "./data/own_timeline.csv";
+        var sourceFile = "./data/timeline.json";
 
         // Read in the data and construct the timeline
-        d3.csv(sourceFile, function(dataset) {
+        d3.json(sourceFile, function(dataset) {
 
             timeline(domElement)
                 .data(dataset)
