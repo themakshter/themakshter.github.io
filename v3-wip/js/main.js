@@ -54,7 +54,7 @@
 
         // Define domElement and sourceFile
         var domElement = "#chart";
-        var sourceFile = "./data/timeline.json";
+        var sourceFile = "./data/timeline-for-chart.json";
 
         // Read in the data and construct the timeline
         d3.json(sourceFile, function(dataset) {
