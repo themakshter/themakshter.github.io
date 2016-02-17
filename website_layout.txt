@@ -35,8 +35,7 @@ Masters of Engineering in Computer Science
 Java
 C#
 JavaScript
-HTML
-CSS
+HTML & CSS
 
 PHP
 Python
@@ -51,6 +50,7 @@ SQL
 MongoDB
 Play Framework
 Bootstrap
+Materialize 
 
 English
 Urdu
