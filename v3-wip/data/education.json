@@ -1,22 +1,30 @@
 {
-	"title":"Education",
-	"educations":[
-		{
-			"education": "University of Southampton",
-			"description":"",
-			"time":{
-				"start": "2011-09-25",
-				"end":"2015-05-22"
-			},
-			"location":
-			{
-				"city": "Southamtpon",
-				"country": "United Kingdom"
-			},
-			"degree":"Masters of Engineering",
-			"subject": "Computer Science",
-			"grade":"First Class Honours"
-		}
-	]
+  "title": "Education",
+  "educations": [{
+    "education": "University of Southampton",
+    "description": "",
+    "degree": "Masters of Engineering",
+    "subject": "Computer Science",
+    "grade": "First Class Honours",
+    "footnotes": [{
+      "type": "time",
+      "time": {
+        "start": "2011-09-25",
+        "end": "2015-05-22"
+      }
+    }, {
+      "type": "location",
+      "location": {
+        "city": "Southamtpon",
+        "country": "United Kingdom"
+      }
+    }, {
+      "type": "link",
+      "link": {
+        "title": "Website",
+        "source": ""
+      }
+    }]
+  }]
 
 }
