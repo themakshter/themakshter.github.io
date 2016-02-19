@@ -70,16 +70,16 @@ IdeaBoard (HTML, CSS, JavaScript)
 A group project to create a note-taking web applicaiton for a web development module. Attempted abstraction of the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour.
 
 Agent Elman	(Java)
-Group project to create an intelligent agent for participation in the Trading Agent Competition. In the competition, the agent competed with others to compose holiday packages for clients for the least amount of money. The agent finished a respectable 7th postion from around 20+ agents competing.
+Group project to create an intelligent agent for participation in the Trading Agent Competition. In the competition, the agent competed with other agents to compose holiday packages for clients for the least amount of money. Numerous strategies were employed to make sure good packages could be created such as bidding low for unwanted tickets so that they might be used in potential packages. The agent finished a respectable 7th postion from around 25 agents competing.
 
 Privacy Matters (Java, HTML, CSS, JavaScript)
-Individual project of an online resource showing the information companies in the United Kingdomstore and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies. The backend of this application was coded in Java with the Play Framework while the front end was written in HTML, CSS and JavaScript . The database used was MongoDB. 
+Individual project of an online resource showing the information companies in the United Kingdomstore and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies.
 
 Type Pong (Python, JavaScript, HTML, CSS)
-A group project web application aiming to improve typing speeds where users play pong while typing, typing words correctly to move the paddle to meet the ball. Users can play against the AI in levels, where AI gets better with time, or in challenge mode, where AI is perfect and users have to last as long as possible. Users can also play against each other and view their high scores. 
+A group project web application aiming to improve typing speeds where users play pong while typing. Correctly typed words allow users to move the paddle to meet the ball. Users can play against the AI in levels, where AI gets better with levels, or in challenge mode, where the AI is perfect, never missing a balll and users try to last as long as possible. Users can also play against each other and view their high scores in these different game modes. 
 
 Clangers (C++)
-This application depicted a small world filled with Clangers. Coded using the OpenGL 3.3+ library, this application allows the user to explore the world while also providing an automatic tour of the main features. The models were created in Blender.
+This application depicts a small world filled with Clangers, characters from the old BBC show. This application allows the user to explore the world which includes a few clangers as well as mountainous terrain on the moon while also providing an automatic tour of the main features. The models were created in Blender.
 
 Crossword Application (Java)
 A straightforward crossword puzzle, allowing users to easily type across the boxes with their answers. The clues can be easily highlighted and there exists afunctionality to inform the users of which ones have been correctly filled. This application was made using Swing and AWT libraries.
