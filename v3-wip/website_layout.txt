@@ -6,32 +6,31 @@ Mohammad Ali Khan
 facebook,twitter,google+,github,linkedin,github,email,dotabuff
 
 <intro>
-I am a computer scientist passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I am most experienced in Java and web-related technologies such as JavaScript and its numerous common frameworks and libraries. Outside of development, I enjoy reading books (favourite genre is fantasy and favourite author is Brandon Sanderson), playing video games (all time favourite games are Dota 2, the Mass Effect and Grand Theft Auto series) and watching football games (favourite team is Chelsea F.C.) as well as taking part in them myself. 
-Outside of development, I enjoy reading books; my favourite genre is fantasy and my favourite author is Brandon Sanderson. Moreover, I play many videos. While Dota 2 is my most regularly played game, the Mass Effect and Grand Theft Auto series remain my all-time favourites in additon to the recent Fallout games. The remaining time is spent watching football games as well as taking part in matches myself. From the teams I watch on the television, I follow Chelsea F.C.
-
-#more about web dev and some projects too#
-
-
-<career>
-FactSet Europe Ltd.
-August 2015 to Present
-Software Engineer
-
-J.P. Morgan Chase and Co.
-June 2014 to August 2014
-Technology Intern
-
-Micro Focus Ltd.
-June 2013 to August 2013
-Product Development Intern
+I am a computer scientist who is passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I consider myself most proficient in Java but I also gained a good amount of experience in web-related technologies such as JavaScript by taking part in numerous web development projects, individual and group-based; one of the most recent ones was creating an application which finds the closes NHS Accident &amp; Emergency centre based on the least amount of waiting time predicted. Additionally, my individual project in university was a web application which visualised the amount of data different companies collect(what data is collected, whom it is collected from and whom it is shared with) as well as providing relevant statistics.
+Outside of development, I enjoy reading books (favourite genre is fantasy and favourite author is Brandon Sanderson), playing video games (all time favourite games are Dota 2, the Mass Effect and Grand Theft Auto series) and watching football games (favourite team is Chelsea F.C.) as well as taking part in them myself. 
 
 <education>
 University of Southampton
 September 2011 to June 2015
 Masters of Engineering in Computer Science
 
-<skills>
+<career>
+FactSet Europe Ltd.
+August 2015 to Present
+Software Engineer
+I joined Factset in right after the end of my course and currently work there in a team of 10 people as a Software Engineer. I work on internal company products which are then used regularly by other software engineers to carry out the tasks that they need to carry out. I work as a full stack developer, working on the backend of the system using C#, SQL as well as on the web page itself with the help of HTML, CSS and JavaScript. The MVC framework that we use in our web application is Angular.js
 
+J.P. Morgan Chase and Co.
+June 2014 to August 2014
+Technology Intern
+I worked as a project manager in my team and I guided the development team in Global Finance Technology through the project lifecycle for some changes in some internal systems. This meant contacting all the stakeholders and holding a weekly meeting where the business analyst, the developer, the testing team as well as the stakeholders would be present, discussing the next steps to take. The agenda was sent prior to the meeting and the minutes were sent after. Moreover, I developed some Microsoft Excel marcos to create Pivot tables from daily data quickly for other project managers. This allowed us to decrease time spent on creation by about 95%. Lastly, I wrote a revised version of a products guide as well as demonstrating the basic features of this program to the stakeholders of the program. 
+
+Micro Focus Ltd.
+June 2013 to August 2013
+Product Development Intern
+In a team of seven developers, five interns and two managers, I helped rebuild an internal company data editor in Java, creating a graphical user interface (GUI) as well as a command line interface (CLI). While I worked on all aspects of the system, I worked mostly on the opening and navigating files, developing algorithms to allow for faster and easier traversals of large (greater than 2 GB) files. Additionally, I aslo worked on researching text searching algorithms to be used in the application, finalising on the Boyer-Moore search algorithm for searching text.
+
+<skills>
 Java
 C#
 JavaScript
@@ -59,26 +58,25 @@ Hindi
 <projects>
 
 Personal Website (HTML, CSS, JavaScript)
-This webpage. The current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it, as well as adding new features such as the timeline.
+This webpage; the current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it (twitter boostrap to material design materialize), as well as adding new features such as the timeline.
 
 NHS Waiting Times Application (HTML, CSS, JavaScript)
-A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A & E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. Project report can be found here. 
+A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A & E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. 
 
 Mobile Intervention Authoring (Java, HTML, CSS, CoffeeScript)
-A group development project (GDP) improving and extending a mobile intervention editor to create an intervention for cochlear implant users so that they can do regular hearing check ups in the comfort of their homes. This project involved implementing features to add media files on the web-based intervention editor and functionality to play these media files on the intervention client application. Lastly, the intervention was created with numerous optimisations on the editor and run on the client application. The intervention editor was written mostly in CoffeeScript with BackboneJS and the client application was for Android devices. The report for this project can be found here.
+A group development project (GDP) improving and extending a mobile intervention editor to create an intervention for cochlear implant users so that they can do regular hearing check ups in the comfort of their homes. This project involved implementing features to add media files on the web-based intervention editor and functionality to play these media files on the intervention client application. Lastly, the intervention was created with numerous optimisations on the editor and run on the client application. The intervention editor was written mostly in CoffeeScript with BackboneJS and the client application was for Android devices.
 
 IdeaBoard (HTML, CSS, JavaScript)
-A group project to create a note-taking web applicaiton for a web development module. Attempted abstraction of the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour. This application has a NodeJS backend with a MongoDB database and can currently be found here . The user manual for this application is available here and the technical manual can be accessed here .
+A group project to create a note-taking web applicaiton for a web development module. Attempted abstraction of the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour.
 
 Agent Elman	(Java)
-Group project to create an intelligent agent for participation in the Trading Agent Competition. In the competition, the agent competed with others to compose holiday packages for clients for the least amount of money. The agent finished a respectable 7th postion from around 20+ agents competing. The report detailing the strategies can be found here. 
+Group project to create an intelligent agent for participation in the Trading Agent Competition. In the competition, the agent competed with others to compose holiday packages for clients for the least amount of money. The agent finished a respectable 7th postion from around 20+ agents competing.
 
 Privacy Matters (Java, HTML, CSS, JavaScript)
 Individual project of an online resource showing the information companies in the United Kingdomstore and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies. The backend of this application was coded in Java with the Play Framework while the front end was written in HTML, CSS and JavaScript . The database used was MongoDB. 
-The application can currently be found here and the final report of the project is present here.
 
 Type Pong (Python, JavaScript, HTML, CSS)
-A group project web application aiming to improve typing speeds where users play pong while typing, typing words correctly to move the paddle to meet the ball. Users can play against the AI in levels, where AI gets better with time, or in challenge mode, where AI is perfect and users have to last as long as possible. Users can also play against each other and view their high scores. The application can currently be found here. 
+A group project web application aiming to improve typing speeds where users play pong while typing, typing words correctly to move the paddle to meet the ball. Users can play against the AI in levels, where AI gets better with time, or in challenge mode, where AI is perfect and users have to last as long as possible. Users can also play against each other and view their high scores. 
 
 Clangers (C++)
 This application depicted a small world filled with Clangers. Coded using the OpenGL 3.3+ library, this application allows the user to explore the world while also providing an automatic tour of the main features. The models were created in Blender.
@@ -90,5 +88,5 @@ Fractal Viewer (Java)
 This application, created using the Swing and AWT libraries , displays a Mandelbrot set to the user and allows them to zoom into it as they wish. Users can also view the Julia set for a specific point on the Mandlebrot set and also save the image. The Mandlebrot set is available in three different calculation algorithms and two colour schemes.
 
 <timeline>
-
+Using d3.js, I have created a timeline of my time since university. On this visualisation, you can find my projects, education and experience, hovering over different data points for further information. Moreover, you can view a zoomed in version of any point of the timeline by using the navigation bar.
 
