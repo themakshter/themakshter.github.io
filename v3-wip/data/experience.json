@@ -19,7 +19,7 @@
       "type": "link",
       "link": {
         "title": "Website",
-        "source": ""
+        "source": "http://www.factset.com/"
       }
     }]
   }, {
@@ -42,7 +42,7 @@
       "type": "link",
       "link": {
         "title": "Website",
-        "source": ""
+        "source": "https://www.jpmorgan.com"
       }
     }]
   }, {
@@ -65,7 +65,7 @@
       "type": "link",
       "link": {
         "title": "Website",
-        "source": ""
+        "source": "https://www.microfocus.com/"
       }
     }]
   }]
