@@ -1,0 +1,31 @@
+{
+  "title": "Mohammad Ali Khan - Personal Webpage",
+  "links": [{
+    "type": "font",
+    "source": "http://fonts.googleapis.com/icon?family=Material+Icons"
+  }, {
+    "type": "css",
+    "source": "./lib/materialize/css/materialize.min.css"
+  }, {
+    "type": "css",
+    "source": "/css/timeline.css"
+  }, {
+    "type": "css",
+    "source": "./css/main.css"
+  }, {
+    "type": "js",
+    "source": "/lib/jquery/jquery-2.2.0.min.js"
+  },{
+    "type": "js",
+    "source": "./lib/materialize/js/materialize.min.js"
+  },{
+    "type": "js",
+    "source": "./lib/d3/d3.min.js"
+  },{
+    "type": "js",
+    "source": "./js/timeline.js"
+  },{
+    "type": "js",
+    "source": "./js/main.js"
+  }]
+}
