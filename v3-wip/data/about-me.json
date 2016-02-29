@@ -1,36 +1,42 @@
 {
-  "name": "Mohammad Ali Khan",
-  "picture": "ali.jpg",
-  "social-icons": [{
-    "name": "facebook",
-    "link": "https://www.facebook.com/themakshter",
-    "image": "facebook.jpg"
-  }, {
-    "name": "twitter",
-    "link": "https://twitter.com/themakshter",
-    "image": "twitter.jpg"
-  }, {
-    "name": "linkedin",
-    "link": "https://www.linkedin.com/in/themakshter",
-    "image": "linkedin.jpg"
-  }, {
-    "name": "github",
-    "link": "https://github.com/themakshter",
-    "image": "github.jpg"
-  }, {
-    "name": "steam",
-    "link": "https://steamcommunity.com/id/themakshter/",
-    "image": "steam.jpg"
-  }, {
-    "name": "dotabuff",
-    "link": "http://www.dotabuff.com/players/66853428",
-    "image": "dotabuff.jpg"
-  }, {
-    "name": "email",
-    "link": "mailto:mohammad_ali93@live.com",
-    "image": "email.jpg"
-  }],
-  "description": "I am a computer scientist who is passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I consider myself most proficient in Java but I also gained a good amount of experience in web-related technologies such as JavaScript by taking part in numerous web development projects, individual and group-based; one of the most recent ones was creating an application which finds the closes NHS Accident &amp; Emergency centre based on the least amount of waiting time predicted. Additionally, my individual project in university was a web application which visualised the amount of data different companies collect(what data is collected, whom it is collected from and whom it is shared with) as well as providing relevant statistics.
-  Outside of development,  I enjoy reading books(favourite genre is fantasy and favourite author is Brandon Sanderson),  playing video games(all time favourite games are Dota 2, the Mass Effect and Grand Theft Auto series) and watching football games(favourite team is Chelsea F.C.) as well as taking part in them myself.
-  "
+  "name":"Mohammad Ali Khan",
+  "picture":"ali.jpg",
+  "social-icons":[
+    {
+      "name":"facebook",
+      "link":"https://www.facebook.com/themakshter",
+      "image":"facebook.jpg"
+    },
+    {
+      "name":"twitter",
+      "link":"https://twitter.com/themakshter",
+      "image":"twitter.jpg"
+    },
+    {
+      "name":"linkedin",
+      "link":"https://www.linkedin.com/in/themakshter",
+      "image":"linkedin.jpg"
+    },
+    {
+      "name":"github",
+      "link":"https://github.com/themakshter",
+      "image":"github.jpg"
+    },
+    {
+      "name":"steam",
+      "link":"https://steamcommunity.com/id/themakshter/",
+      "image":"steam.jpg"
+    },
+    {
+      "name":"dotabuff",
+      "link":"http://www.dotabuff.com/players/66853428",
+      "image":"dotabuff.jpg"
+    },
+    {
+      "name":"email",
+      "link":"mailto:mohammad_ali93@live.com",
+      "image":"email.jpg"
+    }
+  ],
+  "description":"I am a computer scientist who is passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I consider myself most proficient in Java but I also gained a good amount of experience in web-related technologies such as JavaScript by taking part in numerous web development projects, individual and group based; one of the most recent ones was creating an application which finds the closes NHS Accident &amp; Emergency centre based on the least amount of waiting time predicted. Additionally, my individual project in university was a web application which visualised the amount of data different companies collect(what data is collected, whom it is collected from and whom it is shared with) as well as providing relevant statistics. \n Outside of development,  I enjoy reading books(favourite genre is fantasy and favourite author is Brandon Sanderson),  playing video games(all time favourite games are Dota 2, the Mass Effect and Grand Theft Auto series) and watching football games(favourite team is Chelsea F.C.) as well as taking part in them myself."
 }
