@@ -1,5 +1,24 @@
 {
   "title":"Mohammad Ali Khan - Personal Webpage",
+  "charset":"UTF-8",
+  "content-metas":[
+    {
+      "name":"viewport",
+      "content":"width=device-width, initial-scale=1"
+    },
+    {
+      "name":"description",
+      "content":"Personal website"
+    },
+    {
+      "name":"author",
+      "content":"Mohammad Ali Khan"
+    },
+    {
+      "name":"keywords",
+      "content":"website,personal,resume,materialise"
+    }
+  ],
   "links":[
     {
       "type":"font",
@@ -38,4 +57,5 @@
       "source":"./js/main.js"
     }
   ]
+
 }
