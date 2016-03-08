@@ -8,8 +8,14 @@ def generate_website():
     add_headers("data/headers.json")
     html += "\n\t<body>\n\t\t<div class=\"container\">"
     add_body()
-    html += "\n\t\t</div>\n\t</body>"
+    html += "\n\t\t</div>\n\t</body>\n</html>"
+    write_to_file(html)
     print(html)
+
+
+def write_to_file(text):
+    file = open("generated_site.html", 'w+')
+    file.write(text)
 
 
 def add_body():
@@ -29,9 +35,9 @@ def add_body():
     html += "\n\t\t\t</div>"
 
 
-def add_headers(filename):
+def add_headers(file):
     global html
-    data = read_json_file(filename)
+    data = read_json_file(file)
     html += "\n\t<head>\n\t\t<title>" + data['title'] + "</title>"
     html += "\n\t\t<meta charset=\"" + data['charset'] + "\" />"
     for meta in data['content-metas']:
@@ -70,7 +76,25 @@ def get_font_link(src):
 
 def add_about_me(file):
     global html
+    data = read_json_file(file)
+    html += "\n\t\t\t\t\t<div class=\"center-align\">"
+    html += "\n\t\t\t\t\t\t<h1>Mohammad Ali Khan</h1>"
+    html += "\n\t\t\t\t\t\t<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >"
+    html += "\n\t\t\t\t\t\t<br/>"
+    html += "\n\t\t\t\t\t\t<div id=\"social-network-icons\">"
+    for icon in data['social-icons']:
+        html += "\n\t\t\t\t\t\t\t" + get_social_icon(icon)
+    html += "\n\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t<div id=\"about-me\" class=\"section scrollspy\">"
+    html += "\n\t\t\t\t\t\t\t<p class =\"flow-text\">"
+    html += "\n\t\t\t\t\t\t\t\t" + data['description']
+    html += "\n\t\t\t\t\t\t\t</p>"
+    html += "\n\t\t\t\t\t\t</div>"
     print("TODO")
+
+
+def get_social_icon(icon):
+    return "<a href=\"" + icon['link'] + "\"><img class=\"responsive-img icon\" src=\"img/" + icon['image'] + " \" alt=\"" + icon['name'] + "\" ></a>"
 
 
 def add_education(file):
