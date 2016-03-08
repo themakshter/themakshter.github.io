@@ -30,7 +30,7 @@
     },
     {
       "type":"css",
-      "source":"/css/timeline.css"
+      "source":"./css/timeline.css"
     },
     {
       "type":"css",
@@ -38,7 +38,7 @@
     },
     {
       "type":"js",
-      "source":"/lib/jquery/jquery-2.2.0.min.js"
+      "source":"./lib/jquery/jquery-2.2.0.min.js"
     },
     {
       "type":"js",
