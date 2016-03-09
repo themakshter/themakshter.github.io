@@ -1,4 +1,5 @@
 import json
+import time
 
 html = "<html>"
 
@@ -106,16 +107,30 @@ def add_education(file):
         html += "\n\t\t\t\t\t\t<h4>" + education['education'] + "</h4>"
         html += "\n\t\t\t\t\t\t<h5>" + education['degree'] + " - " + education['grade'] + "</h5>"
         html += "\n\t\t\t\t\t\t<p>"
-#        for footnote in education['footnotes']:
-#            #html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
+        for footnote in education['footnotes']:
+            html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
         html += "\n\t\t\t\t\t\t</p>"
     html += "\n\t\t\t\t\t</div>"
     print("TODO")
 
 
 def add_footnote(footnote):
-    print("TODO")
-    return ""
+    html = "<i class=\"material-icons\" >"
+    text = ""
+    if footnote['type'] == 'time':
+        html += "date_range"
+        text += get_date(footnote['time'])
+    html += "</i>" + text
+    return html
+
+
+def get_date(date):
+    start_date = time.strptime(date['start'], "%Y-%m-%d")
+    text = time.strftime("%B %Y", start_date)
+    if 'end' in date:
+        end_date = time.strptime(date['end'], "%Y-%m-%d")
+        text += " to " + time.strftime("%B %Y", end_date)
+    return text
 
 
 def add_div_and_heading(title, icon):
