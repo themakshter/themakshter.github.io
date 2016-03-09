@@ -90,6 +90,7 @@ def add_about_me(file):
     html += "\n\t\t\t\t\t\t\t\t" + data['description']
     html += "\n\t\t\t\t\t\t\t</p>"
     html += "\n\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t</div>"
     print("TODO")
 
 
@@ -99,7 +100,28 @@ def get_social_icon(icon):
 
 def add_education(file):
     global html
+    data = read_json_file(file)
+    html += add_div_and_heading(data['title'], data['icon'])
+    for education in data['educations']:
+        html += "\n\t\t\t\t\t\t<h4>" + education['education'] + "</h4>"
+        html += "\n\t\t\t\t\t\t<h5>" + education['degree'] + " - " + education['grade'] + "</h5>"
+        html += "\n\t\t\t\t\t\t<p>"
+#        for footnote in education['footnotes']:
+#            #html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
+        html += "\n\t\t\t\t\t\t</p>"
+    html += "\n\t\t\t\t\t</div>"
     print("TODO")
+
+
+def add_footnote(footnote):
+    print("TODO")
+    return ""
+
+
+def add_div_and_heading(title, icon):
+    html = "\n\t\t\t\t\t<div id=\"" + title.lower() + "\" class=\"section scrollspy\">"
+    html += "\n\t\t\t\t\t\t<h3 class=\"section-heading\" >" + title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h3>"
+    return html
 
 
 def add_experience(file):
