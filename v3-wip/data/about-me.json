@@ -3,37 +3,37 @@
   "picture":"ali.jpg",
   "social-icons":[
     {
-      "name":"facebook",
+      "name":"Facebook",
       "link":"https://www.facebook.com/themakshter",
       "image":"facebook.jpg"
     },
     {
-      "name":"twitter",
+      "name":"Twitter",
       "link":"https://twitter.com/themakshter",
       "image":"twitter.jpg"
     },
     {
-      "name":"linkedin",
+      "name":"LinkedIn",
       "link":"https://www.linkedin.com/in/themakshter",
       "image":"linkedin.jpg"
     },
     {
-      "name":"github",
+      "name":"Github",
       "link":"https://github.com/themakshter",
       "image":"github.jpg"
     },
     {
-      "name":"steam",
+      "name":"Steam",
       "link":"https://steamcommunity.com/id/themakshter/",
       "image":"steam.jpg"
     },
     {
-      "name":"dotabuff",
+      "name":"Dotabuff",
       "link":"http://www.dotabuff.com/players/66853428",
       "image":"dotabuff.jpg"
     },
     {
-      "name":"email",
+      "name":"Email",
       "link":"mailto:mohammad_ali93@live.com",
       "image":"email.jpg"
     }
