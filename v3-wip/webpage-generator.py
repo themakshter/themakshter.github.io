@@ -120,6 +120,12 @@ def add_footnote(footnote):
     if footnote['type'] == 'time':
         html += "date_range"
         text += get_date(footnote['time'])
+    elif footnote['type'] == 'location':
+        html += "place"
+        text += get_location(footnote['location'])
+    elif footnote['type'] == 'link':
+        html += "link"
+        text += get_link(footnote['link'])
     html += "</i>" + text
     return html
 
@@ -131,6 +137,14 @@ def get_date(date):
         end_date = time.strptime(date['end'], "%Y-%m-%d")
         text += " to " + time.strftime("%B %Y", end_date)
     return text
+
+
+def get_location(location):
+    return location['city'] + ", " + location['country']
+
+
+def get_link(link):
+    return "<a href=\"" + link['source'] + "\" > " + link['title'] + " </a>"
 
 
 def add_div_and_heading(title, icon):
