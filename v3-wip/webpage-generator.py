@@ -111,7 +111,6 @@ def add_education(file):
             html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
         html += "\n\t\t\t\t\t\t</p>"
     html += "\n\t\t\t\t\t</div>"
-    print("TODO")
 
 
 def add_footnote(footnote):
@@ -155,7 +154,16 @@ def add_div_and_heading(title, icon):
 
 def add_experience(file):
     global html
-    print("TODO")
+    data = read_json_file(file)
+    html += add_div_and_heading(data['title'], data['icon'])
+    for experience in data['experiences']:
+        html += "\n\t\t\t\t\t\t<h4>" + experience['company'] + "</h4>"
+        html += "\n\t\t\t\t\t\t<h5>" + experience['position'] + "</h5>"
+        html += "\n\t\t\t\t\t\t<p>"
+        for footnote in experience['footnotes']:
+            html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
+        html += "\n\t\t\t\t\t\t</p>"
+    html += "\n\t\t\t\t\t</div>"
 
 
 def add_skills(file):
