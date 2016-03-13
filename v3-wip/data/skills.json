@@ -3,7 +3,7 @@
   "icon":"build",
   "sections":[
     {
-      "section":"Programming Languages",
+      "title":"Programming Languages",
       "ratings":[
         {
           "skill":"Java",
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "section":"Frameworks &amp; other technologies",
+      "title":"Frameworks &amp; other technologies",
       "ratings":[
         {
           "skill":"Twitter Boostrap",
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "section":"Other skills",
+      "title":"Other skills",
       "ratings":[
         {
           "skill":"Project Management",
@@ -102,7 +102,7 @@
       ]
     },
     {
-      "section":"Spoken Languaes",
+      "title":"Spoken Languages",
       "ratings":[
         {
           "skill":"English",

@@ -1,6 +1,4 @@
-import json
-import time
-
+import json,time,math
 html = "<html>"
 
 
@@ -104,8 +102,8 @@ def add_education(file):
     data = read_json_file(file)
     html += add_div_and_heading(data['title'], data['icon'])
     for education in data['educations']:
-        html += "\n\t\t\t\t\t\t<h4>" + education['education'] + "</h4>"
-        html += "\n\t\t\t\t\t\t<h5>" + education['degree'] + " - " + education['grade'] + "</h5>"
+        html += "\n\t\t\t\t\t\t<h3>" + education['education'] + "</h3>"
+        html += "\n\t\t\t\t\t\t<h4>" + education['degree'] + " - " + education['grade'] + "</h4>"
         html += "\n\t\t\t\t\t\t<p>"
         for footnote in education['footnotes']:
             html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
@@ -148,7 +146,7 @@ def get_link(link):
 
 def add_div_and_heading(title, icon):
     html = "\n\t\t\t\t\t<div id=\"" + title.lower() + "\" class=\"section scrollspy\">"
-    html += "\n\t\t\t\t\t\t<h3 class=\"section-heading\" >" + title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h3>"
+    html += "\n\t\t\t\t\t\t<h2 class=\"section-heading\" >" + title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h2>"
     return html
 
 
@@ -157,8 +155,8 @@ def add_experience(file):
     data = read_json_file(file)
     html += add_div_and_heading(data['title'], data['icon'])
     for experience in data['experiences']:
-        html += "\n\t\t\t\t\t\t<h4>" + experience['company'] + "</h4>"
-        html += "\n\t\t\t\t\t\t<h5>" + experience['position'] + "</h5>"
+        html += "\n\t\t\t\t\t\t<h3>" + experience['company'] + "</h3>"
+        html += "\n\t\t\t\t\t\t<h4>" + experience['position'] + "</h4>"
         html += "\n\t\t\t\t\t\t<p>"
         for footnote in experience['footnotes']:
             html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
@@ -168,7 +166,43 @@ def add_experience(file):
 
 def add_skills(file):
     global html
-    print("TODO")
+    data = read_json_file(file)
+    html += add_div_and_heading(data['title'], data['icon'])
+    for section in data['sections']:
+        html += add_section_data(section)
+    html += "\n\t\t\t\t\t</div>"
+
+
+def add_section_data(section):
+    html = "\n\t\t\t\t\t\t<h3>" + section['title'] + "</h3>"
+    for rating in section['ratings']:
+        html += add_rating(rating)
+    return html
+
+
+def add_rating(rating):
+    html = "\n\t\t\t\t\t\t\t<div class=\"row\" >"
+    html += "\n\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t<h4> " + rating['skill'] + " </h4>"
+    html += "\n\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t" + get_rating_level(float(rating['rating'])) + "</h3>"
+    html += "\n\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t</div>"
+    return html
+
+
+def get_rating_level(rating):
+    full_stars = math.floor(rating / 1)
+    half_stars = math.ceil(rating % 1)
+    return get_stars(full_stars, "star") + get_stars(half_stars, "star_half")
+
+
+def get_stars(number, icon):
+    stars = ""
+    for i in range(number):
+        stars += "\n\t\t\t\t\t\t\t\t\t<i class=\"medium material-icons\" >" + icon + "</i>"
+    return stars
 
 
 def add_projects(file):
@@ -178,6 +212,10 @@ def add_projects(file):
 
 def add_timeline(file):
     global html
+    data = read_json_file(file)
+    html += add_div_and_heading(data['title'], data['icon'])
+    html += "\n\t\t\t\t\t\t<p> " + data['description'] + " </p>"
+    html += "\n\t\t\t\t\t\t<div id=\"chart\"></div>"
     print("TODO")
 
 
