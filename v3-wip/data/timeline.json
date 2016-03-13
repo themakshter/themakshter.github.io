@@ -1,4 +1,5 @@
 {
   "title":"Timeline",
+  "icon":"timeline",
   "description":"Using d3.js, I have created a timeline of my time since university. On this visualisation, you can find my projects, education and experience, hovering over different data points for further information. Moreover, you can view a zoomed in version of any point of the timeline by using the navigation bar."
 }

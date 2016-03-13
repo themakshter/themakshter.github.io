@@ -1,90 +1,122 @@
 {
-  "title": "Skills",
-  "sections": [{
-    "section": "Programming Languages",
-    "ratings": [{
-      "skill": "Java",
-      "rating": "4.5"
-    }, {
-      "skill": "C#",
-      "rating": "4.0"
-    }, {
-      "skill": "JavaScript",
-      "rating": "4.0"
-    }, {
-      "skill": "HTML  &amp; CSS",
-      "rating": "4.0"
-    }, {
-      "skill": "SQL",
-      "rating": "3.5"
-    }, {
-      "skill": "PHP",
-      "rating": "3.0"
-    }, {
-      "skill": "Python",
-      "rating": "3.0"
-    }, {
-      "skill": "C++",
-      "rating": "2.0"
-    }]
-  }, {
-    "section": "Frameworks &amp; other technologies",
-    "ratings": [{
-      "skill": "Twitter Boostrap",
-      "rating": "4.0",
-      "link": ""
-    }, {
-      "skill": "Git",
-      "rating": "4.0"
-    }, {
-      "skill": "Materialize CSS",
-      "rating": "3.5",
-      "link": ""
-    }, {
-      "skill": "D3.js",
-      "rating": "3.5",
-      "link": ""
-    }, {
-      "skill": "Node.js",
-      "rating": "3.5",
-      "link": ""
-    }, {
-      "skill": "Angular.js",
-      "rating": "3.0",
-      "link": ""
-    }, {
-      "skill": "MongoDB",
-      "rating": "2.5",
-      "link": ""
-    }, {
-      "skill": "Play Framework",
-      "rating": "2.5",
-      "link": ""
-    }]
-  }, {
-    "section": "Other skills",
-    "ratings": [{
-      "skill": "Project Management",
-      "rating": "3.5"
-    } {
-      "skill": "Blender",
-      "rating": "2.5",
-      "link": ""
-    }, {
-      "skill": "Microsoft Excel",
-      "rating": "2.5"
-    }]
-  }, {
-    "section": "Spoken Languaes",
-    "ratings": [{
-      "skill": "English",
-      "rating": "5.0"
-    } {
-      "skill": "Urdu",
-      "rating": "4.0"
-    }, {
-      "skill": "Hindi",
-      "rating": "3.0"
-    }]
-  }]
+  "title":"Skills",
+  "icon":"build",
+  "sections":[
+    {
+      "section":"Programming Languages",
+      "ratings":[
+        {
+          "skill":"Java",
+          "rating":"4.5"
+        },
+        {
+          "skill":"C#",
+          "rating":"4.0"
+        },
+        {
+          "skill":"JavaScript",
+          "rating":"4.0"
+        },
+        {
+          "skill":"HTML  &amp; CSS",
+          "rating":"4.0"
+        },
+        {
+          "skill":"SQL",
+          "rating":"3.5"
+        },
+        {
+          "skill":"PHP",
+          "rating":"3.0"
+        },
+        {
+          "skill":"Python",
+          "rating":"3.0"
+        },
+        {
+          "skill":"C++",
+          "rating":"2.0"
+        }
+      ]
+    },
+    {
+      "section":"Frameworks &amp; other technologies",
+      "ratings":[
+        {
+          "skill":"Twitter Boostrap",
+          "rating":"4.0",
+          "link":""
+        },
+        {
+          "skill":"Git",
+          "rating":"4.0"
+        },
+        {
+          "skill":"Materialize CSS",
+          "rating":"3.5",
+          "link":""
+        },
+        {
+          "skill":"D3.js",
+          "rating":"3.5",
+          "link":""
+        },
+        {
+          "skill":"Node.js",
+          "rating":"3.5",
+          "link":""
+        },
+        {
+          "skill":"Angular.js",
+          "rating":"3.0",
+          "link":""
+        },
+        {
+          "skill":"MongoDB",
+          "rating":"2.5",
+          "link":""
+        },
+        {
+          "skill":"Play Framework",
+          "rating":"2.5",
+          "link":""
+        }
+      ]
+    },
+    {
+      "section":"Other skills",
+      "ratings":[
+        {
+          "skill":"Project Management",
+          "rating":"3.5"
+        },
+        {
+          "skill":"Blender",
+          "rating":"2.5",
+          "link":""
+        },
+        {
+          "skill":"Microsoft Excel",
+          "rating":"2.5"
+        }
+      ]
+    },
+    {
+      "section":"Spoken Languaes",
+      "ratings":[
+        {
+          "skill":"English",
+          "rating":"5.0"
+        },
+        {
+          "skill":"Urdu",
+          "rating":"4.0"
+        },
+        {
+          "skill":"Hindi",
+          "rating":"3.0"
+        }
+      ]
+    }
+  ]
 }
