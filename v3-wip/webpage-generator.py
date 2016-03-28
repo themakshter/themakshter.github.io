@@ -207,7 +207,33 @@ def get_stars(number, icon):
 
 def add_projects(file):
     global html
+    data = read_json_file(file)
+    html += add_div_and_heading(data['title'], data['icon'])
+    for project in data['projects']:
+        html += create_card_for_project(project)
     print("TODO")
+
+
+def create_card_for_project(project):
+    html = "\n\t\t\t\t\t\t\t<div class=\"card\" >"
+    html += "\n\t\t\t\t\t\t\t\t<div class=\"card-image waves-effect waves-block waves-light\">"
+    html += "\n\t\t\t\t\t\t\t\t\t<img class=\"activator\" src=\"img/office.jpg\">"
+    html += "\n\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t<div class=\"card-content\">"
+    html += "\n\t\t\t\t\t\t\t\t\t<span class=\"card-title activator grey-text text-darken-4\">" + project['name']
+    html += "<i class=\"material-icons right\">more_vert</i><span>"
+    html += "\n\t\t\t\t\t\t\t\t\t<p>"
+    for footnote in project['footnotes']:
+        html += "\n\t\t\t\t\t\t\t\t\t\t" + add_footnote(footnote)
+    html += "\n\t\t\t\t\t\t\t\t\t</p>"
+    html += "\n\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t<div class=\"card-reveal\">"
+    html += "\n\t\t\t\t\t\t\t\t\t<span class=\"card-title grey-text text-darken-4\">" + project['name']
+    html += "<i class=\"material-icons right\">close</i><span>"
+    html +="\n\t\t\t\t\t\t\t\t\t<p>" + project['description'] + "</p>"
+    html += "\n\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t</div>"
+    return html
 
 
 def add_timeline(file):
