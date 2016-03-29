@@ -63,7 +63,7 @@
           "type":"documentation",
           "documentation":{
             "title":"Documentation",
-            "source":"file/nhs_waiting_times_application_report.pdf"
+            "source":"./files/nhs_waiting_times_application_report.pdf"
           }
         }
       ]
@@ -82,14 +82,14 @@
           "type":"documentation",
           "documentation":{
             "title":"Project Report",
-            "source":"files/mobile_intervention_authoring_report.pdf"
+            "source":"./files/mobile_intervention_authoring_report.pdf"
           }
         },
         {
           "type":"documentation",
           "documentation":{
             "title":"Poster",
-            "source":"files/mobile_intervention_authoring_poster.pdf"
+            "source":"./files/mobile_intervention_authoring_poster.pdf"
           }
         }
       ]
@@ -115,7 +115,7 @@
           "type":"documentation",
           "documentation":{
             "title":"Report",
-            "source":"files/agent_elman_report.pdf"
+            "source":"./files/agent_elman_report.pdf"
           }
         }
       ]
