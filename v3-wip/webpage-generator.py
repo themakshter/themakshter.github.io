@@ -228,19 +228,19 @@ def create_card_for_project(project):
     html += "\n\t\t\t\t\t\t\t\t<div class=\"card-content\">"
     html += "\n\t\t\t\t\t\t\t\t\t<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name']
     html += "</b><i class=\"material-icons right\">more_vert</i><span>"
-    html += "\n\t\t\t\t\t\t\t\t\t<p>"
+    html += "\n\t\t\t\t\t\t\t\t\t<div class=\"flex-list\"><ul>"
     for footnote in project['footnotes']:
-        html += "\n\t\t\t\t\t\t\t\t\t\t" + add_footnote(footnote)
-    html += "\n\t\t\t\t\t\t\t\t\t</p>"
+        html += "\n\t\t\t\t\t\t\t\t\t\t<li>" + add_footnote(footnote) + "</li>"
+    html += "\n\t\t\t\t\t\t\t\t\t</ul></div>"
     html += "\n\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t\t<div class=\"card-reveal\">"
     html += "\n\t\t\t\t\t\t\t\t\t<span class=\"card-title grey-text text-darken-4\"><b>" + project['name']
     html += "</b><i class=\"material-icons right\">close</i><span>"
     html += "\n\t\t\t\t\t\t\t\t\t<p>" + project['description'] + "</p>"
-    html += "\n\t\t\t\t\t\t\t\t\t<ul>"
+    html += "\n\t\t\t\t\t\t\t\t\t<div class=\"flex-list\"><ul>"
     for footnote in project['footnotes']:
         html += "\n\t\t\t\t\t\t\t\t\t\t<li>" + add_footnote(footnote) + "</li>"
-    html += "\n\t\t\t\t\t\t\t\t\t</ul>"
+    html += "\n\t\t\t\t\t\t\t\t\t</ul></div>"
     html += "\n\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t</div>"
     return html
