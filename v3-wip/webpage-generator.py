@@ -104,11 +104,16 @@ def add_education(file):
     for education in data['educations']:
         html += "\n\t\t\t\t\t\t<h3>" + education['education'] + "</h3>"
         html += "\n\t\t\t\t\t\t<h4>" + education['degree'] + " - " + education['grade'] + "</h4>"
-        html += "\n\t\t\t\t\t\t<p>"
-        for footnote in education['footnotes']:
-            html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
-        html += "\n\t\t\t\t\t\t</p>"
+        html += add_footnotes(education['footnotes'])
     html += "\n\t\t\t\t\t</div>"
+
+
+def add_footnotes(footnotes):
+    html = "\n\t\t\t\t\t\t\t\t\t<div class=\"flex-list\"><ul>"
+    for footnote in footnotes:
+        html += "\n\t\t\t\t\t\t\t\t\t\t<li>" + add_footnote(footnote) + "</li>"
+    html += "\n\t\t\t\t\t\t\t\t\t</ul></div>"
+    return html
 
 
 def add_footnote(footnote):
@@ -163,10 +168,7 @@ def add_experience(file):
     for experience in data['experiences']:
         html += "\n\t\t\t\t\t\t<h3>" + experience['company'] + "</h3>"
         html += "\n\t\t\t\t\t\t<h4>" + experience['position'] + "</h4>"
-        html += "\n\t\t\t\t\t\t<p>"
-        for footnote in experience['footnotes']:
-            html += "\n\t\t\t\t\t\t\t" + add_footnote(footnote)
-        html += "\n\t\t\t\t\t\t</p>"
+        html += add_footnotes(experience['footnotes'])
     html += "\n\t\t\t\t\t</div>"
 
 
@@ -228,19 +230,13 @@ def create_card_for_project(project):
     html += "\n\t\t\t\t\t\t\t\t<div class=\"card-content\">"
     html += "\n\t\t\t\t\t\t\t\t\t<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name']
     html += "</b><i class=\"material-icons right\">more_vert</i><span>"
-    html += "\n\t\t\t\t\t\t\t\t\t<div class=\"flex-list\"><ul>"
-    for footnote in project['footnotes']:
-        html += "\n\t\t\t\t\t\t\t\t\t\t<li>" + add_footnote(footnote) + "</li>"
-    html += "\n\t\t\t\t\t\t\t\t\t</ul></div>"
+    html += add_footnotes(project['footnotes'])
     html += "\n\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t\t<div class=\"card-reveal\">"
     html += "\n\t\t\t\t\t\t\t\t\t<span class=\"card-title grey-text text-darken-4\"><b>" + project['name']
     html += "</b><i class=\"material-icons right\">close</i><span>"
     html += "\n\t\t\t\t\t\t\t\t\t<p>" + project['description'] + "</p>"
-    html += "\n\t\t\t\t\t\t\t\t\t<div class=\"flex-list\"><ul>"
-    for footnote in project['footnotes']:
-        html += "\n\t\t\t\t\t\t\t\t\t\t<li>" + add_footnote(footnote) + "</li>"
-    html += "\n\t\t\t\t\t\t\t\t\t</ul></div>"
+    html += add_footnotes(project['footnotes'])
     html += "\n\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t</div>"
     return html
