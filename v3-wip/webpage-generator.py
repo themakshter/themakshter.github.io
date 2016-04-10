@@ -179,30 +179,38 @@ def add_skills(file):
     global html
     data = read_json_file(file)
     html += add_div_and_heading(data['title'], data['icon'])
+    count = 0
     for section in data['sections']:
+        if(count % 2 == 0):
+            html += "\n\t\t\t\t\t\t<div class=\"row\">"
         html += add_section_data(section)
+        if(count % 2 == 1):
+            html += "\n\t\t\t\t\t\t</div>"
+        count += 1
     html += "\n\t\t\t\t\t</div>"
 
 
 def add_section_data(section):
-    html = "\n\t\t\t\t\t\t<h3>" + section['title'] + "</h3>"
-    html += "\n\t\t\t\t\t\t<ul class=\"skill-list\" >"
+    html = "\n\t\t\t\t\t\t\t<div class\"col s6 m6 l6\">"
+    html += "\n\t\t\t\t\t\t\t\t<h4>" + section['title'] + "</h4>"
+    html += "\n\t\t\t\t\t\t\t\t<ul class=\"skill-list\" >"
     for rating in section['ratings']:
-        html += "\n\t\t\t\t\t\t\t<li>" + add_rating(rating)
-        html += "\n\t\t\t\t\t\t\t</li>"
-    html += "\n\t\t\t\t\t\t</ul>"
+        html += "\n\t\t\t\t\t\t\t\t<li>" + add_rating(rating)
+        html += "\n\t\t\t\t\t\t\t\t</li>"
+    html += "\n\t\t\t\t\t\t\t\t</ul>"
+    html += "\n\n\t\t\t\t\t\t</div>"
     return html
 
 
 def add_rating(rating):
-    html = "\n\t\t\t\t\t\t\t\t<div class=\"row\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t<h4> " + rating['skill'] + " </h4>"
+    html = "\n\t\t\t\t\t\t\t\t\t<div class=\"row\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t<h5> " + rating['skill'] + " </h5>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t" + get_rating_level(float(rating['rating'])) + "</h3>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t" + get_rating_level(float(rating['rating'])) + "</h3>"
-    html += "\n\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t</div>"
     return html
 
 
@@ -216,7 +224,7 @@ def get_rating_level(rating):
 def get_stars(number, icon):
     stars = ""
     for i in range(number):
-        stars += "<i class=\"material-icons\" >" + icon + "</i>"
+        stars += "<i class=\"small material-icons\" >" + icon + "</i>"
     return stars
 
 
