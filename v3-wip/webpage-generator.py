@@ -2,17 +2,57 @@ import json
 import time
 import math
 
+
+class webpage_generator:
+    html = ""
+    indent_level = 0
+
+    def __init__(self):
+        self.generate_website()
+
+    def generate_website(self):
+        self.html += "<html>"
+        self.indent_level += 1
+        self.add_headers("data/headers.json")
+        #self.html += "\n\t<body>\n\t\t<div class=\"container\">"
+        #add_body()
+        #html += "\n\t\t</div>\n\t</body>\n</html>"
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "<html>"
+        write_to_file(self.html)
+        print(self.html)
+
+    def add_headers(self, file):
+        data = read_json_file(file)
+        self.html += get_indentation(self.indent_level) + "<head>"
+        self.indent_level += 1
+        self.html += get_indentation(self.indent_level) + "<title>" + data['title'] + "</title>"
+        self.html += get_indentation(self.indent_level) + "<meta charset=\"" + data['charset'] + "\" />"
+        for meta in data['content-metas']:
+            self.html += get_indentation(self.indent_level) + get_meta_tag(meta['name'], meta['content'])
+        for link in data['links']:
+            self.html += get_indentation(self.indent_level)
+            if link['type'] == 'css':
+                self.html += get_css_link(link['source'])
+            elif link['type'] == 'js':
+                self.html += get_js_link(link['source'])
+            elif link['type'] == 'font':
+                self.html += get_font_link(link['source'])
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</head>"
+
+
+
+
+
+
+
 html = "<html>"
 
 
-def generate_website():
-    global html
-    add_headers("data/headers.json")
-    html += "\n\t<body>\n\t\t<div class=\"container\">"
-    add_body()
-    html += "\n\t\t</div>\n\t</body>\n</html>"
-    write_to_file(html)
-    print(html)
+def get_indentation(indent_level):
+    return "\n" + ("\t" * indent_level)
+
 
 
 def write_to_file(text):
@@ -37,23 +77,7 @@ def add_body():
     html += "\n\t\t\t</div>"
 
 
-def add_headers(file):
-    global html
-    data = read_json_file(file)
-    html += "\n\t<head>\n\t\t<title>" + data['title'] + "</title>"
-    html += "\n\t\t<meta charset=\"" + data['charset'] + "\" />"
-    for meta in data['content-metas']:
-        html += "\n\t\t"
-        html += get_meta_tag(meta['name'], meta['content'])
-    for link in data['links']:
-        html += "\n\t\t"
-        if link['type'] == 'css':
-            html += get_css_link(link['source'])
-        elif link['type'] == 'js':
-            html += get_js_link(link['source'])
-        elif link['type'] == 'font':
-            html += get_font_link(link['source'])
-    html += "\n\t</head>"
+
 
 
 def get_meta_tag(name, content):
@@ -112,10 +136,10 @@ def add_education(file):
 
 
 def add_footnotes(footnotes):
-    html = "\n\t\t\t\t\t\t\t\t\t<div class=\"flex-list\"><ul>"
+    html = "\n\t\t\t\t\t\t<div class=\"flex-list\"><ul>"
     for footnote in footnotes:
         html += "\n\t\t\t\t\t\t\t\t\t\t<li>" + add_footnote(footnote) + "</li>"
-    html += "\n\t\t\t\t\t\t\t\t\t</ul></div>"
+    html += "\n\t\t\t\t\t\t</ul></div>"
     return html
 
 
@@ -246,6 +270,7 @@ def add_projects(file):
         count += 1
     if(count % 2 != 0):
         html += "\n\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t</div>"
     print("TODO")
 
 
@@ -275,6 +300,7 @@ def add_timeline(file):
     html += add_div_and_heading(data['title'], data['icon'])
     html += "\n\t\t\t\t\t\t<p> " + data['description'] + " </p>"
     html += "\n\t\t\t\t\t\t<div id=\"chart\"></div>"
+    html += "\n\t\t\t\t\t</div>"
     print("TODO")
 
 
@@ -282,4 +308,6 @@ def add_table_of_contents():
     print("TODO")
 
 
-generate_website()
+#generate_website()
+
+webpage_generator()
