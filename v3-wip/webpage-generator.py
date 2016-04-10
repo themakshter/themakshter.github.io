@@ -1,4 +1,7 @@
-import json,time,math
+import json
+import time
+import math
+
 html = "<html>"
 
 
@@ -183,33 +186,37 @@ def add_skills(file):
 
 def add_section_data(section):
     html = "\n\t\t\t\t\t\t<h3>" + section['title'] + "</h3>"
+    html += "\n\t\t\t\t\t\t<ul class=\"skill-list\" >"
     for rating in section['ratings']:
-        html += add_rating(rating)
+        html += "\n\t\t\t\t\t\t\t<li>" + add_rating(rating)
+        html += "\n\t\t\t\t\t\t\t</li>"
+    html += "\n\t\t\t\t\t\t</ul>"
     return html
 
 
 def add_rating(rating):
-    html = "\n\t\t\t\t\t\t\t<div class=\"row\" >"
-    html += "\n\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t<h4> " + rating['skill'] + " </h4>"
+    html = "\n\t\t\t\t\t\t\t\t<div class=\"row\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t<h4> " + rating['skill'] + " </h4>"
+    html += "\n\t\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t" + get_rating_level(float(rating['rating'])) + "</h3>"
+    html += "\n\t\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t" + get_rating_level(float(rating['rating'])) + "</h3>"
-    html += "\n\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t</div>"
     return html
 
 
 def get_rating_level(rating):
     full_stars = math.floor(rating / 1)
     half_stars = math.ceil(rating % 1)
-    return get_stars(full_stars, "star") + get_stars(half_stars, "star_half")
+    empty_stars = 5 - full_stars - half_stars
+    return get_stars(full_stars, "star") + get_stars(half_stars, "star_half") + get_stars(empty_stars, "star_border")
 
 
 def get_stars(number, icon):
     stars = ""
     for i in range(number):
-        stars += "\n\t\t\t\t\t\t\t\t\t<i class=\"medium material-icons\" >" + icon + "</i>"
+        stars += "<i class=\"material-icons\" >" + icon + "</i>"
     return stars
 
 
