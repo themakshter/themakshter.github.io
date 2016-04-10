@@ -183,34 +183,36 @@ def add_skills(file):
     for section in data['sections']:
         if(count % 2 == 0):
             html += "\n\t\t\t\t\t\t<div class=\"row\">"
+        html += "\n\t\t\t\t\t\t\t<div class\"col s6 m6 l6\">"
         html += add_section_data(section)
+        html += "\n\t\t\t\t\t\t\t</div>"
         if(count % 2 == 1):
             html += "\n\t\t\t\t\t\t</div>"
         count += 1
+    if(count % 2 != 0):
+        html += "\n\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t</div>"
 
 
 def add_section_data(section):
-    html = "\n\t\t\t\t\t\t\t<div class\"col s6 m6 l6\">"
-    html += "\n\t\t\t\t\t\t\t\t<h4>" + section['title'] + "</h4>"
+    html = "\n\t\t\t\t\t\t\t\t<h4>" + section['title'] + "</h4>"
     html += "\n\t\t\t\t\t\t\t\t<ul class=\"skill-list\" >"
     for rating in section['ratings']:
-        html += "\n\t\t\t\t\t\t\t\t<li>" + add_rating(rating)
-        html += "\n\t\t\t\t\t\t\t\t</li>"
+        html += "\n\t\t\t\t\t\t\t\t\t<li>" + add_rating(rating)
+        html += "\n\t\t\t\t\t\t\t\t\t</li>"
     html += "\n\t\t\t\t\t\t\t\t</ul>"
-    html += "\n\n\t\t\t\t\t\t</div>"
     return html
 
 
 def add_rating(rating):
-    html = "\n\t\t\t\t\t\t\t\t\t<div class=\"row\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t<h5> " + rating['skill'] + " </h5>"
+    html = "\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t\t<h5> " + rating['skill'] + " </h5>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t\t" + get_rating_level(float(rating['rating'])) + "</h3>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t" + get_rating_level(float(rating['rating'])) + "</h3>"
-    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t\t</div>"
     return html
 
 
@@ -232,28 +234,38 @@ def add_projects(file):
     global html
     data = read_json_file(file)
     html += add_div_and_heading(data['title'], data['icon'])
+    count = 0
     for project in data['projects']:
+        if(count % 2 == 0):
+            html += "\n\t\t\t\t\t\t\t<div class=\"row\">"
+        html += "\n\t\t\t\t\t\t\t\t<div class=\"col s12 m6 l6\">"
         html += create_card_for_project(project)
+        html += "\n\t\t\t\t\t\t\t\t</div>"
+        if(count % 2 == 1):
+            html += "\n\t\t\t\t\t\t\t</div>"
+        count += 1
+    if(count % 2 != 1):
+        html += "\n\t\t\t\t\t\t\t</div>"
     print("TODO")
 
 
 def create_card_for_project(project):
-    html = "\n\t\t\t\t\t\t\t<div class=\"card\" >"
-    html += "\n\t\t\t\t\t\t\t\t<div class=\"card-image waves-effect waves-block waves-light\">"
-    html += "\n\t\t\t\t\t\t\t\t\t<img class=\"activator\" src=\"img/office.jpg\">"
-    html += "\n\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t<div class=\"card-content\">"
-    html += "\n\t\t\t\t\t\t\t\t\t<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name']
+    html = "\n\t\t\t\t\t\t\t\t\t<div class=\"card\" >"
+    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"card-image waves-effect waves-block waves-light\">"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t<img class=\"activator\" src=\"img/office.jpg\">"
+    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"card-content\">"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name']
     html += "</b><i class=\"material-icons right\">more_vert</i><span>"
     html += add_footnotes(project['footnotes'])
-    html += "\n\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t<div class=\"card-reveal\">"
-    html += "\n\t\t\t\t\t\t\t\t\t<span class=\"card-title grey-text text-darken-4\"><b>" + project['name']
+    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"card-reveal\">"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"card-title grey-text text-darken-4\"><b>" + project['name']
     html += "</b><i class=\"material-icons right\">close</i><span>"
-    html += "\n\t\t\t\t\t\t\t\t\t<p>" + project['description'] + "</p>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t\t<p>" + project['description'] + "</p>"
     html += add_footnotes(project['footnotes'])
-    html += "\n\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
+    html += "\n\t\t\t\t\t\t\t\t\t</div>"
     return html
 
 
