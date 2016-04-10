@@ -183,7 +183,7 @@ def add_skills(file):
     for section in data['sections']:
         if(count % 2 == 0):
             html += "\n\t\t\t\t\t\t<div class=\"row\">"
-        html += "\n\t\t\t\t\t\t\t<div class\"col s6 m6 l6\">"
+        html += "\n\t\t\t\t\t\t\t<div class\"col s6\">"
         html += add_section_data(section)
         html += "\n\t\t\t\t\t\t\t</div>"
         if(count % 2 == 1):
@@ -210,7 +210,7 @@ def add_rating(rating):
     html += "\n\t\t\t\t\t\t\t\t\t\t\t\t<h5> " + rating['skill'] + " </h5>"
     html += "\n\t\t\t\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t\t" + get_rating_level(float(rating['rating'])) + "</h3>"
+    html += get_rating_level(float(rating['rating']))
     html += "\n\t\t\t\t\t\t\t\t\t\t\t</div>"
     html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
     return html
@@ -226,7 +226,7 @@ def get_rating_level(rating):
 def get_stars(number, icon):
     stars = ""
     for i in range(number):
-        stars += "<i class=\"small material-icons\" >" + icon + "</i>"
+        stars += "\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"small material-icons\" >" + icon + "</i>"
     return stars
 
 
@@ -244,7 +244,7 @@ def add_projects(file):
         if(count % 2 == 1):
             html += "\n\t\t\t\t\t\t\t</div>"
         count += 1
-    if(count % 2 != 1):
+    if(count % 2 != 0):
         html += "\n\t\t\t\t\t\t\t</div>"
     print("TODO")
 
