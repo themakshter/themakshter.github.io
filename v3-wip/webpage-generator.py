@@ -10,43 +10,45 @@ class webpage_generator:
     def __init__(self):
         self.generate_website()
 
+    def append_to_html(self,text):
+        self.html += get_indentation(self.indent_level) + text
+
     def generate_website(self):
         self.html += "<html>"
         self.indent_level += 1
         self.add_headers("data/headers.json")
         self.add_body()
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "<html>"
+        self.append_to_html("<html>")
         write_to_file(self.html)
         print(self.html)
 
     def add_headers(self, file):
         data = read_json_file(file)
-        self.html += get_indentation(self.indent_level) + "<head>"
+        self.append_to_html("<head>")
         self.indent_level += 1
-        self.html += get_indentation(self.indent_level) + "<title>" + data['title'] + "</title>"
-        self.html += get_indentation(self.indent_level) + "<meta charset=\"" + data['charset'] + "\" />"
+        self.append_to_html("<title>" + data['title'] + "</title>")
+        self.append_to_html("<meta charset=\"" + data['charset'] + "\" />")
         for meta in data['content-metas']:
-            self.html += get_indentation(self.indent_level) + get_meta_tag(meta['name'], meta['content'])
+            self.append_to_html(get_meta_tag(meta['name'], meta['content']))
         for link in data['links']:
-            self.html += get_indentation(self.indent_level)
             if link['type'] == 'css':
-                self.html += get_css_link(link['source'])
+                self.append_to_html(get_css_link(link['source']))
             elif link['type'] == 'js':
-                self.html += get_js_link(link['source'])
+                self.append_to_html(get_js_link(link['source']))
             elif link['type'] == 'font':
-                self.html += get_font_link(link['source'])
+                self.append_to_html(get_font_link(link['source']))
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</head>"
+        self.append_to_html("</head>")
 
     def add_body(self):
-        self.html += get_indentation(self.indent_level) + "<body>"
+        self.append_to_html("<body>")
         self.indent_level += 1
-        self.html += get_indentation(self.indent_level) + "<div class=\"container\">"
+        self.append_to_html("<div class=\"container\">")
         self.indent_level += 1
-        self.html += get_indentation(self.indent_level) + "<div class=\"row\">"
+        self.append_to_html("<div class=\"row\">")
         self.indent_level += 1
-        self.html += get_indentation(self.indent_level) + "<div class=\"col s12 m12 l10\">"
+        self.append_to_html("<div class=\"col s12 m12 l10\">")
         self.add_about_me("data/about-me.json")
         #add_education("data/education.json")
         #add_experience("data/experience.json")
@@ -54,46 +56,42 @@ class webpage_generator:
         #add_projects("data/projects.json")
         #add_timeline("data/timeline.json")
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</div>"
-        self.html += get_indentation(self.indent_level) + "<div class=\"col hide-on-small-only l2\">"
+        self.append_to_html("</div>")
+        self.append_to_html("<div class=\"col hide-on-small-only l2\">")
         #add_table_of_contents()
-        self.html += get_indentation(self.indent_level) + "</div>"
+        self.append_to_html("</div>")
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</div>"
+        self.append_to_html("</div>")
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</div>"
+        self.append_to_html("</div>")
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</body>"
+        self.append_to_html("</body>")
 
     def add_about_me(self,file):
         data = read_json_file(file)
         self.indent_level += 1
-        self.html += get_indentation(self.indent_level) + "<div class=\"center-align\">"
+        self.append_to_html("<div class=\"center-align\">")
         self.indent_level += 1
-        self.html += get_indentation(self.indent_level) + "<h1>Mohammad Ali Khan</h1>"
-        self.html += get_indentation(self.indent_level) + "<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >"
-        self.html += get_indentation(self.indent_level) + "<br/>"
-        self.html +=get_indentation(self.indent_level) + "<div id=\"social-network-icons\">"
+        self.append_to_html("<h1>Mohammad Ali Khan</h1>")
+        self.append_to_html("<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >")
+        self.append_to_html("<br/>")
+        self.append_to_html("<div id=\"social-network-icons\">")
         self.indent_level += 1
         for icon in data['social-icons']:
-            self.html += get_indentation(self.indent_level) + get_social_icon(icon)
+            self.append_to_html(get_social_icon(icon))
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</div>"
-        self.html += get_indentation(self.indent_level) + "<div id=\"about-me\" class=\"section scrollspy\">"
+        self.append_to_html("</div>")
+        self.append_to_html("<div id=\"about-me\" class=\"section scrollspy\">")
         self.indent_level += 1
-        self.html += get_indentation(self.indent_level) + "<p class =\"flow-text\">"
+        self.append_to_html("<p class =\"flow-text\">")
         self.indent_level += 1
-        self.html += get_indentation(self.indent_level) + data['description']
+        self.append_to_html(data['description'])
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</p>"
+        self.append_to_html("</p>")
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</div>"
+        self.append_to_html("</div>")
         self.indent_level -= 1
-        self.html += get_indentation(self.indent_level) + "</div>"
-        print("TODO")
-
-    def append_to_html(self,text):
-        self.html += get_indentation(self.indent_level) + text
+        self.append_to_html("</div>")
 
 
 
