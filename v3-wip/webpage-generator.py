@@ -49,8 +49,9 @@ class webpage_generator:
         self.append_to_html("<div class=\"row\">")
         self.indent_level += 1
         self.append_to_html("<div class=\"col s12 m12 l10\">")
+        self.indent_level += 1
         self.add_about_me("data/about-me.json")
-        #add_education("data/education.json")
+        self.add_education("data/education.json")
         #add_experience("data/experience.json")
         #add_skills("data/skills.json")
         #add_projects("data/projects.json")
@@ -69,7 +70,6 @@ class webpage_generator:
 
     def add_about_me(self,file):
         data = read_json_file(file)
-        self.indent_level += 1
         self.append_to_html("<div class=\"center-align\">")
         self.indent_level += 1
         self.append_to_html("<h1>Mohammad Ali Khan</h1>")
@@ -93,9 +93,36 @@ class webpage_generator:
         self.indent_level -= 1
         self.append_to_html("</div>")
 
+    def add_education(self, file):
+        data = read_json_file(file)
+        self.add_div_and_heading(data['title'], data['icon'])
+        for education in data['educations']:
+            self.append_to_html("<div class=\"education-instance\">")
+            self.indent_level += 1
+            self.append_to_html("<h3>" + education['education'] + "</h3>")
+            self.append_to_html("<h4>" + education['degree'] + " - " + education['grade'] + "</h4>")
+            self.add_footnotes(education['footnotes'])
+            self.indent_level -= 1
+            self.append_to_html("</div>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
 
+    def add_div_and_heading(self, title, icon):
+        self.append_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
+        self.indent_level += 1
+        self.append_to_html("<h2 class=\"section-heading\" >" + title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h2>")
 
-
+    def add_footnotes(self, footnotes):
+        self.append_to_html("<div class=\"flex-list\">")
+        self.indent_level += 1
+        self.append_to_html("<ul>")
+        self.indent_level += 1
+        for footnote in footnotes:
+            self.append_to_html("<li>" + add_footnote(footnote) + "</li>")
+        self.indent_level -= 1
+        self.append_to_html("</ul>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
 
 def get_indentation(indent_level):
     return "\n" + ("\t" * indent_level)
