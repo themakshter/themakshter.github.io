@@ -50,7 +50,7 @@ class webpage_generator:
         self.add_about_me("data/about-me.json")
         self.add_education("data/education.json")
         self.add_experience("data/experience.json")
-        #add_skills("data/skills.json")
+        self.add_skills("data/skills.json")
         #add_projects("data/projects.json")
         #add_timeline("data/timeline.json")
         self.indent_level -= 1
@@ -113,6 +113,30 @@ class webpage_generator:
             self.append_to_html("<h3>" + experience['company'] + "</h3>")
             self.append_to_html("<h4>" + experience['position'] + "</h4>")
             self.add_footnotes(experience['footnotes'])
+            self.indent_level -= 1
+            self.append_to_html("</div>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+
+    def add_skills(self,file):
+        data = read_json_file(file)
+        self.add_div_and_heading(data['title'], data['icon'])
+        count = 0
+        for section in data['sections']:
+            if(count % 2 == 0):
+                self.append_to_html("<div class=\"row\">")
+                self.indent_level += 1
+            self.append_to_html("<div class\"col s6\">")
+            self.indent_level += 1
+            #html += add_section_data(section)
+            self.append_to_html("<p> Hello </p>")
+            self.indent_level -= 1
+            self.append_to_html("</div>")
+            if(count % 2 == 1):
+                self.indent_level -= 1
+                self.append_to_html("</div>")
+            count += 1
+        if(count % 2 != 0):
             self.indent_level -= 1
             self.append_to_html("</div>")
         self.indent_level -= 1
