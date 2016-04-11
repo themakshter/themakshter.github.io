@@ -10,9 +10,6 @@ class webpage_generator:
     def __init__(self):
         self.generate_website()
 
-    def append_to_html(self,text):
-        self.html += get_indentation(self.indent_level) + text
-
     def generate_website(self):
         self.html += "<html>"
         self.indent_level += 1
@@ -52,7 +49,7 @@ class webpage_generator:
         self.indent_level += 1
         self.add_about_me("data/about-me.json")
         self.add_education("data/education.json")
-        #add_experience("data/experience.json")
+        self.add_experience("data/experience.json")
         #add_skills("data/skills.json")
         #add_projects("data/projects.json")
         #add_timeline("data/timeline.json")
@@ -107,6 +104,20 @@ class webpage_generator:
         self.indent_level -= 1
         self.append_to_html("</div>")
 
+    def add_experience(self, file):
+        data = read_json_file(file)
+        self.add_div_and_heading(data['title'], data['icon'])
+        for experience in data['experiences']:
+            self.append_to_html("<div class =\"experience-instance\" >")
+            self.indent_level += 1
+            self.append_to_html("<h3>" + experience['company'] + "</h3>")
+            self.append_to_html("<h4>" + experience['position'] + "</h4>")
+            self.add_footnotes(experience['footnotes'])
+            self.indent_level -= 1
+            self.append_to_html("</div>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+
     def add_div_and_heading(self, title, icon):
         self.append_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
         self.indent_level += 1
@@ -123,6 +134,11 @@ class webpage_generator:
         self.append_to_html("</ul>")
         self.indent_level -= 1
         self.append_to_html("</div>")
+
+    def append_to_html(self,text):
+        self.html += get_indentation(self.indent_level) + text
+
+    
 
 def get_indentation(indent_level):
     return "\n" + ("\t" * indent_level)
@@ -155,25 +171,6 @@ def get_font_link(src):
 
 def get_social_icon(icon):
     return "<a href=\"" + icon['link'] + "\"><img class=\"responsive-img icon\" src=\"img/" + icon['image'] + " \" alt=\"" + icon['name'] + "\" ></a>"
-
-
-def add_education(file):
-    global html
-    data = read_json_file(file)
-    html += add_div_and_heading(data['title'], data['icon'])
-    for education in data['educations']:
-        html += "\n\t\t\t\t\t\t<h3>" + education['education'] + "</h3>"
-        html += "\n\t\t\t\t\t\t<h4>" + education['degree'] + " - " + education['grade'] + "</h4>"
-        html += add_footnotes(education['footnotes'])
-    html += "\n\t\t\t\t\t</div>"
-
-
-def add_footnotes(footnotes):
-    html = "\n\t\t\t\t\t\t<div class=\"flex-list\"><ul>"
-    for footnote in footnotes:
-        html += "\n\t\t\t\t\t\t\t\t\t\t<li>" + add_footnote(footnote) + "</li>"
-    html += "\n\t\t\t\t\t\t</ul></div>"
-    return html
 
 
 def add_footnote(footnote):
@@ -213,23 +210,6 @@ def get_location(location):
 
 def get_link(link):
     return "<a href=\"" + link['source'] + "\" > " + link['title'] + " </a>"
-
-
-def add_div_and_heading(title, icon):
-    html = "\n\t\t\t\t\t<div id=\"" + title.lower() + "\" class=\"section scrollspy\">"
-    html += "\n\t\t\t\t\t\t<h2 class=\"section-heading\" >" + title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h2>"
-    return html
-
-
-def add_experience(file):
-    global html
-    data = read_json_file(file)
-    html += add_div_and_heading(data['title'], data['icon'])
-    for experience in data['experiences']:
-        html += "\n\t\t\t\t\t\t<h3>" + experience['company'] + "</h3>"
-        html += "\n\t\t\t\t\t\t<h4>" + experience['position'] + "</h4>"
-        html += add_footnotes(experience['footnotes'])
-    html += "\n\t\t\t\t\t</div>"
 
 
 def add_skills(file):
@@ -340,7 +320,5 @@ def add_timeline(file):
 def add_table_of_contents():
     print("TODO")
 
-
-#generate_website()
 
 webpage_generator()
