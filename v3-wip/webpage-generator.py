@@ -65,7 +65,7 @@ class webpage_generator:
         self.indent_level -= 1
         self.append_to_html("</body>")
 
-    def add_about_me(self,file):
+    def add_about_me(self, file):
         data = read_json_file(file)
         self.append_to_html("<div class=\"center-align\">")
         self.indent_level += 1
@@ -118,7 +118,7 @@ class webpage_generator:
         self.indent_level -= 1
         self.append_to_html("</div>")
 
-    def add_skills(self,file):
+    def add_skills(self, file):
         data = read_json_file(file)
         self.add_div_and_heading(data['title'], data['icon'])
         count = 0
@@ -128,8 +128,7 @@ class webpage_generator:
                 self.indent_level += 1
             self.append_to_html("<div class\"col s6\">")
             self.indent_level += 1
-            #html += add_section_data(section)
-            self.append_to_html("<p> Hello </p>")
+            self.add_section_data(section)
             self.indent_level -= 1
             self.append_to_html("</div>")
             if(count % 2 == 1):
@@ -141,6 +140,47 @@ class webpage_generator:
             self.append_to_html("</div>")
         self.indent_level -= 1
         self.append_to_html("</div>")
+
+    def add_section_data(self, section):
+        self.append_to_html("<h4>" + section['title'] + "</h4>")
+        self.append_to_html("<ul class=\"skill-list\" >")
+        self.indent_level += 1
+        for rating in section['ratings']:
+            self.append_to_html("<li>")
+            self.indent_level += 1
+            self.add_rating(rating)
+            self.indent_level -= 1
+            self.append_to_html("</li>")
+        self.indent_level -= 1
+        self.append_to_html("</ul>")
+
+    def add_rating(self, rating):
+        self.append_to_html("<div class=\"row\" >")
+        self.indent_level += 1
+        self.append_to_html("<div class=\"col s6\" >")
+        self.indent_level += 1
+        self.append_to_html("<h5> " + rating['skill'] + " </h5>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+        self.append_to_html("<div class=\"col s6\" >")
+        self.indent_level += 1
+        self.get_rating_level(float(rating['rating']))
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+
+    def get_rating_level(self, rating):
+        full_stars = math.floor(rating / 1)
+        half_stars = math.ceil(rating % 1)
+        empty_stars = 5 - full_stars - half_stars
+        self.get_stars(full_stars, "star")
+        self.get_stars(half_stars, "star_half")
+        self.get_stars(empty_stars, "star_border")
+
+    def get_stars(self, number, icon):
+        for i in range(number):
+            self.append_to_html("<i class=\"small material-icons\" >" + icon + "</i>")
 
     def add_div_and_heading(self, title, icon):
         self.append_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
@@ -159,10 +199,9 @@ class webpage_generator:
         self.indent_level -= 1
         self.append_to_html("</div>")
 
-    def append_to_html(self,text):
+    def append_to_html(self, text):
         self.html += get_indentation(self.indent_level) + text
 
-    
 
 def get_indentation(indent_level):
     return "\n" + ("\t" * indent_level)
