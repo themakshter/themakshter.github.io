@@ -14,9 +14,7 @@ class webpage_generator:
         self.html += "<html>"
         self.indent_level += 1
         self.add_headers("data/headers.json")
-        #self.html += "\n\t<body>\n\t\t<div class=\"container\">"
-        #add_body()
-        #html += "\n\t\t</div>\n\t</body>\n</html>"
+        self.add_body()
         self.indent_level -= 1
         self.html += get_indentation(self.indent_level) + "<html>"
         write_to_file(self.html)
@@ -41,43 +39,73 @@ class webpage_generator:
         self.indent_level -= 1
         self.html += get_indentation(self.indent_level) + "</head>"
 
+    def add_body(self):
+        self.html += get_indentation(self.indent_level) + "<body>"
+        self.indent_level += 1
+        self.html += get_indentation(self.indent_level) + "<div class=\"container\">"
+        self.indent_level += 1
+        self.html += get_indentation(self.indent_level) + "<div class=\"row\">"
+        self.indent_level += 1
+        self.html += get_indentation(self.indent_level) + "<div class=\"col s12 m12 l10\">"
+        self.add_about_me("data/about-me.json")
+        #add_education("data/education.json")
+        #add_experience("data/experience.json")
+        #add_skills("data/skills.json")
+        #add_projects("data/projects.json")
+        #add_timeline("data/timeline.json")
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</div>"
+        self.html += get_indentation(self.indent_level) + "<div class=\"col hide-on-small-only l2\">"
+        #add_table_of_contents()
+        self.html += get_indentation(self.indent_level) + "</div>"
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</div>"
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</div>"
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</body>"
+
+    def add_about_me(self,file):
+        data = read_json_file(file)
+        self.indent_level += 1
+        self.html += get_indentation(self.indent_level) + "<div class=\"center-align\">"
+        self.indent_level += 1
+        self.html += get_indentation(self.indent_level) + "<h1>Mohammad Ali Khan</h1>"
+        self.html += get_indentation(self.indent_level) + "<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >"
+        self.html += get_indentation(self.indent_level) + "<br/>"
+        self.html +=get_indentation(self.indent_level) + "<div id=\"social-network-icons\">"
+        self.indent_level += 1
+        for icon in data['social-icons']:
+            self.html += get_indentation(self.indent_level) + get_social_icon(icon)
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</div>"
+        self.html += get_indentation(self.indent_level) + "<div id=\"about-me\" class=\"section scrollspy\">"
+        self.indent_level += 1
+        self.html += get_indentation(self.indent_level) + "<p class =\"flow-text\">"
+        self.indent_level += 1
+        self.html += get_indentation(self.indent_level) + data['description']
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</p>"
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</div>"
+        self.indent_level -= 1
+        self.html += get_indentation(self.indent_level) + "</div>"
+        print("TODO")
+
+    def append_to_html(self,text):
+        self.html += get_indentation(self.indent_level) + text
 
 
 
-
-
-
-html = "<html>"
 
 
 def get_indentation(indent_level):
     return "\n" + ("\t" * indent_level)
 
 
-
 def write_to_file(text):
     file = open("generated_site.html", 'w+')
     file.write(text)
-
-
-def add_body():
-    global html
-    html += "\n\t\t\t<div class=\"row\">"
-    html += "\n\t\t\t\t<div class=\"col s12 m12 l10\">"
-    add_about_me("data/about-me.json")
-    add_education("data/education.json")
-    add_experience("data/experience.json")
-    add_skills("data/skills.json")
-    add_projects("data/projects.json")
-    add_timeline("data/timeline.json")
-    html += "\n\t\t\t\t</div>"
-    html += "\n\t\t\t\t<div class=\"col hide-on-small-only l2\">"
-    add_table_of_contents()
-    html += "\n\t\t\t\t</div>"
-    html += "\n\t\t\t</div>"
-
-
-
 
 
 def get_meta_tag(name, content):
@@ -98,26 +126,6 @@ def get_js_link(src):
 
 def get_font_link(src):
     return "<link href=\"" + src + "\" rel=\"stylesheet\" />"
-
-
-def add_about_me(file):
-    global html
-    data = read_json_file(file)
-    html += "\n\t\t\t\t\t<div class=\"center-align\">"
-    html += "\n\t\t\t\t\t\t<h1>Mohammad Ali Khan</h1>"
-    html += "\n\t\t\t\t\t\t<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >"
-    html += "\n\t\t\t\t\t\t<br/>"
-    html += "\n\t\t\t\t\t\t<div id=\"social-network-icons\">"
-    for icon in data['social-icons']:
-        html += "\n\t\t\t\t\t\t\t" + get_social_icon(icon)
-    html += "\n\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t<div id=\"about-me\" class=\"section scrollspy\">"
-    html += "\n\t\t\t\t\t\t\t<p class =\"flow-text\">"
-    html += "\n\t\t\t\t\t\t\t\t" + data['description']
-    html += "\n\t\t\t\t\t\t\t</p>"
-    html += "\n\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t</div>"
-    print("TODO")
 
 
 def get_social_icon(icon):
