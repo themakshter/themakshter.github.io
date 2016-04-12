@@ -51,7 +51,7 @@ class webpage_generator:
         self.add_education("data/education.json")
         self.add_experience("data/experience.json")
         self.add_skills("data/skills.json")
-        #add_projects("data/projects.json")
+        self.add_projects("data/projects.json")
         #add_timeline("data/timeline.json")
         self.indent_level -= 1
         self.append_to_html("</div>")
@@ -182,6 +182,53 @@ class webpage_generator:
         for i in range(number):
             self.append_to_html("<i class=\"small material-icons\" >" + icon + "</i>")
 
+    def add_projects(self, file):
+        data = read_json_file(file)
+        self.add_div_and_heading(data['title'], data['icon'])
+        count = 0
+        for project in data['projects']:
+            if(count % 2 == 0):
+                self.append_to_html("<div class=\"row\">")
+                self.indent_level += 1
+            self.append_to_html("<div class=\"col s12 m6 l6\">")
+            self.indent_level += 1
+            self.create_card_for_project(project)
+            self.indent_level -= 1
+            self.append_to_html("</div>")
+            if(count % 2 == 1):
+                self.indent_level -= 1
+                self.append_to_html("</div>")
+            count += 1
+        if(count % 2 != 0):
+            self.indent_level -= 1
+            self.append_to_html("</div>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+
+    def create_card_for_project(self, project):
+        self.append_to_html("<div class=\"card\" >")
+        self.indent_level += 1
+        self.append_to_html("<div class=\"card-image waves-effect waves-block waves-light\">")
+        self.indent_level += 1
+        self.append_to_html("<img class=\"activator\" src=\"img/office.jpg\">")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+        self.append_to_html("<div class=\"card-content\">")
+        self.indent_level += 1
+        self.append_to_html("<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name'] + "</b><i class=\"material-icons right\">more_vert</i><span>")
+        self.add_footnotes(project['footnotes'])
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+        self.append_to_html("<div class=\"card-reveal\">")
+        self.indent_level += 1
+        self.append_to_html("<span class=\"card-title grey-text text-darken-4\"><b>" + project['name'] + "</b><i class=\"material-icons right\">close</i><span>")
+        self.append_to_html("<p>" + project['description'] + "</p>")
+        self.add_footnotes(project['footnotes'])
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+
     def add_div_and_heading(self, title, icon):
         self.append_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
         self.indent_level += 1
@@ -273,101 +320,6 @@ def get_location(location):
 
 def get_link(link):
     return "<a href=\"" + link['source'] + "\" > " + link['title'] + " </a>"
-
-
-def add_skills(file):
-    global html
-    data = read_json_file(file)
-    html += add_div_and_heading(data['title'], data['icon'])
-    count = 0
-    for section in data['sections']:
-        if(count % 2 == 0):
-            html += "\n\t\t\t\t\t\t<div class=\"row\">"
-        html += "\n\t\t\t\t\t\t\t<div class\"col s6\">"
-        html += add_section_data(section)
-        html += "\n\t\t\t\t\t\t\t</div>"
-        if(count % 2 == 1):
-            html += "\n\t\t\t\t\t\t</div>"
-        count += 1
-    if(count % 2 != 0):
-        html += "\n\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t</div>"
-
-
-def add_section_data(section):
-    html = "\n\t\t\t\t\t\t\t\t<h4>" + section['title'] + "</h4>"
-    html += "\n\t\t\t\t\t\t\t\t<ul class=\"skill-list\" >"
-    for rating in section['ratings']:
-        html += "\n\t\t\t\t\t\t\t\t\t<li>" + add_rating(rating)
-        html += "\n\t\t\t\t\t\t\t\t\t</li>"
-    html += "\n\t\t\t\t\t\t\t\t</ul>"
-    return html
-
-
-def add_rating(rating):
-    html = "\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t\t<h5> " + rating['skill'] + " </h5>"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col s6\" >"
-    html += get_rating_level(float(rating['rating']))
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
-    return html
-
-
-def get_rating_level(rating):
-    full_stars = math.floor(rating / 1)
-    half_stars = math.ceil(rating % 1)
-    empty_stars = 5 - full_stars - half_stars
-    return get_stars(full_stars, "star") + get_stars(half_stars, "star_half") + get_stars(empty_stars, "star_border")
-
-
-def get_stars(number, icon):
-    stars = ""
-    for i in range(number):
-        stars += "\n\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"small material-icons\" >" + icon + "</i>"
-    return stars
-
-
-def add_projects(file):
-    global html
-    data = read_json_file(file)
-    html += add_div_and_heading(data['title'], data['icon'])
-    count = 0
-    for project in data['projects']:
-        if(count % 2 == 0):
-            html += "\n\t\t\t\t\t\t\t<div class=\"row\">"
-        html += "\n\t\t\t\t\t\t\t\t<div class=\"col s12 m6 l6\">"
-        html += create_card_for_project(project)
-        html += "\n\t\t\t\t\t\t\t\t</div>"
-        if(count % 2 == 1):
-            html += "\n\t\t\t\t\t\t\t</div>"
-        count += 1
-    if(count % 2 != 0):
-        html += "\n\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t</div>"
-    print("TODO")
-
-
-def create_card_for_project(project):
-    html = "\n\t\t\t\t\t\t\t\t\t<div class=\"card\" >"
-    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"card-image waves-effect waves-block waves-light\">"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t<img class=\"activator\" src=\"img/office.jpg\">"
-    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"card-content\">"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name']
-    html += "</b><i class=\"material-icons right\">more_vert</i><span>"
-    html += add_footnotes(project['footnotes'])
-    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t\t\t<div class=\"card-reveal\">"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"card-title grey-text text-darken-4\"><b>" + project['name']
-    html += "</b><i class=\"material-icons right\">close</i><span>"
-    html += "\n\t\t\t\t\t\t\t\t\t\t\t<p>" + project['description'] + "</p>"
-    html += add_footnotes(project['footnotes'])
-    html += "\n\t\t\t\t\t\t\t\t\t\t</div>"
-    html += "\n\t\t\t\t\t\t\t\t\t</div>"
-    return html
 
 
 def add_timeline(file):
