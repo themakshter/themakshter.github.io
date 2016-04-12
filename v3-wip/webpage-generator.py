@@ -6,6 +6,7 @@ import math
 class webpage_generator:
     html = ""
     indent_level = 0
+    headings = []
 
     def __init__(self):
         self.generate_website()
@@ -55,8 +56,10 @@ class webpage_generator:
         self.add_timeline("data/timeline.json")
         self.indent_level -= 1
         self.append_to_html("</div>")
-        self.append_to_html("<div class=\"col hide-on-small-only l2\">")
-        #add_table_of_contents()
+        self.append_to_html("<div class=\"col hide-on-med-and-down l2\">")
+        self.indent_level += 1
+        self.add_table_of_contents()
+        self.indent_level -= 1
         self.append_to_html("</div>")
         self.indent_level -= 1
         self.append_to_html("</div>")
@@ -89,6 +92,7 @@ class webpage_generator:
         self.append_to_html("</div>")
         self.indent_level -= 1
         self.append_to_html("</div>")
+        self.headings.append("About Me")
 
     def add_education(self, file):
         data = read_json_file(file)
@@ -239,6 +243,7 @@ class webpage_generator:
         self.append_to_html("</div>")
 
     def add_div_and_heading(self, title, icon):
+        self.headings.append(title)
         self.append_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
         self.indent_level += 1
         self.append_to_html("<h2 class=\"section-heading\" >" + title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h2>")
@@ -257,6 +262,19 @@ class webpage_generator:
 
     def append_to_html(self, text):
         self.html += get_indentation(self.indent_level) + text
+
+    def add_table_of_contents(self):
+        self.append_to_html("<div class=\"toc-wrapper\">")
+        self.indent_level += 1
+        self.append_to_html("<ul class=\"section table-of-contents\">")
+        self.indent_level += 1
+        for heading in self.headings:
+            heading_id = heading.replace(' ', '-').lower()
+            self.append_to_html("<li><a href=\"#" + heading_id + "\">" + heading + "</a><li>")
+        self.indent_level -= 1
+        self.append_to_html("</ul>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
 
 
 def get_indentation(indent_level):
@@ -329,10 +347,6 @@ def get_location(location):
 
 def get_link(link):
     return "<a href=\"" + link['source'] + "\" > " + link['title'] + " </a>"
-
-
-def add_table_of_contents():
-    print("TODO")
 
 
 webpage_generator()
