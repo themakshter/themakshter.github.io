@@ -52,7 +52,7 @@ class webpage_generator:
         self.add_experience("data/experience.json")
         self.add_skills("data/skills.json")
         self.add_projects("data/projects.json")
-        #add_timeline("data/timeline.json")
+        self.add_timeline("data/timeline.json")
         self.indent_level -= 1
         self.append_to_html("</div>")
         self.append_to_html("<div class=\"col hide-on-small-only l2\">")
@@ -229,6 +229,15 @@ class webpage_generator:
         self.indent_level -= 1
         self.append_to_html("</div>")
 
+    def add_timeline(self, file):
+        global html
+        data = read_json_file(file)
+        self.add_div_and_heading(data['title'], data['icon'])
+        self.append_to_html("<p> " + data['description'] + " </p>")
+        self.append_to_html("<div id=\"chart\"></div>")
+        self.indent_level -= 1
+        self.append_to_html("</div>")
+
     def add_div_and_heading(self, title, icon):
         self.append_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
         self.indent_level += 1
@@ -320,16 +329,6 @@ def get_location(location):
 
 def get_link(link):
     return "<a href=\"" + link['source'] + "\" > " + link['title'] + " </a>"
-
-
-def add_timeline(file):
-    global html
-    data = read_json_file(file)
-    html += add_div_and_heading(data['title'], data['icon'])
-    html += "\n\t\t\t\t\t\t<p> " + data['description'] + " </p>"
-    html += "\n\t\t\t\t\t\t<div id=\"chart\"></div>"
-    html += "\n\t\t\t\t\t</div>"
-    print("TODO")
 
 
 def add_table_of_contents():
