@@ -16,15 +16,13 @@ class webpage_generator:
         self.indent_level += 1
         self.add_headers("data/headers.json")
         self.add_body()
-        self.indent_level -= 1
-        self.append_to_html("<html>")
+        self.decrement_add_to_html("<html>")
         write_to_file(self.html)
         print(self.html)
 
     def add_headers(self, file):
         data = read_json_file(file)
-        self.append_to_html("<head>")
-        self.indent_level += 1
+        self.add_increment_to_html("<head>")
         self.append_to_html("<title>" + data['title'] + "</title>")
         self.append_to_html("<meta charset=\"" + data['charset'] + "\" />")
         for meta in data['content-metas']:
@@ -36,77 +34,53 @@ class webpage_generator:
                 self.append_to_html(get_js_link(link['source']))
             elif link['type'] == 'font':
                 self.append_to_html(get_font_link(link['source']))
-        self.indent_level -= 1
-        self.append_to_html("</head>")
+        self.decrement_add_to_html("</head>")
 
     def add_body(self):
-        self.append_to_html("<body>")
-        self.indent_level += 1
-        self.append_to_html("<div class=\"container\">")
-        self.indent_level += 1
-        self.append_to_html("<div class=\"row\">")
-        self.indent_level += 1
-        self.append_to_html("<div class=\"col s12 m12 l10\">")
-        self.indent_level += 1
+        self.add_increment_to_html("<body>")
+        self.add_increment_to_html("<div class=\"container\">")
+        self.add_increment_to_html("<div class=\"row\">")
+        self.add_increment_to_html("<div class=\"col s12 m12 l10\">")
         self.add_about_me("data/about-me.json")
         self.add_education("data/education.json")
         self.add_experience("data/experience.json")
         self.add_skills("data/skills.json")
         self.add_projects("data/projects.json")
         self.add_timeline("data/timeline.json")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.append_to_html("<div class=\"col hide-on-med-and-down l2\">")
-        self.indent_level += 1
+        self.decrement_add_to_html("</div>")
+        self.add_increment_to_html("<div class=\"col hide-on-med-and-down l2\">")
         self.add_table_of_contents()
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</body>")
+        self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</body>")
 
     def add_about_me(self, file):
         data = read_json_file(file)
-        self.append_to_html("<div class=\"center-align\">")
-        self.indent_level += 1
-        self.append_to_html("<div id=\"about-me\" class=\"section scrollspy\">")
-        self.indent_level += 1
+        self.add_increment_to_html("<div class=\"center-align\">")
+        self.add_increment_to_html("<div id=\"about-me\" class=\"section scrollspy\">")
         self.append_to_html("<h1>Mohammad Ali Khan</h1>")
         self.append_to_html("<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >")
         self.append_to_html("<br/>")
-        self.append_to_html("<div id=\"social-network-icons\">")
-        self.indent_level += 1
+        self.add_increment_to_html("<div id=\"social-network-icons\">")
         for icon in data['social-icons']:
             self.append_to_html(get_social_icon(icon))
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.append_to_html("<p class =\"flow-text\">")
-        self.indent_level += 1
-        self.append_to_html(data['description'])
-        self.indent_level -= 1
-        self.append_to_html("</p>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+        self.decrement_add_to_html("</div>")
+        self.append_to_html("<p class =\"flow-text\">" + data['description'] + "</p>")
+        self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
         self.headings.append("About Me")
 
     def add_education(self, file):
         data = read_json_file(file)
         self.add_div_and_heading(data['title'], data['icon'])
         for education in data['educations']:
-            self.append_to_html("<div class=\"education-instance\">")
-            self.indent_level += 1
+            self.add_increment_to_html("<div class=\"education-instance\">")
             self.append_to_html("<h3>" + education['education'] + "</h3>")
             self.append_to_html("<h4>" + education['degree'] + " - " + education['grade'] + "</h4>")
             self.add_footnotes(education['footnotes'])
-            self.indent_level -= 1
-            self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+            self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
 
     def add_experience(self, file):
         data = read_json_file(file)
