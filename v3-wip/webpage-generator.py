@@ -86,15 +86,12 @@ class webpage_generator:
         data = read_json_file(file)
         self.add_div_and_heading(data['title'], data['icon'])
         for experience in data['experiences']:
-            self.append_to_html("<div class =\"experience-instance\" >")
-            self.indent_level += 1
+            self.add_increment_to_html("<div class =\"experience-instance\" >")
             self.append_to_html("<h3>" + experience['company'] + "</h3>")
             self.append_to_html("<h4>" + experience['position'] + "</h4>")
             self.add_footnotes(experience['footnotes'])
-            self.indent_level -= 1
-            self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+            self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
 
     def add_skills(self, file):
         data = read_json_file(file)
@@ -102,51 +99,35 @@ class webpage_generator:
         count = 0
         for section in data['sections']:
             if(count % 2 == 0):
-                self.append_to_html("<div class=\"row\">")
-                self.indent_level += 1
-            self.append_to_html("<div class\"col s6\">")
-            self.indent_level += 1
+                self.add_increment_to_html("<div class=\"row\">")
+            self.add_increment_to_html("<div class\"col s6\">")
             self.add_section_data(section)
-            self.indent_level -= 1
-            self.append_to_html("</div>")
+            self.decrement_add_to_html("</div>")
             if(count % 2 == 1):
-                self.indent_level -= 1
-                self.append_to_html("</div>")
+                self.decrement_add_to_html("</div>")
             count += 1
         if(count % 2 != 0):
-            self.indent_level -= 1
-            self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+            self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
 
     def add_section_data(self, section):
         self.append_to_html("<h4>" + section['title'] + "</h4>")
-        self.append_to_html("<ul class=\"skill-list\" >")
-        self.indent_level += 1
+        self.add_increment_to_html("<ul class=\"skill-list\" >")
         for rating in section['ratings']:
-            self.append_to_html("<li>")
-            self.indent_level += 1
+            self.add_increment_to_html("<li>")
             self.add_rating(rating)
-            self.indent_level -= 1
-            self.append_to_html("</li>")
-        self.indent_level -= 1
-        self.append_to_html("</ul>")
+            self.decrement_add_to_html("</li>")
+        self.decrement_add_to_html("</ul>")
 
     def add_rating(self, rating):
-        self.append_to_html("<div class=\"row\" >")
-        self.indent_level += 1
-        self.append_to_html("<div class=\"col s6\" >")
-        self.indent_level += 1
+        self.add_increment_to_html("<div class=\"row\" >")
+        self.add_increment_to_html("<div class=\"col s6\" >")
         self.append_to_html("<h5> " + rating['skill'] + " </h5>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.append_to_html("<div class=\"col s6\" >")
-        self.indent_level += 1
+        self.decrement_add_to_html("</div>")
+        self.add_increment_to_html("<div class=\"col s6\" >")
         self.get_rating_level(float(rating['rating']))
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+        self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
 
     def get_rating_level(self, rating):
         full_stars = math.floor(rating / 1)
@@ -166,46 +147,32 @@ class webpage_generator:
         count = 0
         for project in data['projects']:
             if(count % 2 == 0):
-                self.append_to_html("<div class=\"row\">")
-                self.indent_level += 1
-            self.append_to_html("<div class=\"col s12 m6 l6\">")
-            self.indent_level += 1
+                self.add_increment_to_html("<div class=\"row\">")
+            self.add_increment_to_html("<div class=\"col s12 m6 l6\">")
             self.create_card_for_project(project)
-            self.indent_level -= 1
-            self.append_to_html("</div>")
+            self.decrement_add_to_html("</div>")
             if(count % 2 == 1):
-                self.indent_level -= 1
-                self.append_to_html("</div>")
+                self.decrement_add_to_html("</div>")
             count += 1
         if(count % 2 != 0):
-            self.indent_level -= 1
-            self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+            self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
 
     def create_card_for_project(self, project):
-        self.append_to_html("<div class=\"card\" >")
-        self.indent_level += 1
-        self.append_to_html("<div class=\"card-image waves-effect waves-block waves-light\">")
-        self.indent_level += 1
+        self.add_increment_to_html("<div class=\"card\" >")
+        self.add_increment_to_html("<div class=\"card-image waves-effect waves-block waves-light\">")
         self.append_to_html("<img class=\"activator\" src=\"img/office.jpg\">")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.append_to_html("<div class=\"card-content\">")
-        self.indent_level += 1
+        self.decrement_add_to_html("</div>")
+        self.add_increment_to_html("<div class=\"card-content\">")
         self.append_to_html("<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name'] + "</b><i class=\"material-icons right\">more_vert</i><span>")
         self.add_footnotes(project['footnotes'])
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.append_to_html("<div class=\"card-reveal\">")
-        self.indent_level += 1
+        self.decrement_add_to_html("</div>")
+        self.add_increment_to_html("<div class=\"card-reveal\">")
         self.append_to_html("<span class=\"card-title grey-text text-darken-4\"><b>" + project['name'] + "</b><i class=\"material-icons right\">close</i><span>")
         self.append_to_html("<p>" + project['description'] + "</p>")
         self.add_footnotes(project['footnotes'])
-        self.indent_level -= 1
-        self.append_to_html("</div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+        self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
 
     def add_timeline(self, file):
         global html
@@ -213,26 +180,20 @@ class webpage_generator:
         self.add_div_and_heading(data['title'], data['icon'])
         self.append_to_html("<p> " + data['description'] + " </p>")
         self.append_to_html("<div id=\"chart\"></div>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+        self.decrement_add_to_html("</div>")
 
     def add_div_and_heading(self, title, icon):
         self.headings.append(title)
-        self.append_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
-        self.indent_level += 1
+        self.add_increment_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
         self.append_to_html("<h2 class=\"section-heading\" >" + title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h2>")
 
     def add_footnotes(self, footnotes):
-        self.append_to_html("<div class=\"flex-list\">")
-        self.indent_level += 1
-        self.append_to_html("<ul>")
-        self.indent_level += 1
+        self.add_increment_to_html("<div class=\"flex-list\">")
+        self.add_increment_to_html("<ul>")
         for footnote in footnotes:
             self.append_to_html("<li>" + add_footnote(footnote) + "</li>")
-        self.indent_level -= 1
-        self.append_to_html("</ul>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+        self.decrement_add_to_html("</ul>")
+        self.decrement_add_to_html("</div>")
 
     def add_increment_to_html(self, text):
         self.append_to_html(text)
@@ -246,17 +207,13 @@ class webpage_generator:
         self.html += get_indentation(self.indent_level) + text
 
     def add_table_of_contents(self):
-        self.append_to_html("<div class=\"toc-wrapper\">")
-        self.indent_level += 1
-        self.append_to_html("<ul class=\"section table-of-contents\">")
-        self.indent_level += 1
+        self.add_increment_to_html("<div class=\"toc-wrapper\">")
+        self.add_increment_to_html("<ul class=\"section table-of-contents\">")
         for heading in self.headings:
             heading_id = heading.replace(' ', '-').lower()
             self.append_to_html("<li><a href=\"#" + heading_id + "\">" + heading + "</a><li>")
-        self.indent_level -= 1
-        self.append_to_html("</ul>")
-        self.indent_level -= 1
-        self.append_to_html("</div>")
+        self.decrement_add_to_html("</ul>")
+        self.decrement_add_to_html("</div>")
 
 
 def get_indentation(indent_level):
