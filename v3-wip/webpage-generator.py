@@ -72,6 +72,8 @@ class webpage_generator:
         data = read_json_file(file)
         self.append_to_html("<div class=\"center-align\">")
         self.indent_level += 1
+        self.append_to_html("<div id=\"about-me\" class=\"section scrollspy\">")
+        self.indent_level += 1
         self.append_to_html("<h1>Mohammad Ali Khan</h1>")
         self.append_to_html("<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >")
         self.append_to_html("<br/>")
@@ -81,8 +83,6 @@ class webpage_generator:
             self.append_to_html(get_social_icon(icon))
         self.indent_level -= 1
         self.append_to_html("</div>")
-        self.append_to_html("<div id=\"about-me\" class=\"section scrollspy\">")
-        self.indent_level += 1
         self.append_to_html("<p class =\"flow-text\">")
         self.indent_level += 1
         self.append_to_html(data['description'])
@@ -259,6 +259,14 @@ class webpage_generator:
         self.append_to_html("</ul>")
         self.indent_level -= 1
         self.append_to_html("</div>")
+
+    def add_increment_to_html(self, text):
+        self.append_to_html(text)
+        self.indent_level += 1
+
+    def decrement_add_to_html(self, text):
+        self.indent_level -= 1
+        self.append_to_html(text)
 
     def append_to_html(self, text):
         self.html += get_indentation(self.indent_level) + text
