@@ -62,7 +62,7 @@
         {
           "type":"documentation",
           "documentation":{
-            "title":"Documentation",
+            "title":"Project Report",
             "source":"./files/nhs_waiting_times_application_report.pdf"
           }
         }
@@ -213,7 +213,7 @@
         {
           "type":"documentation",
           "documentation":{
-            "title":"Documentation",
+            "title":"Report",
             "source":"./files/type_pong_report.pdf"
           }
         }
