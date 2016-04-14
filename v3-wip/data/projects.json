@@ -44,7 +44,7 @@
     },
     {
       "name":"NHS Waiting Times Application",
-      "description":"A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A & E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. ",
+      "description":"A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A &amp; E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. ",
       "footnotes":[
         {
           "type":"time",
