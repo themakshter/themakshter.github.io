@@ -150,6 +150,13 @@
             "title":"Technical Documentation",
             "source":"https://infinite-tundra-1304.herokuapp.com/manuals/technicalManual.html"
           }
+        },
+        {
+          "type":"video",
+          "video":{
+            "title":"Demo Video",
+            "source":"./video/ideaboard.mov"
+          }
         }
       ]
     },

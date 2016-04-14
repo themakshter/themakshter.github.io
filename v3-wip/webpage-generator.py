@@ -85,12 +85,16 @@ class webpage_generator:
     def add_experience(self, file):
         data = read_json_file(file)
         self.add_div_and_heading(data['title'], data['icon'])
+        count = 0
         for experience in data['experiences']:
+            count += 1
             self.add_increment_to_html("<div class =\"experience-instance\" >")
             self.append_to_html("<h3>" + experience['company'] + "</h3>")
             self.append_to_html("<h4>" + experience['position'] + "</h4>")
             self.add_footnotes(experience['footnotes'])
             self.decrement_add_to_html("</div>")
+            if(count != len(data['experiences'])):
+                self.append_to_html("<div class=\"divider\" ></div>")
         self.decrement_add_to_html("</div>")
 
     def add_skills(self, file):
@@ -221,7 +225,7 @@ def get_indentation(indent_level):
 
 
 def write_to_file(text):
-    file = open("generated_site.html", 'w+')
+    file = open("index.html", 'w+')
     file.write(text)
 
 
@@ -267,6 +271,9 @@ def add_footnote(footnote):
     elif footnote['type'] == 'documentation':
         html += "insert_drive_file"
         text += get_link(footnote['documentation'])
+    elif footnote['type'] == 'video':
+        html += "play_circle_filled"
+        text += get_link(footnote['video'])
     html += "</i>" + text
     return html
 

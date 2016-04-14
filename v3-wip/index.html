@@ -1,149 +1,745 @@
 <html>
-
-<head>
-    <title>Mohammad Ali Khan - Personal Web Page</title>
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="./lib/materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
-    <link href="./css/timeline.css" rel="stylesheet" type="text/css" />
-    <link href="./css/main.css" rel="stylesheet" type="text/css" />
-    <script src="./lib/jquery/jquery-2.2.0.min.js"></script>
-    <script src="./lib/materialize/js/materialize.min.js"></script>
-    <script src="./lib/d3/d3.min.js"></script>
-    <script src="./js/timeline.js"></script>
-    <script src="./js/main.js"></script>
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l10">
-                <div class="center-align">
-                    <h1>Mohammad Ali Khan</h1>
-                    <img class="responsive-img circle" src="img/ali.jpg" alt="Picture of Ali">
-                    <br/>
-                    <div id="social-network-icons">
-                        <img class="responsive-img icon" src="img/facebook.jpg" alt="Facebook">
-                        <img class="responsive-img icon" src="img/twitter.jpg" alt="Twitter">
-                        <img class="responsive-img icon" src="img/linkedin.jpg" alt="LinkedIn">
-                        <img class="responsive-img icon" src="img/github.jpg" alt="GitHub">
-                        <img class="responsive-img icon" src="img/steam.jpg" alt="Steam">
-                        <img class="responsive-img icon" src="img/dotabuff.jpg" alt="Dotabuff">
-                        <img class="responsive-img icon" src="img/email.jpg" alt="Email">
-                    </div>
-                </div>
-                <div id="about-me" class="section scrollspy">
-                    <p class="flow-text">
-                        I am a computer scientist passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I am most experienced in Java and web-related technologies such as JavaScript and its numerous common frameworks and libraries. Outside of development, I enjoy reading books (favourite genre is fantasy and favourite author is Brandon Sanderson), playing video games (all time favourite games are Dota 2, the Mass Effect and Grand Theft Auto series) and watching football games (favourite team is Chelsea F.C.) as well as taking part in them myself.
-                    </p>
-                </div>
-                <div id="education" class="section scrollspy">
-                    <h3 class="section-heading" >Education <i class="material-icons heading-icon">school</i></h3>
-                    <h4>University of Southampton</h4>
-                    <h5>Masters of Engineering in Computer Science - First Class Honours</h5>
-                    <p><i class="material-icons">date_range</i>September 2011 to June 2015 <i class="material-icons">place</i>Southampton, United Kingdom</p>
-                </div>
-                <div id="experience" class="section scrollspy">
-                    <h3 class="section-heading">Experience  <i class="material-icons heading-icon">business_center</i></h3>
-                    <h4>FactSet Europe Ltd.</h4>
-                    <h5>Software Engineer</h5>
-                    <p><i class="material-icons">date_range</i> August 2015 to Present <i class="material-icons">place</i>London, United Kingdom</p>
-                    <h4>J.P. Morgan Chase &amp; Co.</h4>
-                    <h5>Technology Intern</h5>
-                    <p><i class="material-icons">date_range</i> June 2014 to August 2014 <i class="material-icons">place</i>London, United Kingdom</p>
-                    <h4>Micro Focus Ltd.</h4>
-                    <h5>Product Development Intern</h5>
-                    <p><i class="material-icons">date_range</i> June 2013 to August 2013 <i class="material-icons">place</i>Newbury, United Kingdom</p>
-                </div>
-                <div id="skills" class="section scrollspy">
-                    <h3 class="section-heading">Skills <i class="material-icons heading-icon">build</i></h3>
-                    <h4>Programming Languages</h4>
-                    <ul>
-                        <li>Java</li>
-                        <li>C#</li>
-                        <li>JavaScript</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>PHP</li>
-                        <li>Python</li>
-                        <li>C++</li>
-                    </ul>
-                    <h4>Frameworks and other technologies</h4>
-                    <ul>
-                        <li>NodeJS</li>
-                        <li>AngularJS</li>
-                        <li>D3</li>
-                        <li>SQL</li>
-                        <li>MongoDB</li>
-                        <li>Twitter Bootstrap</li>
-                        <li>Play Framework</li>
-                        <li>Git</li>
-                    </ul>
-                    <h4>Other Skills</h4>
-                    <ul>
-                        <li>Project Management</li>
-                    </ul>
-                    <h4>Spoken Languages</h4>
-                    <ul>
-                        <li>English</li>
-                        <li>Urdu</li>
-                        <li>Hindi</li>
-                    </ul>
-                </div>
-                <div id="projects" class="section scrollspy">
-                    <h3 class="section-heading">Projects <i class="material-icons heading-icon">lightbulb_outline</i></h3>
-                    <h4>Personal Website </h4>
-                    <p>This webpage. The current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it, as well as adding new features such as the timeline.</p>
-                    <p><i class="material-icons">date_range</i>December 2011 to Present <i class="material-icons">code</i>GitHub <i class="material-icons">link</i>Version 2 <i class="material-icons">link</i>Version 1</p>
-                    <h4>NHS Waiting Times Application</h4>
-                    <p>A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A &amp; E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. Project report can be found here. </p>
-                    <p><i class="material-icons">date_range</i> October 2014 to April 2015 <i class="material-icons">code</i>GitHub <i class="material-icons">link</i>Application <i class="material-icons">insert_drive_file</i>Report</p>
-                    <h4>Mobile Intervention Authoring</h4>
-                    <p>A group development project (GDP) improving and extending a mobile intervention editor to create an intervention for cochlear implant users so that they can do regular hearing check ups in the comfort of their homes. This project involved implementing features to add media files on the web-based intervention editor and functionality to play these media files on the intervention client application. Lastly, the intervention was created with numerous optimisations on the editor and run on the client application. The intervention editor was written mostly in CoffeeScript with BackboneJS and the client application was for Android devices. The report for this project can be found here.</p>
-                    <p><i class="material-icons">date_range</i> June 2013 to January 2015 <i class="material-icons">insert_drive_file</i>Report <i class="material-icons">insert_drive_file</i>Poster </p>
-                    <h4>Agent Elman</h4>
-                    <p>Group project to create an intelligent agent for participation in the Trading Agent Competition. In the competition, the agent competed with others to compose holiday packages for clients for the least amount of money. The agent finished a respectable 7th postion from around 20+ agents competing. The report detailing the strategies can be found here.</p>
-                    <p><i class="material-icons">date_range</i> January 2015 <i class="material-icons">code</i>GitHub <i class="material-icons">insert_drive_file</i>Report</p>
-                    <h4>IdeaBoard</h4>
-                    <p>A group project to create a note-taking web applicaiton for a web development module. Attempted abstraction of the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour. This application has a NodeJS backend with a MongoDB database and can currently be found here . The user manual for this application is available here and the technical manual can be accessed here .</p>
-                    <p><i class="material-icons">date_range</i> December 2014 <i class="material-icons">link</i>Application <i class="material-icons">insert_drive_file</i>Technical Documentation</p>
-                    <h4>Privacy Matters</h4>
-                    <p>Individual project of an online resource showing the information companies in the United Kingdomstore and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies. The backend of this application was coded in Java with the Play Framework while the front end was written in HTML, CSS and JavaScript . The database used was MongoDB. The application can currently be found here and the final report of the project is present here.</p>
-                    <p><i class="material-icons">date_range</i> October 2013 to June 2014 <i class="material-icons">code</i>GitHub <i class="material-icons">link</i>Application </p>
-                    <h4>Type Pong</h4>
-                    <p>A group project web application aiming to improve typing speeds where users play pong while typing, typing words correctly to move the paddle to meet the ball. Users can play against the AI in levels, where AI gets better with time, or in challenge mode, where AI is perfect and users have to last as long as possible. Users can also play against each other and view their high scores. The application can currently be found here. </p>
-                    <p><i class="material-icons">date_range</i> January 2014 <i class="material-icons">link</i>Application</p>
-                    <h4>Clangers</h4>
-                    <p>his application depicted a small world filled with Clangers. Coded using the OpenGL 3.3+ library, this application allows the user to explore the world while also providing an automatic tour of the main features. The models were created in Blender.</p>
-                    <p><i class="material-icons">date_range</i> January 2014 <i class="material-icons">code</i>GitHub</p>
-                    <h4>Crossword Puzzle</h4>
-                    <p>A straightforward crossword puzzle, allowing users to easily type across the boxes with their answers. The clues can be easily highlighted and there exists afunctionality to inform the users of which ones have been correctly filled. This application was made using Swing and AWT libraries.</p>
-                    <p><i class="material-icons">date_range</i> May 2012 <i class="material-icons">code</i>GitHub</p>
-                    <h4>Fractal Viewer</h4>
-                    <p>This application, created using the Swing and AWT libraries , displays a Mandelbrot set to the user and allows them to zoom into it as they wish. Users can also view the Julia set for a specific point on the Mandlebrot set and also save the image. The Mandlebrot set is available in three different calculation algorithms and two colour schemes.</p>
-                    <p><i class="material-icons">date_range</i> April 2012 <i class="material-icons">code</i>GitHub</p>
-                </div>
-                <div id="timeline" class="timeline-section section scrollspy">
-                    <h3 class="section-heading">Timeline <i class="material-icons heading-icon">timeline</i></h3>
-                    <div id="chart"></div>
-                </div>
-            </div>
-            <div class="col hide-on-med-and-down l2">
-                <div class="toc-wrapper">
-                    <ul class="section table-of-contents">
-                        <li><a href="#about-me">About Me</a></li>
-                        <li><a href="#education">Education</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#timeline">Timeline</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-<footer>
-</footer>
-
-</html>
+	<head>
+		<title>Mohammad Ali Khan - Personal Webpage</title>
+		<meta charset="UTF-8" />
+		<meta name"viewport" content="width=device-width, initial-scale=1" />
+		<meta name"description" content="Personal website" />
+		<meta name"author" content="Mohammad Ali Khan" />
+		<meta name"keywords" content="website,personal,resume,materialise" />
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+		<link href="./lib/materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
+		<link href="./css/timeline.css" rel="stylesheet" type="text/css" />
+		<link href="./css/main.css" rel="stylesheet" type="text/css" />
+		<script src="./lib/jquery/jquery-2.2.0.min.js"></script>
+		<script src="./lib/materialize/js/materialize.min.js"></script>
+		<script src="./lib/d3/d3.min.js"></script>
+		<script src="./js/timeline.js"></script>
+		<script src="./js/main.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m12 l10">
+					<div class="center-align">
+						<div id="about-me" class="section scrollspy">
+							<h1>Mohammad Ali Khan</h1>
+							<img class="responsive-img circle" src="img/ali.jpg" alt="Picture of Ali" >
+							<br/>
+							<div id="social-network-icons">
+								<a href="https://www.facebook.com/themakshter"><img class="responsive-img icon" src="img/facebook.jpg " alt="Facebook" ></a>
+								<a href="https://twitter.com/themakshter"><img class="responsive-img icon" src="img/twitter.jpg " alt="Twitter" ></a>
+								<a href="https://www.linkedin.com/in/themakshter"><img class="responsive-img icon" src="img/linkedin.jpg " alt="LinkedIn" ></a>
+								<a href="https://github.com/themakshter"><img class="responsive-img icon" src="img/github.jpg " alt="Github" ></a>
+								<a href="https://steamcommunity.com/id/themakshter/"><img class="responsive-img icon" src="img/steam.jpg " alt="Steam" ></a>
+								<a href="http://www.dotabuff.com/players/66853428"><img class="responsive-img icon" src="img/dotabuff.jpg " alt="Dotabuff" ></a>
+								<a href="mailto:mohammad_ali93@live.com"><img class="responsive-img icon" src="img/email.jpg " alt="Email" ></a>
+							</div>
+							<p class ="flow-text">I am a computer scientist who is passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I consider myself most proficient in Java but I also gained a good amount of experience in web-related technologies such as JavaScript by taking part in numerous web development projects, individual and group based; one of the most recent ones was creating an application which finds the closes NHS Accident &amp; Emergency centre based on the least amount of waiting time predicted. Additionally, my individual project in university was a web application which visualised the amount of data different companies collect(what data is collected, whom it is collected from and whom it is shared with) as well as providing relevant statistics.Outside of development,  I enjoy reading books(favourite genre is fantasy and favourite author is Brandon Sanderson),  playing video games(all time favourite games are Dota 2, the Mass Effect and Grand Theft Auto series) and watching football games(favourite team is Chelsea F.C.) as well as taking part in them myself.</p>
+						</div>
+					</div>
+					<div id="education" class="section scrollspy">
+						<h2 class="section-heading" >Education<i class="material-icons heading-icon" >school</i></h2>
+						<div class="education-instance">
+							<h3>University of Southampton</h3>
+							<h4>Masters of Engineering - First Class Honours</h4>
+							<div class="flex-list">
+								<ul>
+									<li><i class="material-icons" >date_range</i>September 2011 to May 2015</li>
+									<li><i class="material-icons" >place</i>Southamtpon, United Kingdom</li>
+									<li><i class="material-icons" >link</i><a href="https://www.southampton.ac.uk/" > Website </a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="experience" class="section scrollspy">
+						<h2 class="section-heading" >Experience<i class="material-icons heading-icon" >business_center</i></h2>
+						<div class ="experience-instance" >
+							<h3>FactSet Europe Ltd.</h3>
+							<h4>Software Engineer</h4>
+							<div class="flex-list">
+								<ul>
+									<li><i class="material-icons" >date_range</i>August 2015</li>
+									<li><i class="material-icons" >place</i>London, United Kingdom</li>
+									<li><i class="material-icons" >link</i><a href="http://www.factset.com/" > Website </a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="divider" ></div>
+						<div class ="experience-instance" >
+							<h3>J.P. Morgan Chase &amp; Co.</h3>
+							<h4>Technology Intern</h4>
+							<div class="flex-list">
+								<ul>
+									<li><i class="material-icons" >date_range</i>June 2014 to August 2014</li>
+									<li><i class="material-icons" >place</i>London, United Kingdom</li>
+									<li><i class="material-icons" >link</i><a href="https://www.jpmorgan.com" > Website </a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="divider" ></div>
+						<div class ="experience-instance" >
+							<h3>Micro Focus Ltd.</h3>
+							<h4>Product Development Intern</h4>
+							<div class="flex-list">
+								<ul>
+									<li><i class="material-icons" >date_range</i>June 2013 to August 2013</li>
+									<li><i class="material-icons" >place</i>Newbury, United Kingdom</li>
+									<li><i class="material-icons" >link</i><a href="https://www.microfocus.com/" > Website </a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="skills" class="section scrollspy">
+						<h2 class="section-heading" >Skills<i class="material-icons heading-icon" >build</i></h2>
+						<div class="row">
+							<div class"col s6">
+								<h4>Programming Languages</h4>
+								<ul class="skill-list" >
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Java </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> C# </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> JavaScript </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> HTML  &amp; CSS </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> SQL </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> PHP </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Python </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> C++ </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class"col s6">
+								<h4>Frameworks &amp; other technologies</h4>
+								<ul class="skill-list" >
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Twitter Boostrap </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Git </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Materialize CSS </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> D3.js </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Node.js </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Angular.js </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> MongoDB </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Play Framework </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class"col s6">
+								<h4>Other skills</h4>
+								<ul class="skill-list" >
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Project Management </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Blender </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Microsoft Excel </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_half</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class"col s6">
+								<h4>Spoken Languages</h4>
+								<ul class="skill-list" >
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> English </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Urdu </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="row" >
+											<div class="col s6" >
+												<h5> Hindi </h5>
+											</div>
+											<div class="col s6" >
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star</i>
+												<i class="small material-icons" >star_border</i>
+												<i class="small material-icons" >star_border</i>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="projects" class="section scrollspy">
+						<h2 class="section-heading" >Projects<i class="material-icons heading-icon" >lightbulb_outline</i></h2>
+						<div class="row">
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>Personal Website</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/themakshter.github.io" > GitHub </a></li>
+												<li><i class="material-icons" >link</i><a href="" > Version 3.0 </a></li>
+												<li><i class="material-icons" >link</i><a href="" > Version 2.0 </a></li>
+												<li><i class="material-icons" >link</i><a href="" > Version 1.0 </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>Personal Website</b><i class="material-icons right">close</i><span>
+										<p>This webpage; the current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it (twitter boostrap to material design materialize), as well as adding new features such as the timeline.</p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/themakshter.github.io" > GitHub </a></li>
+												<li><i class="material-icons" >link</i><a href="" > Version 3.0 </a></li>
+												<li><i class="material-icons" >link</i><a href="" > Version 2.0 </a></li>
+												<li><i class="material-icons" >link</i><a href="" > Version 1.0 </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>NHS Waiting Times Application</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >link</i><a href="./NHSWaitingTimesApplication" > Website </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/nhs_waiting_times_application_report.pdf" > Documentation </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>NHS Waiting Times Application</b><i class="material-icons right">close</i><span>
+										<p>A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A & E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. </p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >link</i><a href="./NHSWaitingTimesApplication" > Website </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/nhs_waiting_times_application_report.pdf" > Documentation </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>Mobile Intervention Authoring</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/mobile_intervention_authoring_report.pdf" > Project Report </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/mobile_intervention_authoring_poster.pdf" > Poster </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>Mobile Intervention Authoring</b><i class="material-icons right">close</i><span>
+										<p>A group development project (GDP) improving and extending a mobile intervention editor to create an intervention for cochlear implant users so that they can do regular hearing check ups in the comfort of their homes. This project involved implementing features to add media files on the web-based intervention editor and functionality to play these media files on the intervention client application. Lastly, the intervention was created with numerous optimisations on the editor and run on the client application. The intervention editor was written mostly in CoffeeScript with BackboneJS and the client application was for Android devices.</p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/mobile_intervention_authoring_report.pdf" > Project Report </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/mobile_intervention_authoring_poster.pdf" > Poster </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>Agent Elman</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/AgentElman" > GitHub </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/agent_elman_report.pdf" > Report </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>Agent Elman</b><i class="material-icons right">close</i><span>
+										<p>Group project to create an intelligent agent for participation in the Trading Agent Competition. In the competition, the agent competed with other agents to compose holiday packages for clients for the least amount of money. Numerous strategies were employed to make sure good packages could be created such as bidding low for unwanted tickets so that they might be used in potential packages. The agent finished a respectable 7th postion from around 25 agents competing.</p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/AgentElman" > GitHub </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/agent_elman_report.pdf" > Report </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>IdeaBoard</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >link</i><a href="https://infinite-tundra-1304.herokuapp.com/" > Website </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="https://infinite-tundra-1304.herokuapp.com/" > User Manual </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="https://infinite-tundra-1304.herokuapp.com/manuals/technicalManual.html" > Technical Documentation </a></li>
+												<li><i class="material-icons" >play_circle_filled</i><a href="./video/ideaboard.mov" > Demo video </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>IdeaBoard</b><i class="material-icons right">close</i><span>
+										<p>A group project to create a note-taking web applicaiton for a web development module. Attempted abstraction of the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour.</p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >link</i><a href="https://infinite-tundra-1304.herokuapp.com/" > Website </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="https://infinite-tundra-1304.herokuapp.com/" > User Manual </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="https://infinite-tundra-1304.herokuapp.com/manuals/technicalManual.html" > Technical Documentation </a></li>
+												<li><i class="material-icons" >play_circle_filled</i><a href="./video/ideaboard.mov" > Demo video </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>Privacy Matters</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/PrivacyMatters" > GitHub </a></li>
+												<li><i class="material-icons" >link</i><a href="https://privacymatters.herokuapp.com/" > Website </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="https://infinite-tundra-1304.herokuapp.com/manuals/technicalManual.html" > Project Report </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>Privacy Matters</b><i class="material-icons right">close</i><span>
+										<p>Individual project of an online resource showing the information companies in the United Kingdomstore and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies.</p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/PrivacyMatters" > GitHub </a></li>
+												<li><i class="material-icons" >link</i><a href="https://privacymatters.herokuapp.com/" > Website </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="https://infinite-tundra-1304.herokuapp.com/manuals/technicalManual.html" > Project Report </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>Type Pong</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >link</i><a href="http://mystical-hawk-370.appspot.com/" > Website </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/type_pong_report.pdf" > Documentation </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>Type Pong</b><i class="material-icons right">close</i><span>
+										<p>A group project web application aiming to improve typing speeds where users play pong while typing. Correctly typed words allow users to move the paddle to meet the ball. Users can play against the AI in levels, where AI gets better with levels, or in challenge mode, where the AI is perfect, never missing a balll and users try to last as long as possible. Users can also play against each other and view their high scores in these different game modes. </p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >link</i><a href="http://mystical-hawk-370.appspot.com/" > Website </a></li>
+												<li><i class="material-icons" >insert_drive_file</i><a href="./files/type_pong_report.pdf" > Documentation </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>Clangers</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/Clangers" > GitHub </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>Clangers</b><i class="material-icons right">close</i><span>
+										<p>This application depicts a small world filled with Clangers, characters from the old BBC show. This application allows the user to explore the world which includes a few clangers as well as mountainous terrain on the moon while also providing an automatic tour of the main features. The models were created in Blender.</p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/Clangers" > GitHub </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>Crossword Puzzle</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/CrosswordApplication" > GitHub </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>Crossword Puzzle</b><i class="material-icons right">close</i><span>
+										<p>A straightforward crossword puzzle, allowing users to easily type across the boxes with their answers. The clues can be easily highlighted and there exists afunctionality to inform the users of which ones have been correctly filled. This application was made using Swing and AWT libraries.</p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/CrosswordApplication" > GitHub </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col s12 m6 l6">
+								<div class="card" >
+									<div class="card-image waves-effect waves-block waves-light">
+										<img class="activator" src="img/office.jpg">
+									</div>
+									<div class="card-content">
+										<span class="card-title activator grey-text text-darken-4"><b>Fractal Viewer</b><i class="material-icons right">more_vert</i><span>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/FractalViewer" > GitHub </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-reveal">
+										<span class="card-title grey-text text-darken-4"><b>Fractal Viewer</b><i class="material-icons right">close</i><span>
+										<p>This application, created using the Swing and AWT libraries , displays a Mandelbrot set to the user and allows them to zoom into it as they wish. Users can also view the Julia set for a specific point on the Mandlebrot set and also save the image. The Mandlebrot set is available in three different calculation algorithms and two colour schemes.</p>
+										<div class="flex-list">
+											<ul>
+												<li><i class="material-icons" >date_range</i>August 2015</li>
+												<li><i class="material-icons" >code</i><a href="https://github.com/themakshter/FractalViewer" > GitHub </a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="timeline" class="section scrollspy">
+						<h2 class="section-heading" >Timeline<i class="material-icons heading-icon" >timeline</i></h2>
+						<p> Using d3.js, I have created a timeline of my time since university. On this visualisation, you can find my projects, education and experience, hovering over different data points for further information. Moreover, you can view a zoomed in version of any point of the timeline by using the navigation bar. </p>
+						<div id="chart"></div>
+					</div>
+				</div>
+				<div class="col hide-on-med-and-down l2">
+					<div class="toc-wrapper">
+						<ul class="section table-of-contents">
+							<li><a href="#about-me">About Me</a><li>
+							<li><a href="#education">Education</a><li>
+							<li><a href="#experience">Experience</a><li>
+							<li><a href="#skills">Skills</a><li>
+							<li><a href="#projects">Projects</a><li>
+							<li><a href="#timeline">Timeline</a><li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+<html>
