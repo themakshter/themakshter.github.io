@@ -115,20 +115,22 @@ class webpage_generator:
         self.decrement_add_to_html("</div>")
 
     def add_section_data(self, section):
+        self.add_increment_to_html("<div class=\"skill-section\">")
         self.append_to_html("<h4>" + section['title'] + "</h4>")
         self.add_increment_to_html("<ul class=\"skill-list\" >")
         for rating in section['ratings']:
-            self.add_increment_to_html("<li>")
+            self.add_increment_to_html("<li class=\"skill-item\">")
             self.add_rating(rating)
             self.decrement_add_to_html("</li>")
         self.decrement_add_to_html("</ul>")
+        self.decrement_add_to_html("</div>")
 
     def add_rating(self, rating):
-        self.add_increment_to_html("<div class=\"row\" >")
+        self.add_increment_to_html("<div class=\"row valign-wrapper\" >")
         self.add_increment_to_html("<div class=\"col s6\" >")
         self.append_to_html("<h5> " + rating['skill'] + " </h5>")
         self.decrement_add_to_html("</div>")
-        self.add_increment_to_html("<div class=\"col s6\" >")
+        self.add_increment_to_html("<div class=\"col s6 stars\" >")
         self.get_rating_level(float(rating['rating']))
         self.decrement_add_to_html("</div>")
         self.decrement_add_to_html("</div>")
@@ -143,7 +145,7 @@ class webpage_generator:
 
     def get_stars(self, number, icon):
         for i in range(number):
-            self.append_to_html("<i class=\"small material-icons\" >" + icon + "</i>")
+            self.append_to_html("<i class=\"small material-icons\">" + icon + "</i>")
 
     def add_projects(self, file):
         data = read_json_file(file)
