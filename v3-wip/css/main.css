@@ -86,6 +86,26 @@ p {
 }
 
 .skill-item:hover{
-  background-color: #DADADA;
+  background-color: #e0e0e0;
   cursor: pointer;
+}
+
+.language{
+  background-color: #f06292;
+}
+
+.framework{
+  background-color: #7986cb;
+}
+
+.library{
+  background-color: #4db6ac;
+}
+
+.database{
+  background-color: #dce775;
+}
+
+.tool{
+  background-color: #a1887f;
 }

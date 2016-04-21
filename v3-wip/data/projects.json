@@ -134,7 +134,7 @@
         },
         {
           "tag":"BackboneJS",
-          "type":"franework"
+          "type":"framework"
         },
         {
           "tag":"Bootstrap",
@@ -222,7 +222,7 @@
         },
         {
           "tag":"NodeJS",
-          "type":"runtime"
+          "type":"framework"
         },
         {
           "tag":"BackboneJS",

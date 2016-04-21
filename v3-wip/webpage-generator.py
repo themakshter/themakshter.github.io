@@ -170,7 +170,9 @@ class webpage_generator:
         self.append_to_html("<img class=\"activator\" src=\"img/office.jpg\">")
         self.decrement_add_to_html("</div>")
         self.add_increment_to_html("<div class=\"card-content\">")
-        self.append_to_html("<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name'] + "</b><i class=\"material-icons right\">more_vert</i></span>")
+        self.add_increment_to_html("<span class=\"card-title activator grey-text text-darken-4\">")
+        self.append_to_html("<b>" + project['name'] + "</b><i class=\"material-icons right\">more_vert</i>")
+        self.decrement_add_to_html("</span>")
         for tag in project['tags']:
             self.create_tag(tag)
         self.decrement_add_to_html("</div>")
@@ -184,7 +186,7 @@ class webpage_generator:
         self.decrement_add_to_html("</div>")
 
     def create_tag(self, tag):
-        self.add_increment_to_html("<div class=\"chip " + tag['tag'].lower() + " " + tag['type'].lower() + "\">")
+        self.add_increment_to_html("<div class=\"chip " + tag['type'].lower() + "\">")
         self.append_to_html(tag['tag'])
         self.decrement_add_to_html("</div>")
 
