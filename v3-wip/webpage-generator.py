@@ -40,7 +40,7 @@ class webpage_generator:
         self.add_increment_to_html("<body>")
         self.add_increment_to_html("<div class=\"container\">")
         self.add_increment_to_html("<div class=\"row\">")
-        self.add_increment_to_html("<div class=\"col s12 m12 l10\">")
+        self.add_increment_to_html("<div class=\"col m12 l10\">")
         self.add_about_me("data/about-me.json")
         self.add_education("data/education.json")
         self.add_experience("data/experience.json")
@@ -154,7 +154,7 @@ class webpage_generator:
         for project in data['projects']:
             if(count % 2 == 0):
                 self.add_increment_to_html("<div class=\"row\">")
-            self.add_increment_to_html("<div class=\"col s12 m6 l6\">")
+            self.add_increment_to_html("<div class=\"col m12 l6\">")
             self.create_card_for_project(project)
             self.decrement_add_to_html("</div>")
             if(count % 2 == 1):
