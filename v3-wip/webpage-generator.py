@@ -57,8 +57,7 @@ class webpage_generator:
 
     def add_about_me(self, file):
         data = read_json_file(file)
-        self.add_increment_to_html("<div class=\"center-align\">")
-        self.add_increment_to_html("<div id=\"about-me\" class=\"section scrollspy\">")
+        self.add_increment_to_html("<div id=\"about-me\" class=\"section scrollspy center-align\">")
         self.append_to_html("<h1>Mohammad Ali Khan</h1>")
         self.append_to_html("<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >")
         self.append_to_html("<br/>")
@@ -67,7 +66,6 @@ class webpage_generator:
             self.append_to_html(get_social_icon(icon))
         self.decrement_add_to_html("</div>")
         self.append_to_html("<p class =\"flow-text\">" + data['description'] + "</p>")
-        self.decrement_add_to_html("</div>")
         self.decrement_add_to_html("</div>")
         self.headings.append("About Me")
 
@@ -104,7 +102,7 @@ class webpage_generator:
         for section in data['sections']:
             if(count % 2 == 0):
                 self.add_increment_to_html("<div class=\"row\">")
-            self.add_increment_to_html("<div class\"col s6\">")
+            self.add_increment_to_html("<div class=\"col m12 l6\">")
             self.add_section_data(section)
             self.decrement_add_to_html("</div>")
             if(count % 2 == 1):
