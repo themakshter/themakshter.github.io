@@ -171,6 +171,8 @@ class webpage_generator:
         self.decrement_add_to_html("</div>")
         self.add_increment_to_html("<div class=\"card-content\">")
         self.append_to_html("<span class=\"card-title activator grey-text text-darken-4\"><b>" + project['name'] + "</b><i class=\"material-icons right\">more_vert</i></span>")
+        for tag in project['tags']:
+            self.create_tag(tag)
         self.decrement_add_to_html("</div>")
         self.add_increment_to_html("<div class=\"card-action\">")
         self.add_footnotes(project['footnotes'])
@@ -179,6 +181,11 @@ class webpage_generator:
         self.append_to_html("<span class=\"card-title grey-text text-darken-4\"><b>" + project['name'] + "</b><i class=\"material-icons right\">close</i></span>")
         self.append_to_html("<p>" + project['description'] + "</p>")
         self.decrement_add_to_html("</div>")
+        self.decrement_add_to_html("</div>")
+
+    def create_tag(self, tag):
+        self.add_increment_to_html("<div class=\"chip " + tag['tag'].lower() + " " + tag['type'].lower() + "\">")
+        self.append_to_html(tag['tag'])
         self.decrement_add_to_html("</div>")
 
     def add_timeline(self, file):
