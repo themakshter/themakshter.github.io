@@ -4,7 +4,7 @@
   "projects":[
     {
       "name":"Personal Website",
-      "image":"img/office.jpg",
+      "image":"img/personal_website.png",
       "description":"This webpage; the current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it (twitter boostrap to material design materialize), as well as adding new features such as the timeline.",
       "tags":[
         {
@@ -206,7 +206,7 @@
     },
     {
       "name":"IdeaBoard",
-      "image":"img/office.jpg",
+      "image":"img/ideaboard.png",
       "description":"A group project to create a note-taking web applicaiton for a web development module. Attempted abstraction of the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour.",
       "tags":[
         {
