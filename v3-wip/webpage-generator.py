@@ -165,7 +165,7 @@ class webpage_generator:
     def create_card_for_project(self, project):
         self.add_increment_to_html("<div class=\"card hoverable\">")
         self.add_increment_to_html("<div class=\"card-image waves-effect waves-block waves-light\">")
-        self.append_to_html("<img class=\"activator\" src=\"img/office.jpg\">")
+        self.append_to_html("<img class=\"activator\" src=\" " + project['image'] + " \">")
         self.decrement_add_to_html("</div>")
         self.add_increment_to_html("<div class=\"card-content\">")
         self.add_increment_to_html("<span class=\"card-title activator grey-text text-darken-4\">")

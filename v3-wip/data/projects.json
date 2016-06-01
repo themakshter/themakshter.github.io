@@ -4,6 +4,7 @@
   "projects":[
     {
       "name":"Personal Website",
+      "image":"img/office.jpg",
       "description":"This webpage; the current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it (twitter boostrap to material design materialize), as well as adding new features such as the timeline.",
       "tags":[
         {
@@ -66,6 +67,7 @@
     },
     {
       "name":"NHS Waiting Times Application",
+      "image":"img/nhs_waiting_times_map.png",
       "description":"A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A &amp; E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. ",
       "tags":[
         {
@@ -114,6 +116,7 @@
     },
     {
       "name":"Mobile Intervention Authoring",
+      "image":"img/intervention_editor.png",
       "description":"A group development project (GDP) improving and extending a mobile intervention editor to create an intervention for cochlear implant users so that they can do regular hearing check ups in the comfort of their homes. This project involved implementing features to add media files on the web-based intervention editor and functionality to play these media files on the intervention client application. Lastly, the intervention was created with numerous optimisations on the editor and run on the client application. The intervention editor was written mostly in CoffeeScript with BackboneJS and the client application was for Android devices.",
       "tags":[
         {
@@ -166,6 +169,7 @@
     },
     {
       "name":"Agent Elman",
+      "image":"img/office.jpg",
       "description":"Group project to create an intelligent agent for participation in the Trading Agent Competition. In the competition, the agent competed with other agents to compose holiday packages for clients for the least amount of money. Numerous strategies were employed to make sure good packages could be created such as bidding low for unwanted tickets so that they might be used in potential packages. The agent finished a respectable 7th postion from around 25 agents competing.",
       "tags":[
         {
@@ -202,6 +206,7 @@
     },
     {
       "name":"IdeaBoard",
+      "image":"img/office.jpg",
       "description":"A group project to create a note-taking web applicaiton for a web development module. Attempted abstraction of the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour.",
       "tags":[
         {
@@ -276,6 +281,7 @@
     },
     {
       "name":"Privacy Matters",
+      "image":"img/privacy_matters.png",
       "description":"Individual project of an online resource showing the information companies in the United Kingdomstore and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies.",
       "tags":[
         {
@@ -335,6 +341,7 @@
     },
     {
       "name":"Type Pong",
+      "image":"img/type_pong.png",
       "description":"A group project web application aiming to improve typing speeds where users play pong while typing. Correctly typed words allow users to move the paddle to meet the ball. Users can play against the AI in levels, where AI gets better with levels, or in challenge mode, where the AI is perfect, never missing a balll and users try to last as long as possible. Users can also play against each other and view their high scores in these different game modes. ",
       "tags":[
         {
@@ -387,6 +394,7 @@
     },
     {
       "name":"Clangers",
+      "image":"img/the_clangers.png",
       "description":"This application depicts a small world filled with Clangers, characters from the old BBC show. This application allows the user to explore the world which includes a few clangers as well as mountainous terrain on the moon while also providing an automatic tour of the main features. The models were created in Blender.",
       "tags":[
         {
@@ -420,6 +428,7 @@
     },
     {
       "name":"Crossword Puzzle",
+      "image":"img/crossword_puzzle.png",
       "description":"A straightforward crossword puzzle, allowing users to easily type across the boxes with their answers. The clues can be easily highlighted and there exists afunctionality to inform the users of which ones have been correctly filled. This application was made using Swing and AWT libraries.",
       "tags":[
         {
@@ -453,6 +462,7 @@
     },
     {
       "name":"Fractal Viewer",
+      "image":"img/fractal_viewer.png",
       "description":"This application, created using the Swing and AWT libraries , displays a Mandelbrot set to the user and allows them to zoom into it as they wish. Users can also view the Julia set for a specific point on the Mandlebrot set and also save the image. The Mandlebrot set is available in three different calculation algorithms and two colour schemes.",
       "tags":[
         {
