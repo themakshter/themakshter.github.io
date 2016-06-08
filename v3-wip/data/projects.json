@@ -169,7 +169,7 @@
     },
     {
       "name":"Agent Elman",
-      "image":"img/office.jpg",
+      "image":"img/agent_elman.png",
       "description":"Group project to create an intelligent agent for participation in the Trading Agent Competition. In the competition, the agent competed with other agents to compose holiday packages for clients for the least amount of money. Numerous strategies were employed to make sure good packages could be created such as bidding low for unwanted tickets so that they might be used in potential packages. The agent finished a respectable 7th postion from around 25 agents competing.",
       "tags":[
         {
