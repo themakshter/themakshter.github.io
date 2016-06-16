@@ -46,21 +46,21 @@
           "type":"link",
           "link":{
             "title":"Version 3.0",
-            "source":""
+            "source":"./"
           }
         },
         {
           "type":"link",
           "link":{
             "title":"Version 2.0",
-            "source":""
+            "source":"./v2/"
           }
         },
         {
           "type":"link",
           "link":{
             "title":"Version 1.0",
-            "source":""
+            "source":"./v1/"
           }
         }
       ]

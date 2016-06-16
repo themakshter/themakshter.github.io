@@ -1,0 +1,98 @@
+
+.col-special{
+	margin:2%;
+  	width:45%;
+  	height: 95%;
+}
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box{
+	box-shadow: 7px 7px 7px #000000;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.box-headings{
+	color: black;
+}
+
+.col-second{
+	margin-top: 75px;
+}
+
+.dummy{
+	height: 75px;
+}
+
+.clickable{
+	cursor: pointer;
+}
+
+.icon{
+	width:  100px;
+	height: 100px;
+	margin:2%;
+}
+
+#skill-list {
+	list-style-type: none;
+}
+
+.item-list li {
+  padding: 0 0 5px 20px;
+  display: block;
+  position: relative;
+  font-size: 17.5px;
+}
+.item-list li:before {
+  font-family: 'Glyphicons Halflings';
+  position: absolute;
+  left: 0px;
+  top:3px;
+  font-size:80%
+}
+
+.play li:before{
+	  content: '\e072';
+}
+
+.dash li:before{
+	content:'\2212';
+}
+
+body {
+        font-family: 'Lato', serif;
+        font-size: 16px;
+      }
+
+#closeup{
+	margin-bottom: 5%;
+}
+
+
+#identity{
+	background-color: #428bca;
+}
+
+#contact{
+	background-color: #5cb85c;
+}
+
+#skills{
+	background-color: #f0ad4e;
+}
+
+#projects{
+	background-color: #5bc0de;
+}
+
+#interests{
+	background-color: #d9534f;
+}	
