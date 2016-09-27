@@ -253,14 +253,14 @@
           "type":"link",
           "link":{
             "title":"Website",
-            "source":"https://infinite-tundra-1304.herokuapp.com/"
+            "source":"https://ideaboardapp.herokuapp.com/"
           }
         },
         {
           "type":"documentation",
           "documentation":{
             "title":"User Manual",
-            "source":"https://infinite-tundra-1304.herokuapp.com/"
+            "source":"https://ideaboardapp.herokuapp.com/"
           }
         },
         {
