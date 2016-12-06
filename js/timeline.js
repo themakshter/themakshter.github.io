@@ -314,11 +314,11 @@ function timeline(domElement) {
             .on("mouseover", function(d) {
                 tooltip.html(d[5])
                     .style("top",function(){
-                            var y = event.pageY + labelHeight;
+                            var y = d3.event.pageY + labelHeight;
                             return y + "px";
                         })
                     .style("left", function(){
-                            var x =  event.pageX < band.x + band.w / 2  ? event.pageX + 10 : event.pageX - labelWidth * 4;
+                            var x =  d3.event.pageX < band.x + band.w / 2  ? d3.event.pageX + 10 : d3.event.pageX - labelWidth * 4;
                             return x + "px";
                         })
                     .style("visibility", "visible");
@@ -374,12 +374,12 @@ function timeline(domElement) {
         function showTooltip (d) {
             var tooltipWidth = 300;
 
-            var x = event.pageX < band.x + band.w / 2
-                    ? event.pageX + 10
-                    : event.pageX - tooltipWidth * 1.15,
-                y = event.pageY < band.y + band.h / 2
-                    ? event.pageY + 10
-                    : event.pageY - 50;
+            var x = d3.event.pageX < band.x + band.w / 2
+                    ? d3.event.pageX + 10
+                    : d3.event.pageX - tooltipWidth * 1.15,
+                y = d3.event.pageY < band.y + band.h / 2
+                    ? d3.event.pageY + 10
+                    : d3.event.pageY - 50;
 
             tooltip
                 .html(makeTooltip(d))
