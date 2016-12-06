@@ -603,9 +603,9 @@ function timeline(domElement) {
     function getInitials(str){
       var initials = "";
       var words = str.split(" ");
-      for(var word of words){
-        initials+= word.substring(0,1);
-      }
+      words.forEach(function(word){
+        initials += word.substring(0,1);
+      });
       return initials;
     };
 
