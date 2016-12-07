@@ -102,7 +102,10 @@ class webpage_generator:
         for section in data['sections']:
             if(count % 2 == 0):
                 self.add_increment_to_html("<div class=\"row\">")
-            self.add_increment_to_html("<div class=\"col m12 l6\">")
+            if(count == 2):
+                self.add_increment_to_html("<div class=\"col m12 l8 offset-l2\">")
+            else:
+                self.add_increment_to_html("<div class=\"col m12 l6\">")
             self.add_section_data(section)
             self.decrement_add_to_html("</div>")
             if(count % 2 == 1):
@@ -125,10 +128,10 @@ class webpage_generator:
 
     def add_rating(self, rating):
         self.add_increment_to_html("<div class=\"row valign-wrapper\" >")
-        self.add_increment_to_html("<div class=\"col s6\" >")
+        self.add_increment_to_html("<div class=\"col s6 left-align\" >")
         self.append_to_html("<h5> " + rating['skill'] + " </h5>")
         self.decrement_add_to_html("</div>")
-        self.add_increment_to_html("<div class=\"col s6 stars\" >")
+        self.add_increment_to_html("<div class=\"col s6 stars centre-align\" >")
         self.get_rating_level(float(rating['rating']))
         self.decrement_add_to_html("</div>")
         self.decrement_add_to_html("</div>")

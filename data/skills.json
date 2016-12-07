@@ -18,10 +18,6 @@
           "rating":"4.0"
         },
         {
-          "skill":"HTML  &amp; CSS",
-          "rating":"4.0"
-        },
-        {
           "skill":"SQL",
           "rating":"3.5"
         },
@@ -43,7 +39,7 @@
       "title":"Frameworks &amp; other technologies",
       "ratings":[
         {
-          "skill":"Twitter Boostrap",
+          "skill":"Twitter Bootstrap",
           "rating":"4.0",
           "link":""
         },
@@ -52,7 +48,7 @@
           "rating":"4.0"
         },
         {
-          "skill":"Materialize CSS",
+          "skill":"Materialize",
           "rating":"3.5",
           "link":""
         },
@@ -75,29 +71,6 @@
           "skill":"MongoDB",
           "rating":"2.5",
           "link":""
-        },
-        {
-          "skill":"Play Framework",
-          "rating":"2.5",
-          "link":""
-        }
-      ]
-    },
-    {
-      "title":"Other skills",
-      "ratings":[
-        {
-          "skill":"Project Management",
-          "rating":"3.5"
-        },
-        {
-          "skill":"Blender",
-          "rating":"2.5",
-          "link":""
-        },
-        {
-          "skill":"Microsoft Excel",
-          "rating":"2.5"
         }
       ]
     },
