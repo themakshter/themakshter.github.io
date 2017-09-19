@@ -3,6 +3,47 @@
   "icon":"lightbulb_outline",
   "projects":[
     {
+      "name":"Outcome Graph Library",
+      "image":"img/outcome-graph.jpg",
+      "description":"This webpage; the current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it (twitter boostrap to material design materialize), as well as adding new features such as the timeline.",
+      "tags":[
+        {
+          "tag":"JavaScript",
+          "type":"language"
+        },
+        {
+          "tag":"ChartJS",
+          "type":"framework"
+        },
+        {
+          "tag":"MomentJS",
+          "type":"framework"
+        }
+      ],
+      "footnotes":[
+        {
+          "type":"time",
+          "time":{
+            "start":"2015-08-17"
+          }
+        },
+        {
+          "type":"code",
+          "code":{
+            "title":"GitHub",
+            "source":"https://github.com/ALDLife/outcome-graph"
+          }
+        },
+        {
+          "type":"link",
+          "link":{
+            "title":"Version 3.0",
+            "source":"./"
+          }
+        }
+      ]
+    },
+    {
       "name":"Personal Website",
       "image":"img/personal_website.jpg",
       "description":"This webpage; the current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it (twitter boostrap to material design materialize), as well as adding new features such as the timeline.",
