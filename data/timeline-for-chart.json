@@ -142,5 +142,13 @@
     "description":"Third and current version of this website",
     "type":"projects",
     "shortlabel":"Personal Website v3"
+  },
+  {
+    "start":"2017-03-15",
+    "end":"",
+    "label":"Outcome Graph library",
+    "description":"Convert SDQ sessions into radar chart",
+    "type":"projects",
+    "shortlabel":"outcome-graph"
   }
 ]
