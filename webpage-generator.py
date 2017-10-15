@@ -1,7 +1,8 @@
 import json
 import time
 import math
-
+import dominate
+from dominate.tags import *
 
 class webpage_generator:
     html = ""
@@ -12,8 +13,7 @@ class webpage_generator:
         self.generate_website()
 
     def generate_website(self):
-        self.html += "<html>"
-        self.indent_level += 1
+        self.html += html()
         self.add_headers("data/headers.json")
         self.add_body()
         self.decrement_add_to_html("<html>")
@@ -22,19 +22,19 @@ class webpage_generator:
 
     def add_headers(self, file):
         data = read_json_file(file)
-        self.add_increment_to_html("<head>")
-        self.append_to_html("<title>" + data['title'] + "</title>")
-        self.append_to_html("<meta charset=\"" + data['charset'] + "\" />")
-        for meta in data['content-metas']:
-            self.append_to_html(get_meta_tag(meta['name'], meta['content']))
-        for link in data['links']:
-            if link['type'] == 'css':
-                self.append_to_html(get_css_link(link['source']))
-            elif link['type'] == 'js':
-                self.append_to_html(get_js_link(link['source']))
-            elif link['type'] == 'font':
-                self.append_to_html(get_font_link(link['source']))
-        self.decrement_add_to_html("</head>")
+        page_header = head()
+        page_header.add(title(data['title']))
+        page_header.add(meta(charset=data['charset']))
+        for content_meta in data['content-metas']:
+            page_header.add(meta(name=content_meta['name'], content=content_meta['content']))
+        for import_link in data['links']:
+            if import_link['type'] == 'css':
+                page_header.add(link(href=import_link['source'], rel='stylesheet', type='text/css'))
+            elif import_link['type'] == 'js':
+                page_header.add(script(href=import_link['source'], type='text/javascript'))
+            elif import_link['type'] == 'font':
+                page_header.add(link(href=import_link['source'], rel='stylesheet'))
+        self.html.add(page_header)
 
     def add_body(self):
         self.add_increment_to_html("<body>")
