@@ -6,6 +6,8 @@ from dominate.tags import *
 
 class webpage_generator:
     html = ""
+    body = ""
+    content_div = ""
     indent_level = 0
     headings = []
 
@@ -38,16 +40,9 @@ class webpage_generator:
 
     def add_body(self):
         self.add_increment_to_html("<body>")
-        self.add_increment_to_html("<div class=\"container\">")
-        self.add_increment_to_html("<div class=\"row\">")
-        self.add_increment_to_html("<div class=\"col m12 l10\">")
-        self.add_about_me("data/about-me.json")
-        self.add_education("data/education.json")
-        self.add_experience("data/experience.json")
-        self.add_skills("data/skills.json")
-        self.add_projects("data/projects.json")
-        self.add_timeline("data/timeline.json")
-        self.decrement_add_to_html("</div>")
+        self.body = body()
+        self.body.add(div(div(_class="row"), _class="container"))
+        self.add_body_content()
         self.add_increment_to_html("<div class=\"col hide-on-med-and-down l2\">")
         self.add_table_of_contents()
         self.decrement_add_to_html("</div>")
@@ -55,30 +50,69 @@ class webpage_generator:
         self.decrement_add_to_html("</div>")
         self.decrement_add_to_html("</body>")
 
+    def add_body_content(self):
+        self.content_div = div(_class="col m12 l10")
+        self.add_about_me("data/about-me.json")
+        self.add_education("data/education.json")
+        self.add_experience("data/experience.json")
+        self.add_skills("data/skills.json")
+        self.add_projects("data/projects.json")
+        self.add_timeline("data/timeline.json")
+        self.decrement_add_to_html("</div>")
+
     def add_about_me(self, file):
         data = read_json_file(file)
-        self.add_increment_to_html("<div id=\"about-me\" class=\"section scrollspy center-align\">")
-        self.append_to_html("<h1>Mohammad Ali Khan</h1>")
-        self.append_to_html("<img class=\"responsive-img circle\" src=\"img/" + data['picture'] + "\" alt=\"Picture of Ali\" >")
-        self.append_to_html("<br/>")
-        self.add_increment_to_html("<div id=\"social-network-icons\">")
-        for icon in data['social-icons']:
-            self.append_to_html(get_social_icon(icon))
-        self.decrement_add_to_html("</div>")
-        self.append_to_html("<p class =\"flow-text\">" + data['description'] + "</p>")
-        self.decrement_add_to_html("</div>")
+        about_me_div = div(id="about-me", _class="section scrollspy center-align")
+        about_me_div.add(h1("Mohammad Ali Khan"))
+        about_me_div.add(img(_class="responsive-img circle", src="img/" + data['picture'], alt="Picture of Ali"))
+        about_me_div.add(br())
+        about_me_div.add(self.get_social_media_icons(data['social-icons']))
+        about_me_div.add(p(data['description'], _class="flow-text"))
+        self.content_div.add(about_me_div)
         self.headings.append("About Me")
+
+    def get_social_media_icons(self, icons):
+        social_media_icons = div(_id="social-network-icons")
+        for icon in icons:
+            social_media_icons.add(self.get_social_icon(icon))
+        return social_media_icons
+
+    def get_social_icon(self, icon):
+        return a(img(_class="responsive-img icon", src="img/" + icon['image'], alt=icon['name']), href=icon['link'])
 
     def add_education(self, file):
         data = read_json_file(file)
-        self.add_div_and_heading(data['title'], data['icon'])
-        for education in data['educations']:
-            self.add_increment_to_html("<div class=\"education-instance\">")
-            self.append_to_html("<h3>" + education['education'] + "</h3>")
-            self.append_to_html("<h4>" + education['degree'] + " - " + education['grade'] + "</h4>")
-            self.add_footnotes(education['footnotes'])
-            self.decrement_add_to_html("</div>")
+        education_div = self.get_div_and_heading(data['title'], data['icon'])
+        education_div.add(self.get_educations_div(data['educations']))
         self.decrement_add_to_html("</div>")
+
+    def get_div_and_heading(self, section_title, icon):
+        section_div = div(id=section_title.lower(), _class="section scrollspy")
+        section_div.add(h2(section_title,i(icon, _class="material-icons heading-icon"), _class="section-heading"))
+        self.headings.append(section_title)
+        return section_div
+    
+    def get_educations_div(self, educations):
+        educations_div = div(_class="educations")
+        for education in educations:
+            educations_div.add(self.get_education_instance_div(education))
+        return educations_div
+
+    def get_education_instance_div(self, education):
+        education_instance_div = div(_class="education-instance")
+        education_instance_div.add(h3(education['education']))
+        education_instance_div.add(h4(education['degree'] + " - " + education['grade']))
+        self.add_footnotes(education['footnotes'])
+        self.decrement_add_to_html("</div>")
+
+    def get_footnotes(self, footnotes):
+        footnotes = div(_class="flext-list")
+        footnote_list = ul()
+        for footnote in footnotes:
+            self.append_to_html("<li>" + add_footnote(footnote) + "</li>")
+        self.decrement_add_to_html("</ul>")
+        self.decrement_add_to_html("</div>")
+        
 
     def add_experience(self, file):
         data = read_json_file(file)
@@ -199,10 +233,10 @@ class webpage_generator:
         self.append_to_html("<div id=\"chart\"></div>")
         self.decrement_add_to_html("</div>")
 
-    def add_div_and_heading(self, title, icon):
-        self.headings.append(title)
-        self.add_increment_to_html("<div id=\"" + title.lower() + "\" class=\"section scrollspy\">")
-        self.append_to_html("<h2 class=\"section-heading\" >" + title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h2>")
+    def add_div_and_heading(self, section_title, icon):
+        self.headings.append(section_title)
+        self.add_increment_to_html("<div id=\"" + section_title.lower() + "\" class=\"section scrollspy\">")
+        self.append_to_html("<h2 class=\"section-heading\" >" + section_title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h2>")
 
     def add_footnotes(self, footnotes):
         self.add_increment_to_html("<div class=\"flex-list\">")
