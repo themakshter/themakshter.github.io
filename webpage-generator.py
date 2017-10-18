@@ -84,7 +84,7 @@ class webpage_generator:
         data = read_json_file(file)
         education_div = self.get_div_and_heading(data['title'], data['icon'])
         education_div.add(self.get_educations_div(data['educations']))
-        self.decrement_add_to_html("</div>")
+        self.content_div.add(education_div)
 
     def get_div_and_heading(self, section_title, icon):
         section_div = div(id=section_title.lower(), _class="section scrollspy")
@@ -102,17 +102,54 @@ class webpage_generator:
         education_instance_div = div(_class="education-instance")
         education_instance_div.add(h3(education['education']))
         education_instance_div.add(h4(education['degree'] + " - " + education['grade']))
-        self.add_footnotes(education['footnotes'])
-        self.decrement_add_to_html("</div>")
+        education_instance_div.add(self.get_footnotes(education['footnotes']))
 
     def get_footnotes(self, footnotes):
         footnotes = div(_class="flext-list")
         footnote_list = ul()
         for footnote in footnotes:
-            self.append_to_html("<li>" + add_footnote(footnote) + "</li>")
-        self.decrement_add_to_html("</ul>")
-        self.decrement_add_to_html("</div>")
-        
+            footnote_list.add(self.get_footnote(footnote))
+        footnotes.add(footnote_list)
+
+    def get_footnote(self, footnote):
+        footnote_item = li()
+        icon_type = ""
+        text = ""
+        if footnote['type'] == 'time':
+            icon_type = "date_range"
+            text = get_date(footnote['time'])
+        elif footnote['type'] == 'location':
+            icon_type = "place"
+            text = get_location(footnote['location'])
+        elif footnote['type'] == 'link':
+            icon_type = "link"
+            text = get_link(footnote['link'])
+        elif footnote['type'] == 'code':
+            icon_type = "code"
+            text = get_link(footnote['code'])
+        elif footnote['type'] == 'documentation':
+            icon_type = "insert_drive_file"
+            text = get_link(footnote['documentation'])
+        elif footnote['type'] == 'video':
+            icon_type = "play_circle_filled"
+            text = get_link(footnote['video'])
+        footnote_item.add(i(icon_type, _class="material-icons"))
+        footnote_item.add(text)
+        return footnote_item
+
+    def get_date(self, date):
+        start_date = time.strptime(date['start'], "%Y-%m-%d")
+        text = time.strftime("%B %Y", start_date)
+        if 'end' in date:
+            end_date = time.strptime(date['end'], "%Y-%m-%d")
+            text += " to " + time.strftime("%B %Y", end_date)
+        return text
+
+    def get_location(self, location):
+        return location['city'] + ", " + location['country']
+
+    def get_link(self, web_link):
+        return a(web_link['title'], href=web_link['source'])
 
     def add_experience(self, file):
         data = read_json_file(file)
