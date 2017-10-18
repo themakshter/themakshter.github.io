@@ -103,6 +103,7 @@ class webpage_generator:
         education_instance_div.add(h3(education['education']))
         education_instance_div.add(h4(education['degree'] + " - " + education['grade']))
         education_instance_div.add(self.get_footnotes(education['footnotes']))
+        return education_instance_div
 
     def get_footnotes(self, footnotes):
         footnotes = div(_class="flext-list")
@@ -110,6 +111,7 @@ class webpage_generator:
         for footnote in footnotes:
             footnote_list.add(self.get_footnote(footnote))
         footnotes.add(footnote_list)
+        return footnotes
 
     def get_footnote(self, footnote):
         footnote_item = li()
@@ -153,18 +155,26 @@ class webpage_generator:
 
     def add_experience(self, file):
         data = read_json_file(file)
-        self.add_div_and_heading(data['title'], data['icon'])
+        experience_div = self.get_div_and_heading(data['title'], data['icon'])
+        experience_div.add(self.get_experiences_div(data['experiences']))
+        self.content_div.add(experience_div)
+
+    def get_experiences_div(self, experiences):
+        experiences_div = div(_class="experiences")
         count = 0
-        for experience in data['experiences']:
+        for experience in experiences:
             count += 1
-            self.add_increment_to_html("<div class =\"experience-instance\" >")
-            self.append_to_html("<h3>" + experience['company'] + "</h3>")
-            self.append_to_html("<h4>" + experience['position'] + "</h4>")
-            self.add_footnotes(experience['footnotes'])
-            self.decrement_add_to_html("</div>")
-            if(count != len(data['experiences'])):
-                self.append_to_html("<div class=\"divider\" ></div>")
-        self.decrement_add_to_html("</div>")
+            experiences_div.add(self.get_experience_instance_div(experience))
+            if(count != len(experiences)):
+                experiences_div.add(div(_class="divider"))
+        return experiences_div
+
+    def get_experience_instance_div(self, experience):
+        experience_instance_div = div(_class="experience-instance")
+        experience_instance_div.add(h3(experience['company']))
+        experience_instance_div.add(h4(experience['position']))
+        experience_instance_div.add(self.get_footnotes(experience['footnotes']))
+        return experience_instance_div
 
     def add_skills(self, file):
         data = read_json_file(file)
