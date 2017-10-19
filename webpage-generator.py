@@ -242,41 +242,68 @@ class webpage_generator:
 
     def add_projects(self, file):
         data = read_json_file(file)
-        self.add_div_and_heading(data['title'], data['icon'])
-        count = 0
-        for project in data['projects']:
-            if(count % 2 == 0):
-                self.add_increment_to_html("<div class=\"row\">")
-            self.add_increment_to_html("<div class=\"col m12 l6\">")
-            self.create_card_for_project(project)
-            self.decrement_add_to_html("</div>")
-            if(count % 2 == 1):
-                self.decrement_add_to_html("</div>")
-            count += 1
-        if(count % 2 != 0):
-            self.decrement_add_to_html("</div>")
-        self.decrement_add_to_html("</div>")
+        project_div = self.get_div_and_heading(data['title'], data['icon'])
+        project_div.add(self.get_projects(data['projects']))
+        self.content_div.add(project_div)
 
-    def create_card_for_project(self, project):
-        self.add_increment_to_html("<div class=\"card hoverable\">")
-        self.add_increment_to_html("<div class=\"card-image waves-effect waves-block waves-light\">")
-        self.append_to_html("<img class=\"activator\" src=\" " + project['image'] + " \">")
-        self.decrement_add_to_html("</div>")
-        self.add_increment_to_html("<div class=\"card-content\">")
-        self.add_increment_to_html("<span class=\"card-title activator grey-text text-darken-4\">")
-        self.append_to_html("<b>" + project['name'] + "</b><i class=\"material-icons right\">more_vert</i>")
-        self.decrement_add_to_html("</span>")
-        for tag in project['tags']:
-            self.create_tag(tag)
-        self.decrement_add_to_html("</div>")
-        self.add_increment_to_html("<div class=\"card-action\">")
-        self.add_footnotes(project['footnotes'])
-        self.decrement_add_to_html("</div>")
-        self.add_increment_to_html("<div class=\"card-reveal\">")
-        self.append_to_html("<span class=\"card-title grey-text text-darken-4\"><b>" + project['name'] + "</b><i class=\"material-icons right\">close</i></span>")
-        self.append_to_html("<p>" + project['description'] + "</p>")
-        self.decrement_add_to_html("</div>")
-        self.decrement_add_to_html("</div>")
+    def get_projects(self, projects):
+        projects_div = div(_class="projects")
+        count = 0
+        project_row = ""
+        for project in projects:
+            if(count % 2 == 0):
+                projects_div.add(project_row)
+                project_row = div(_class="row")
+            project_column = div(_class="col m12 l6")
+            project_column.add(self.get_project_card(project))
+            project_row.add(project_column)
+            count += 1 
+        return projects_div
+
+    def get_project_card(self, project):
+        project_card = div(_class="card hoverable")
+        project_card.add(self.get_card_activator(project['image']))
+        project_card.add(self.get_card_content(project['name'], project['tags']))
+        project_card.add(self.get_card_action(project['footnotes']))
+        project_card.add(self.get_card_reveal(project['name'], project['description']))
+        return project_card
+
+    def get_card_activator(self, image):
+        activator_div = div(_class="card-image waves-effect waves-block waves-light")
+        activator_div.add(img(src=image, _class="activator"))
+        return activator_div
+
+    def get_card_content(self, name, tags):
+        card_content_div = div(_class="card-content")
+        card_content_div.add(self.get_card_title_span(name, "more_vert"))
+        card_content_div.add(self.get_project_tags(tags))
+        return card_content_div
+
+    def get_card_title_span(self, name, icon):
+        card_title_span = span(_class="card-title activator grey-text text-darken-4")
+        card_title_span.add(b(name))
+        card_title_span.add(i(icon,_class="material-icons right"))
+        return card_title_span
+
+    def get_project_tags(self, tags):
+        project_tags_divs = div(_class="project-tags")
+        for tag in tags:
+            project_tags_divs.add(self.get_project_tag(tag))
+        return project_tags_divs
+    
+    def get_project_tag(self, tag):
+        return  div(tag['tag'], _class="chip " + tag['type'].lower())
+
+    def get_card_action(self, footnotes):
+        card_action_div = div(_class="card-action")
+        card_action_div.add(self.get_footnotes(footnotes))
+        return card_action_div
+
+    def get_card_reveal(self, name, description):
+        card_reveal_div = div(_class="card-reveal")
+        card_reveal_div.add(self.get_card_title_span(name, "close"))
+        card_reveal_div.add(p(description))
+        return card_reveal_div
 
     def create_tag(self, tag):
         self.add_increment_to_html("<div class=\"chip " + tag['type'].lower() + "\">")
@@ -284,7 +311,6 @@ class webpage_generator:
         self.decrement_add_to_html("</div>")
 
     def add_timeline(self, file):
-        global html
         data = read_json_file(file)
         self.add_div_and_heading(data['title'], data['icon'])
         self.append_to_html("<p> " + data['description'] + " </p>")
