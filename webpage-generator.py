@@ -178,56 +178,67 @@ class webpage_generator:
 
     def add_skills(self, file):
         data = read_json_file(file)
-        self.add_div_and_heading(data['title'], data['icon'])
+        skills_div = self.get_div_and_heading(data['title'], data['icon'])
+        skills_div.add(self.get_skills_div(data['sections']))
+        self.content_div.add(skills_div)
+
+    def get_skills_div(self, sections):
+        skills_div = div(_class="skills")
         count = 0
-        for section in data['sections']:
+        skills_row = ""
+        skills_column = ""
+        for skills_section in sections:
             if(count % 2 == 0):
-                self.add_increment_to_html("<div class=\"row\">")
+                skills_div.add(skills_row)
+                skills_row = div(_class="row")
             if(count == 2):
-                self.add_increment_to_html("<div class=\"col m12 l8 offset-l2\">")
+                skills_column = div(_class="col m12 l8 offset-l2")
             else:
-                self.add_increment_to_html("<div class=\"col m12 l6\">")
-            self.add_section_data(section)
-            self.decrement_add_to_html("</div>")
-            if(count % 2 == 1):
-                self.decrement_add_to_html("</div>")
+                skills_column = div(_class="col m12 l6")
+            skills_column.add(self.get_skills_section_instance(skills_section))
+            skills_row.add(skills_column)
             count += 1
-        if(count % 2 != 0):
-            self.decrement_add_to_html("</div>")
-        self.decrement_add_to_html("</div>")
+        return skills_div
 
-    def add_section_data(self, section):
-        self.add_increment_to_html("<div class=\"skill-section\">")
-        self.append_to_html("<h4>" + section['title'] + "</h4>")
-        self.add_increment_to_html("<ul class=\"skill-list\" >")
-        for rating in section['ratings']:
-            self.add_increment_to_html("<li class=\"skill-item\">")
-            self.add_rating(rating)
-            self.decrement_add_to_html("</li>")
-        self.decrement_add_to_html("</ul>")
-        self.decrement_add_to_html("</div>")
+    def get_skills_section_instance(self, skill_section):
+        skill_section_instance_div = div(_class="skill-section")
+        skill_section_instance_div.add(h4(skill_section[title]))
+        skill_section_instance_div.add(self.get_skills_section_skill_list(skill_section['ratings']))
+        return skill_section_instance_div
 
-    def add_rating(self, rating):
-        self.add_increment_to_html("<div class=\"row valign-wrapper\" >")
-        self.add_increment_to_html("<div class=\"col s6 left-align\" >")
-        self.append_to_html("<h5> " + rating['skill'] + " </h5>")
-        self.decrement_add_to_html("</div>")
-        self.add_increment_to_html("<div class=\"col s6 stars centre-align\" >")
-        self.get_rating_level(float(rating['rating']))
-        self.decrement_add_to_html("</div>")
-        self.decrement_add_to_html("</div>")
+    def get_skills_section_skill_list(self, ratings):
+        skill_list = ul(_class="skill-list")
+        for rating in ratings:
+            skill_item = li(_class="skill-item")
+            skill_item.add(self.get_skill_item(rating))
+            skill_list.add(skill_item)
+        return skill_list
 
-    def get_rating_level(self, rating):
+    def get_skill_item(self, rating):
+        skill_item_div = div(_class="row valign-wrapper")
+        heading_column = div(_class="col s6 left-align")
+        heading_column.add(h5(rating['skill']))
+        skill_item_div.add(heading_column)
+        rating_column = div(_class="col s6 starts centre-align")
+        rating_column.add(self.get_rating(float(rating['rating'])))
+        skill_item_div.add(rating_column)
+        return skill_item_div
+
+    def get_rating(self, rating):
+        rating_div = div(_class="rating")
         full_stars = math.floor(rating / 1)
         half_stars = math.ceil(rating % 1)
         empty_stars = 5 - full_stars - half_stars
-        self.get_stars(full_stars, "star")
-        self.get_stars(half_stars, "star_half")
-        self.get_stars(empty_stars, "star_border")
+        rating_div.add(self.get_stars(full_stars, "star"))
+        rating_div.add(self.get_stars(half_stars, "star_half"))
+        rating_div.add(self.get_stars(empty_stars, "star_border"))
+        return rating_div
 
     def get_stars(self, number, icon):
-        for i in range(number):
-            self.append_to_html("<i class=\"small material-icons\">" + icon + "</i>")
+        stars_div = div(_class="stars")
+        for index in range(number):
+            stars_div += i(icon, _class="small material-icons")
+        return stars_div
 
     def add_projects(self, file):
         data = read_json_file(file)
