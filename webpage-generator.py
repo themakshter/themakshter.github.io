@@ -6,7 +6,6 @@ from dominate.tags import *
 
 class webpage_generator:
     html = ""
-    body = ""
     content_div = ""
     indent_level = 0
     headings = []
@@ -40,16 +39,15 @@ class webpage_generator:
 
     def add_body(self):
         self.add_increment_to_html("<body>")
-        self.body = body()
-        self.body.add(div(div(_class="row"), _class="container"))
+        page_body = body()
+        container_row = div(_class="row")
         self.add_body_content()
-        self.add_increment_to_html("<div class=\"col hide-on-med-and-down l2\">")
+        container_row.add(self.content_div)
         self.add_table_of_contents()
-        self.decrement_add_to_html("</div>")
-        self.decrement_add_to_html("</div>")
-        self.decrement_add_to_html("</div>")
-        self.decrement_add_to_html("</body>")
-
+        container_row.add(self.toc_div)
+        page_body.add(div(container_row, _class="container"))
+        self.html.add(page_body)
+        
     def add_body_content(self):
         self.content_div = div(_class="col m12 l10")
         self.add_about_me("data/about-me.json")
@@ -58,7 +56,10 @@ class webpage_generator:
         self.add_skills("data/skills.json")
         self.add_projects("data/projects.json")
         self.add_timeline("data/timeline.json")
-        self.decrement_add_to_html("</div>")
+    
+    def add_table_of_contents(self):
+        self.toc_div = div(_class="col hide-on-med-and-down l2")
+        self.toc_div.add(self.get_table_of_contents())
 
     def add_about_me(self, file):
         data = read_json_file(file)
@@ -341,14 +342,22 @@ class webpage_generator:
     def append_to_html(self, text):
         self.html += get_indentation(self.indent_level) + text
 
-    def add_table_of_contents(self):
-        self.add_increment_to_html("<div class=\"toc-wrapper\">")
-        self.add_increment_to_html("<ul class=\"section table-of-contents\">")
-        for heading in self.headings:
-            heading_id = heading.replace(' ', '-').lower()
-            self.append_to_html("<li><a href=\"#" + heading_id + "\">" + heading + "</a><li>")
-        self.decrement_add_to_html("</ul>")
-        self.decrement_add_to_html("</div>")
+    def get_table_of_contents(self):
+        toc_div = div(_class="toc-wrapper")
+        toc_div.add(self.get_toc_list(self.headings))
+        return toc_div
+
+    def get_toc_list(self, headings):
+        toc_list = ul(_class="section table-of-contents")
+        for heading in headings:
+            toc_list.add(self.get_toc_item(heading))
+    
+    def get_toc_item(self, heading):
+        heading_id = self.get_heading_item_id(heading)
+        return li(a(heading, href="#"+heading_id))
+
+    def get_heading_item_id(self, heading):
+        return heading.replace(' ', '-').lower()
 
 
 def get_indentation(indent_level):
