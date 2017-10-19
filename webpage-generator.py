@@ -312,10 +312,10 @@ class webpage_generator:
 
     def add_timeline(self, file):
         data = read_json_file(file)
-        self.add_div_and_heading(data['title'], data['icon'])
-        self.append_to_html("<p> " + data['description'] + " </p>")
-        self.append_to_html("<div id=\"chart\"></div>")
-        self.decrement_add_to_html("</div>")
+        timeline_div = self.get_div_and_heading(data['title'], data['icon'])
+        timeline_div.add(p(data['description']))
+        timeline_div.add(div(id="chart"))
+        self.content_div.add(timeline_div)
 
     def add_div_and_heading(self, section_title, icon):
         self.headings.append(section_title)
