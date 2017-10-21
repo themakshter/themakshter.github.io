@@ -431,7 +431,7 @@ def get_location(location):
 
 
 def get_link(link):
-    return "<a href=\"" + link['source'] + "\" > " + link['title'] + " </a>"
+    return a(link['title'], href=link['source'])
 
 
 webpage_generator()
