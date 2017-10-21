@@ -39,27 +39,27 @@ class webpage_generator:
     def add_body(self):
         page_body = body()
         container_row = div(_class="row")
-        self.add_body_content()
-        container_row.add(self.content_div)
-        self.add_table_of_contents()
-        container_row.add(self.toc_div)
+        container_row.add(self.get_body_content())
+        container_row.add(self.get_table_of_contents())
         page_body.add(div(container_row, _class="container"))
         self.html.add(page_body)
         
-    def add_body_content(self):
-        self.content_div = div(_class="col m12 l10")
-        self.add_about_me("data/about-me.json")
-        self.add_education("data/education.json")
-        self.add_experience("data/experience.json")
-        self.add_skills("data/skills.json")
-        self.add_projects("data/projects.json")
-        self.add_timeline("data/timeline.json")
+    def get_body_content(self):
+        content_div = div(_class="col m12 l10")
+        content_div.add(self.get_about_me("data/about-me.json"))
+        content_div.add(self.get_education("data/education.json"))
+        content_div.add(self.get_experience("data/experience.json"))
+        content_div.add(self.get_skills("data/skills.json"))
+        content_div.add(self.get_projects_section("data/projects.json"))
+        content_div.add(self.get_timeline("data/timeline.json"))
+        return content_div
     
-    def add_table_of_contents(self):
-        self.toc_div = div(_class="col hide-on-med-and-down l2")
-        self.toc_div.add(self.get_table_of_contents())
+    def get_table_of_contents(self):
+        toc_div = div(_class="col hide-on-med-and-down l2")
+        toc_div.add(self.get_table_of_contents_wrapper())
+        return toc_div
 
-    def add_about_me(self, file):
+    def get_about_me(self, file):
         data = read_json_file(file)
         about_me_div = div(id="about-me", _class="section scrollspy center-align")
         about_me_div.add(h1("Mohammad Ali Khan"))
@@ -67,8 +67,8 @@ class webpage_generator:
         about_me_div.add(br())
         about_me_div.add(self.get_social_media_icons(data['social-icons']))
         about_me_div.add(p(data['description'], _class="flow-text"))
-        self.content_div.add(about_me_div)
         self.headings.append("About Me")
+        return about_me_div
 
     def get_social_media_icons(self, icons):
         social_media_icons = div(_id="social-network-icons")
@@ -79,11 +79,11 @@ class webpage_generator:
     def get_social_icon(self, icon):
         return a(img(_class="responsive-img icon", src="img/" + icon['image'], alt=icon['name']), href=icon['link'])
 
-    def add_education(self, file):
+    def get_education(self, file):
         data = read_json_file(file)
         education_div = self.get_div_and_heading(data['title'], data['icon'])
         education_div.add(self.get_educations_div(data['educations']))
-        self.content_div.add(education_div)
+        return education_div
 
     def get_div_and_heading(self, section_title, icon):
         section_div = div(id=section_title.lower(), _class="section scrollspy")
@@ -152,11 +152,11 @@ class webpage_generator:
     def get_link(self, web_link):
         return a(web_link['title'], href=web_link['source'])
 
-    def add_experience(self, file):
+    def get_experience(self, file):
         data = read_json_file(file)
         experience_div = self.get_div_and_heading(data['title'], data['icon'])
         experience_div.add(self.get_experiences_div(data['experiences']))
-        self.content_div.add(experience_div)
+        return experience_div
 
     def get_experiences_div(self, experiences):
         experiences_div = div(_class="experiences")
@@ -175,11 +175,11 @@ class webpage_generator:
         experience_instance_div.add(self.get_footnotes(experience['footnotes']))
         return experience_instance_div
 
-    def add_skills(self, file):
+    def get_skills(self, file):
         data = read_json_file(file)
         skills_div = self.get_div_and_heading(data['title'], data['icon'])
         skills_div.add(self.get_skills_div(data['sections']))
-        self.content_div.add(skills_div)
+        return skills_div
 
     def get_skills_div(self, sections):
         skills_div = div(_class="skills")
@@ -240,11 +240,11 @@ class webpage_generator:
             stars_div += i(icon, _class="small material-icons")
         return stars_div
 
-    def add_projects(self, file):
+    def get_projects_section(self, file):
         data = read_json_file(file)
         project_div = self.get_div_and_heading(data['title'], data['icon'])
         project_div.add(self.get_projects(data['projects']))
-        self.content_div.add(project_div)
+        return project_div
 
     def get_projects(self, projects):
         projects_div = div(_class="projects")
@@ -311,12 +311,12 @@ class webpage_generator:
         self.append_to_html(tag['tag'])
         self.decrement_add_to_html("</div>")
 
-    def add_timeline(self, file):
+    def get_timeline(self, file):
         data = read_json_file(file)
         timeline_div = self.get_div_and_heading(data['title'], data['icon'])
         timeline_div.add(p(data['description']))
         timeline_div.add(div(id="chart"))
-        self.content_div.add(timeline_div)
+        return timeline_div
 
     def add_div_and_heading(self, section_title, icon):
         self.headings.append(section_title)
@@ -342,7 +342,7 @@ class webpage_generator:
     def append_to_html(self, text):
         self.html += get_indentation(self.indent_level) + text
 
-    def get_table_of_contents(self):
+    def get_table_of_contents_wrapper(self):
         toc_div = div(_class="toc-wrapper")
         toc_div.add(self.get_toc_list(self.headings))
         return toc_div
