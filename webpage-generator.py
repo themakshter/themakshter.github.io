@@ -14,11 +14,11 @@ class webpage_generator:
         self.generate_website()
 
     def generate_website(self):
-        self.html += html()
+        self.html = html()
         self.add_headers("data/headers.json")
         self.add_body()
         self.decrement_add_to_html("<html>")
-        write_to_file(self.html)
+        write_to_file(self.html.render())
         print(self.html)
 
     def add_headers(self, file):
@@ -203,7 +203,7 @@ class webpage_generator:
 
     def get_skills_section_instance(self, skill_section):
         skill_section_instance_div = div(_class="skill-section")
-        skill_section_instance_div.add(h4(skill_section[title]))
+        skill_section_instance_div.add(h4(skill_section['title']))
         skill_section_instance_div.add(self.get_skills_section_skill_list(skill_section['ratings']))
         return skill_section_instance_div
 
@@ -351,6 +351,7 @@ class webpage_generator:
         toc_list = ul(_class="section table-of-contents")
         for heading in headings:
             toc_list.add(self.get_toc_item(heading))
+        return toc_list
     
     def get_toc_item(self, heading):
         heading_id = self.get_heading_item_id(heading)
