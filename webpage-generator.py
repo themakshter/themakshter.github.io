@@ -31,7 +31,7 @@ class webpage_generator:
             if import_link['type'] == 'css':
                 page_header.add(link(href=import_link['source'], rel='stylesheet', type='text/css'))
             elif import_link['type'] == 'js':
-                page_header.add(script(href=import_link['source'], type='text/javascript'))
+                page_header.add(script(src=import_link['source'], type='text/javascript'))
             elif import_link['type'] == 'font':
                 page_header.add(link(href=import_link['source'], rel='stylesheet'))
         self.html.add(page_header)
