@@ -318,30 +318,6 @@ class webpage_generator:
         timeline_div.add(div(id="chart"))
         return timeline_div
 
-    def add_div_and_heading(self, section_title, icon):
-        self.headings.append(section_title)
-        self.add_increment_to_html("<div id=\"" + section_title.lower() + "\" class=\"section scrollspy\">")
-        self.append_to_html("<h2 class=\"section-heading\" >" + section_title + "<i class=\"material-icons heading-icon\" >" + icon + "</i></h2>")
-
-    def add_footnotes(self, footnotes):
-        self.add_increment_to_html("<div class=\"flex-list\">")
-        self.add_increment_to_html("<ul>")
-        for footnote in footnotes:
-            self.append_to_html("<li>" + add_footnote(footnote) + "</li>")
-        self.decrement_add_to_html("</ul>")
-        self.decrement_add_to_html("</div>")
-
-    def add_increment_to_html(self, text):
-        self.append_to_html(text)
-        self.indent_level += 1
-
-    def decrement_add_to_html(self, text):
-        self.indent_level -= 1
-        self.append_to_html(text)
-
-    def append_to_html(self, text):
-        self.html += get_indentation(self.indent_level) + text
-
     def get_table_of_contents_wrapper(self):
         toc_div = div(_class="toc-wrapper")
         toc_div.add(self.get_toc_list(self.headings))
@@ -360,64 +336,15 @@ class webpage_generator:
     def get_heading_item_id(self, heading):
         return heading.replace(' ', '-').lower()
 
-
-def get_indentation(indent_level):
-    return "\n" + ("\t" * indent_level)
-
-
 def write_to_file(text):
     file = open("index.html", 'w+')
     file.write(text)
 
-
 def get_meta_tag(name, content):
     return "<meta name\"" + name + "\" content=\"" + content + "\" />"
 
-
 def read_json_file(filename):
     return json.loads(open(filename).read())
-
-
-def get_css_link(src):
-    return "<link href=\"" + src + "\" rel=\"stylesheet\" type=\"text/css\" />"
-
-
-def get_js_link(src):
-    return "<script src=\"" + src + "\"></script>"
-
-
-def get_font_link(src):
-    return "<link href=\"" + src + "\" rel=\"stylesheet\" />"
-
-
-def get_social_icon(icon):
-    return "<a href=\"" + icon['link'] + "\"><img class=\"responsive-img icon\" src=\"img/" + icon['image'] + " \" alt=\"" + icon['name'] + "\" ></a>"
-
-
-def add_footnote(footnote):
-    html = "<i class=\"material-icons\" >"
-    text = ""
-    if footnote['type'] == 'time':
-        html += "date_range"
-        text += get_date(footnote['time'])
-    elif footnote['type'] == 'location':
-        html += "place"
-        text += get_location(footnote['location'])
-    elif footnote['type'] == 'link':
-        html += "link"
-        text += get_link(footnote['link'])
-    elif footnote['type'] == 'code':
-        html += "code"
-        text += get_link(footnote['code'])
-    elif footnote['type'] == 'documentation':
-        html += "insert_drive_file"
-        text += get_link(footnote['documentation'])
-    elif footnote['type'] == 'video':
-        html += "play_circle_filled"
-        text += get_link(footnote['video'])
-    html += "</i>" + text
-    return html
-
 
 def get_date(date):
     start_date = time.strptime(date['start'], "%Y-%m-%d")
@@ -427,10 +354,8 @@ def get_date(date):
         text += " to " + time.strftime("%B %Y", end_date)
     return text
 
-
 def get_location(location):
     return location['city'] + ", " + location['country']
-
 
 def get_link(link):
     return a(link['title'], href=link['source'])
