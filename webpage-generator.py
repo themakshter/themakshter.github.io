@@ -17,7 +17,6 @@ class webpage_generator:
         self.html = html()
         self.add_headers("data/headers.json")
         self.add_body()
-        self.decrement_add_to_html("<html>")
         write_to_file(self.html.render())
         print(self.html)
 

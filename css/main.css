@@ -109,3 +109,7 @@ p {
 .tool{
   background-color: #a1887f;
 }
+
+.stars{
+  display: inline;
+}
