@@ -5,9 +5,6 @@ import dominate
 from dominate.tags import *
 
 class webpage_generator:
-    html = ""
-    content_div = ""
-    indent_level = 0
     headings = []
 
     def __init__(self):
@@ -305,11 +302,6 @@ class webpage_generator:
         card_reveal_div.add(self.get_card_title_span(name, "close"))
         card_reveal_div.add(p(description))
         return card_reveal_div
-
-    def create_tag(self, tag):
-        self.add_increment_to_html("<div class=\"chip " + tag['type'].lower() + "\">")
-        self.append_to_html(tag['tag'])
-        self.decrement_add_to_html("</div>")
 
     def get_timeline(self, file):
         data = read_json_file(file)
