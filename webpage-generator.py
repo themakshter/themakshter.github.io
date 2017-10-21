@@ -188,7 +188,6 @@ class webpage_generator:
         skills_column = ""
         for skills_section in sections:
             if(count % 2 == 0):
-                skills_div.add(skills_row)
                 skills_row = div(_class="row")
             if(count == 2):
                 skills_column = div(_class="col m12 l8 offset-l2")
@@ -196,6 +195,8 @@ class webpage_generator:
                 skills_column = div(_class="col m12 l6")
             skills_column.add(self.get_skills_section_instance(skills_section))
             skills_row.add(skills_column)
+            if(count % 2 == 0):
+                skills_div.add(skills_row)
             count += 1
         return skills_div
 
@@ -251,11 +252,12 @@ class webpage_generator:
         project_row = ""
         for project in projects:
             if(count % 2 == 0):
-                projects_div.add(project_row)
                 project_row = div(_class="row")
             project_column = div(_class="col m12 l6")
             project_column.add(self.get_project_card(project))
             project_row.add(project_column)
+            if(count % 2 == 0):
+                projects_div.add(project_row)
             count += 1 
         return projects_div
 
