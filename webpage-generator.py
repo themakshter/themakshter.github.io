@@ -37,7 +37,6 @@ class webpage_generator:
         self.html.add(page_header)
 
     def add_body(self):
-        self.add_increment_to_html("<body>")
         page_body = body()
         container_row = div(_class="row")
         self.add_body_content()
@@ -106,12 +105,12 @@ class webpage_generator:
         return education_instance_div
 
     def get_footnotes(self, footnotes):
-        footnotes = div(_class="flext-list")
+        footnotes_list_div = div(_class="flex-list")
         footnote_list = ul()
         for footnote in footnotes:
             footnote_list.add(self.get_footnote(footnote))
-        footnotes.add(footnote_list)
-        return footnotes
+        footnotes_list_div.add(footnote_list)
+        return footnotes_list_div
 
     def get_footnote(self, footnote):
         footnote_item = li()
