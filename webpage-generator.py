@@ -404,7 +404,7 @@ class ProjectCard(HtmlWidget):
 
     def __get_card_reveal(self, name, description):
         with div(_class="card-reveal") as card_reveal_div:
-            self.get___card_title_span(name, "close")
+            self.__get_card_title_span(name, "close")
             p(description)
         return card_reveal_div
 
@@ -425,28 +425,27 @@ class Footnotes(HtmlWidget):
 
     def __get_footnote(self, footnote):
         footnote_item = li()
-        icon_type = ""
-        text = ""
-        if footnote['type'] == 'time':
-            icon_type = "date_range"
-            text = get_date(footnote['time'])
-        elif footnote['type'] == 'location':
-            icon_type = "place"
-            text = get_location(footnote['location'])
-        elif footnote['type'] == 'link':
-            icon_type = "link"
-            text = get_link(footnote['link'])
-        elif footnote['type'] == 'code':
-            icon_type = "code"
-            text = get_link(footnote['code'])
-        elif footnote['type'] == 'documentation':
-            icon_type = "insert_drive_file"
-            text = get_link(footnote['documentation'])
-        elif footnote['type'] == 'video':
-            icon_type = "play_circle_filled"
-            text = get_link(footnote['video'])
-        footnote_item.add(i(icon_type, _class="material-icons"))
-        footnote_item.add(text)
+        footnote_item.add(self.__get_footnote_icon(footnote['type']))
+        footnote_item.add(self.__get_footnote_text(footnote))
         return footnote_item
+
+    def __get_footnote_icon(self, footnote_type):
+        icons = {
+            'time' : "date_range",
+            'location' : "place",
+            'link' : "link",
+            'code' : "code",
+            'documentation' : "insert_drive_file",
+            'video' : "play_circle_filled"
+        }
+        return i(icons[footnote_type], _class="material-icons")
+
+    def __get_footnote_text(self, footnote):
+        if footnote['type'] == 'time':
+            return  get_date(footnote['time'])
+        elif footnote['type'] == 'location':
+            return  get_location(footnote['location'])
+        else:
+            return  get_link(footnote[footnote['type']])
 
 WebpageGenerator()
