@@ -4,7 +4,7 @@ import math
 import dominate
 from dominate.tags import *
 
-class webpage_generator:
+class WebpageGenerator:
     headings = []
 
     def __init__(self):
@@ -348,4 +348,58 @@ def get_link(link):
     return a(link['title'], href=link['source'])
 
 
-webpage_generator()
+class ProjectCard:
+    
+    def __init__(self, project):
+        self.project = project
+
+    def get_html(self):
+        return self.__get_project_card(self.project)
+
+    def __get_project_card(self, project):
+        with div(_class="card hoverable") as project_card:
+            self.__get_card_activator(project['image'])
+            self.__get_card_content(project['name'], project['tags'])
+            self.__get_card_action(project['footnotes'])
+            self.__get_card_reveal(project['name'], project['description'])
+        return project_card
+
+    def __get_card_activator(self, image):
+        activator_div = div(_class="card-image waves-effect waves-block waves-light")
+        activator_div.add(img(src=image, _class="activator"))
+        return activator_div
+
+    def __get_card_content(self, name, tags):
+        with div(_class="card-content") as card_content_div:
+            self.__get_card_title_span(name, "more_vert")
+            self.__get_project_tags(tags)
+        return card_content_div
+
+    def __get_card_title_span(self, name, icon):
+        with span(_class="card-title activator grey-text text-darken-4") as card_title_span:
+            b(name)
+            i(icon,_class="material-icons right")
+        return card_title_span
+
+    def __get_project_tags(self, tags):
+        with div(_class="project-tags") as project_tags_divs:
+            for tag in tags:
+                self.__get_project_tag(tag)
+        return project_tags_divs
+    
+    def __get_project_tag(self, tag):
+        return  div(tag['tag'], _class="chip " + tag['type'].lower())
+
+    def __get_card_action(self, footnotes):
+        card_action_div = div(_class="card-action")
+        card_action_div.add(self.get_footnotes(footnotes))
+        return card_action_div
+
+    def __get_card_reveal(self, name, description):
+        with div(_class="card-reveal") as card_reveal_div:
+            self.get___card_title_span(name, "close")
+            p(description)
+        return card_reveal_div
+
+
+WebpageGenerator()
