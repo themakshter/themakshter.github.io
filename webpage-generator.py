@@ -452,10 +452,24 @@ class Footnote(HtmlWidget):
 
     def __get_footnote_text(self, footnote):
         if footnote['type'] == 'time':
-            return  get_date(footnote['time'])
+            return  self.__get_date(footnote['time'])
         elif footnote['type'] == 'location':
-            return  get_location(footnote['location'])
+            return  self.__get_location(footnote['location'])
         else:
-            return  get_link(footnote[footnote['type']])
+            return  self.__get_link(footnote[footnote['type']])
+
+    def __get_date(self, date):
+        start_date = time.strptime(date['start'], "%Y-%m-%d")
+        text = time.strftime("%B %Y", start_date)
+        if 'end' in date:
+            end_date = time.strptime(date['end'], "%Y-%m-%d")
+            text += " to " + time.strftime("%B %Y", end_date)
+        return text
+
+    def __get_location(self, location):
+        return location['city'] + ", " + location['country']
+
+    def __get_link(self, link):
+        return a(link['title'], href=link['source'])
 
 WebpageGenerator()
