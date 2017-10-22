@@ -420,8 +420,18 @@ class Footnotes(HtmlWidget):
         with div(_class="flex-list") as footnotes_list_div:
             with ul():
                 for footnote in footnotes:
-                    self.__get_footnote(footnote)
+                    Footnote(footnote).get_html()
         return footnotes_list_div
+
+
+
+class Footnote(HtmlWidget):
+
+    def __init__(self, footnote):
+        self.footnote = footnote
+
+    def get_html(self):
+        return self.__get_footnote(self.footnote)
 
     def __get_footnote(self, footnote):
         footnote_item = li()
