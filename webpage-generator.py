@@ -11,13 +11,13 @@ class webpage_generator:
         self.generate_website()
 
     def generate_website(self):
-        self.html = html()
-        self.add_headers("data/headers.json")
-        self.add_body()
-        write_to_file(self.html.render())
-        print(self.html)
+        with html() as page_html:
+            self.get_headers("data/headers.json")
+            self.get_body()
+        write_to_file(page_html.render())
+        print(page_html)
 
-    def add_headers(self, file):
+    def get_headers(self, file):
         header_data = read_json_file(file)
         with head() as page_header:
             title(header_data['title'])
@@ -31,15 +31,15 @@ class webpage_generator:
                     script(src=import_link['source'], type='text/javascript')
                 elif import_link['type'] == 'font':
                     link(href=import_link['source'], rel='stylesheet')
-        self.html.add(page_header)
+        return page_header
 
-    def add_body(self):
+    def get_body(self):
         page_body = body()
         container_row = div(_class="row")
         container_row.add(self.get_body_content())
         container_row.add(self.get_table_of_contents())
         page_body.add(div(container_row, _class="container"))
-        self.html.add(page_body)
+        return page_body
         
     def get_body_content(self):
         content_div = div(_class="col m12 l10")
