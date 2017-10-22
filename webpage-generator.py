@@ -104,7 +104,7 @@ class WebpageGenerator:
         with div(_class="education-instance") as education_instance_div:
             h3(education['education'])
             h4(education['degree'] + " - " + education['grade'])
-            self.get_footnotes(education['footnotes'])
+            Footnotes(education['footnotes']).get_html()
         return education_instance_div
 
     def get_footnotes(self, footnotes):
@@ -174,7 +174,7 @@ class WebpageGenerator:
         with div(_class="experience-instance") as experience_instance_div:
             h3(experience['company'])
             h4(experience['position'])
-            self.get_footnotes(experience['footnotes'])
+            Footnotes(experience['footnotes']).get_html()
         return experience_instance_div
 
     def get_skills(self, file):
@@ -253,7 +253,7 @@ class WebpageGenerator:
             if(count % 2 == 0):
                 project_row = div(_class="row")
             project_column = div(_class="col m12 l6")
-            project_column.add(self.get_project_card(project))
+            project_column.add(ProjectCard(project).get_html())
             project_row.add(project_column)
             if(count % 2 == 0):
                 projects_div.add(project_row)
@@ -399,7 +399,7 @@ class ProjectCard(HtmlWidget):
 
     def __get_card_action(self, footnotes):
         card_action_div = div(_class="card-action")
-        card_action_div.add(self.get_footnotes(footnotes))
+        card_action_div.add(Footnotes(footnotes).get_html())
         return card_action_div
 
     def __get_card_reveal(self, name, description):
