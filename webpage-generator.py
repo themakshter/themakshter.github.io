@@ -67,9 +67,9 @@ class webpage_generator:
         return about_me_div
 
     def get_social_media_icons(self, icons):
-        social_media_icons = div(_id="social-network-icons")
-        for icon in icons:
-            social_media_icons.add(self.get_social_icon(icon))
+        with div(_id="social-network-icons") as social_media_icons:
+            for icon in icons:
+                social_media_icons.add(self.get_social_icon(icon))
         return social_media_icons
 
     def get_social_icon(self, icon):
@@ -94,18 +94,17 @@ class webpage_generator:
         return educations_div
 
     def get_education_instance_div(self, education):
-        education_instance_div = div(_class="education-instance")
-        education_instance_div.add(h3(education['education']))
-        education_instance_div.add(h4(education['degree'] + " - " + education['grade']))
-        education_instance_div.add(self.get_footnotes(education['footnotes']))
+        with div(_class="education-instance") as education_instance_div:
+            h3(education['education'])
+            h4(education['degree'] + " - " + education['grade'])
+            self.get_footnotes(education['footnotes'])
         return education_instance_div
 
     def get_footnotes(self, footnotes):
-        footnotes_list_div = div(_class="flex-list")
-        footnote_list = ul()
-        for footnote in footnotes:
-            footnote_list.add(self.get_footnote(footnote))
-        footnotes_list_div.add(footnote_list)
+        with div(_class="flex-list") as footnotes_list_div:
+            with ul():
+                for footnote in footnotes:
+                    self.get_footnote(footnote)
         return footnotes_list_div
 
     def get_footnote(self, footnote):
