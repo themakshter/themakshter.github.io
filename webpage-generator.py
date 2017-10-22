@@ -34,21 +34,20 @@ class webpage_generator:
         return page_header
 
     def get_body(self):
-        page_body = body()
-        container_row = div(_class="row")
-        container_row.add(self.get_body_content())
-        container_row.add(self.get_table_of_contents())
-        page_body.add(div(container_row, _class="container"))
-        return page_body
+        container = div(_class="container")
+        with container.add(div(_class="row")):
+            self.get_body_content()
+            self.get_table_of_contents()
+        return body(container)
         
     def get_body_content(self):
-        content_div = div(_class="col m12 l10")
-        content_div.add(self.get_about_me("data/about-me.json"))
-        content_div.add(self.get_education("data/education.json"))
-        content_div.add(self.get_experience("data/experience.json"))
-        content_div.add(self.get_skills("data/skills.json"))
-        content_div.add(self.get_projects_section("data/projects.json"))
-        content_div.add(self.get_timeline("data/timeline.json"))
+        with div(_class="col m12 l10") as content_div: 
+            self.get_about_me("data/about-me.json")
+            self.get_education("data/education.json")
+            self.get_experience("data/experience.json")
+            self.get_skills("data/skills.json")
+            self.get_projects_section("data/projects.json")
+            self.get_timeline("data/timeline.json")
         return content_div
     
     def get_table_of_contents(self):
