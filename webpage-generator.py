@@ -46,9 +46,9 @@ class WebpageGenerator:
             self.get_body_content()
             self.get_table_of_contents()
         return body(container)
-     
+
     def get_body_content(self):
-        with div(_class="col m12 l10") as content_div: 
+        with div(_class="col m12 l10") as content_div:
             self.get_about_me("data/about-me.json")
             self.get_education("data/education.json")
             self.get_experience("data/experience.json")
@@ -56,7 +56,7 @@ class WebpageGenerator:
             self.get_projects_section("data/projects.json")
             self.get_timeline("data/timeline.json")
         return content_div
-    
+
     def get_table_of_contents(self):
         toc_div = div(_class="col hide-on-med-and-down l2")
         toc_div.add(self.get_table_of_contents_wrapper())
@@ -93,7 +93,7 @@ class WebpageGenerator:
         section_div.add(h2(section_title,i(icon, _class="material-icons heading-icon"), _class="section-heading"))
         self.headings.append(section_title)
         return section_div
-    
+
     def get_educations_div(self, educations):
         educations_div = div(_class="educations")
         for education in educations:
@@ -257,7 +257,7 @@ class WebpageGenerator:
             project_row.add(project_column)
             if(count % 2 == 0):
                 projects_div.add(project_row)
-            count += 1 
+            count += 1
         return projects_div
 
     def get_project_card(self, project):
@@ -290,7 +290,7 @@ class WebpageGenerator:
             for tag in tags:
                 self.get_project_tag(tag)
         return project_tags_divs
-    
+
     def get_project_tag(self, tag):
         return  div(tag['tag'], _class="chip " + tag['type'].lower())
 
@@ -393,7 +393,7 @@ class ProjectCard(HtmlWidget):
             for tag in tags:
                 self.__get_project_tag(tag)
         return project_tags_divs
- 
+
     def __get_project_tag(self, tag):
         return  div(tag['tag'], _class="chip " + tag['type'].lower())
 
@@ -412,9 +412,9 @@ class Footnotes(HtmlWidget):
 
     def __init__(self, footnotes):
         self.footnotes = footnotes
-  
+
     def get_html(self):
-        return __get_footnotes(self.footnotes)
+        return self.__get_footnotes(self.footnotes)
 
     def __get_footnotes(self, footnotes):
         with div(_class="flex-list") as footnotes_list_div:
