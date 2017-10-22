@@ -18,19 +18,19 @@ class webpage_generator:
         print(self.html)
 
     def add_headers(self, file):
-        data = read_json_file(file)
-        page_header = head()
-        page_header.add(title(data['title']))
-        page_header.add(meta(charset=data['charset']))
-        for content_meta in data['content-metas']:
-            page_header.add(meta(name=content_meta['name'], content=content_meta['content']))
-        for import_link in data['links']:
-            if import_link['type'] == 'css':
-                page_header.add(link(href=import_link['source'], rel='stylesheet', type='text/css'))
-            elif import_link['type'] == 'js':
-                page_header.add(script(src=import_link['source'], type='text/javascript'))
-            elif import_link['type'] == 'font':
-                page_header.add(link(href=import_link['source'], rel='stylesheet'))
+        header_data = read_json_file(file)
+        with head() as page_header:
+            title(header_data['title'])
+            meta(charset=header_data['charset'])
+            for content_meta in header_data['content-metas']:
+                meta(name=content_meta['name'], content=content_meta['content'])
+            for import_link in header_data['links']:
+                if import_link['type'] == 'css':
+                    link(href=import_link['source'], rel='stylesheet', type='text/css')
+                elif import_link['type'] == 'js':
+                    script(src=import_link['source'], type='text/javascript')
+                elif import_link['type'] == 'font':
+                    link(href=import_link['source'], rel='stylesheet')
         self.html.add(page_header)
 
     def add_body(self):
