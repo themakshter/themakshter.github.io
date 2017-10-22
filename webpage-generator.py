@@ -164,10 +164,10 @@ class webpage_generator:
         return experiences_div
 
     def get_experience_instance_div(self, experience):
-        experience_instance_div = div(_class="experience-instance")
-        experience_instance_div.add(h3(experience['company']))
-        experience_instance_div.add(h4(experience['position']))
-        experience_instance_div.add(self.get_footnotes(experience['footnotes']))
+        with div(_class="experience-instance") as experience_instance_div:
+            h3(experience['company'])
+            h4(experience['position'])
+            self.get_footnotes(experience['footnotes'])
         return experience_instance_div
 
     def get_skills(self, file):
@@ -196,37 +196,34 @@ class webpage_generator:
         return skills_div
 
     def get_skills_section_instance(self, skill_section):
-        skill_section_instance_div = div(_class="skill-section")
-        skill_section_instance_div.add(h4(skill_section['title']))
-        skill_section_instance_div.add(self.get_skills_section_skill_list(skill_section['ratings']))
+        with div(_class="skill-section") as skill_section_instance_div:
+            h4(skill_section['title'])
+            self.get_skills_section_skill_list(skill_section['ratings'])
         return skill_section_instance_div
 
     def get_skills_section_skill_list(self, ratings):
-        skill_list = ul(_class="skill-list")
-        for rating in ratings:
-            skill_item = li(_class="skill-item")
-            skill_item.add(self.get_skill_item(rating))
-            skill_list.add(skill_item)
+        with ul(_class="skill-list") as skill_list:
+            for rating in ratings:
+                with li(_class="skill-item"):
+                    self.get_skill_item(rating)
         return skill_list
 
     def get_skill_item(self, rating):
-        skill_item_div = div(_class="row valign-wrapper")
-        heading_column = div(_class="col s6 left-align")
-        heading_column.add(h5(rating['skill']))
-        skill_item_div.add(heading_column)
-        rating_column = div(_class="col s6 starts centre-align")
-        rating_column.add(self.get_rating(float(rating['rating'])))
-        skill_item_div.add(rating_column)
+        with div(_class="row valign-wrapper") as skill_item_div:
+            with div(_class="col s6 skills left-align"):
+                h5(rating['skill'])
+            with div(_class="col s6 ratings centre-align"):
+                self.get_rating(float(rating['rating']))
         return skill_item_div
 
     def get_rating(self, rating):
-        rating_div = div(_class="rating")
         full_stars = math.floor(rating / 1)
         half_stars = math.ceil(rating % 1)
         empty_stars = 5 - full_stars - half_stars
-        rating_div.add(self.get_stars(full_stars, "star"))
-        rating_div.add(self.get_stars(half_stars, "star_half"))
-        rating_div.add(self.get_stars(empty_stars, "star_border"))
+        with div(_class="rating") as rating_div:
+            self.get_stars(full_stars, "star")
+            self.get_stars(half_stars, "star_half")
+            self.get_stars(empty_stars, "star_border")
         return rating_div
 
     def get_stars(self, number, icon):
