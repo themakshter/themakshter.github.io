@@ -56,13 +56,13 @@ class webpage_generator:
         return toc_div
 
     def get_about_me(self, file):
-        data = read_json_file(file)
-        about_me_div = div(id="about-me", _class="section scrollspy center-align")
-        about_me_div.add(h1("Mohammad Ali Khan"))
-        about_me_div.add(img(_class="responsive-img circle", src="img/" + data['picture'], alt="Picture of Ali"))
-        about_me_div.add(br())
-        about_me_div.add(self.get_social_media_icons(data['social-icons']))
-        about_me_div.add(p(data['description'], _class="flow-text"))
+        about_me_data = read_json_file(file)
+        with div(id="about-me", _class="section scrollspy center-align") as about_me_div:
+            h1("Mohammad Ali Khan")
+            img(_class="responsive-img circle", src="img/" + about_me_data['picture'], alt="Picture of Ali")
+            br()
+            self.get_social_media_icons(about_me_data['social-icons'])
+            p(about_me_data['description'], _class="flow-text")
         self.headings.append("About Me")
         return about_me_div
 
