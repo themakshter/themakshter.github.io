@@ -107,53 +107,6 @@ class WebpageGenerator:
             Footnotes(education['footnotes']).get_html()
         return education_instance_div
 
-    def get_footnotes(self, footnotes):
-        with div(_class="flex-list") as footnotes_list_div:
-            with ul():
-                for footnote in footnotes:
-                    self.get_footnote(footnote)
-        return footnotes_list_div
-
-    def get_footnote(self, footnote):
-        footnote_item = li()
-        icon_type = ""
-        text = ""
-        if footnote['type'] == 'time':
-            icon_type = "date_range"
-            text = get_date(footnote['time'])
-        elif footnote['type'] == 'location':
-            icon_type = "place"
-            text = get_location(footnote['location'])
-        elif footnote['type'] == 'link':
-            icon_type = "link"
-            text = get_link(footnote['link'])
-        elif footnote['type'] == 'code':
-            icon_type = "code"
-            text = get_link(footnote['code'])
-        elif footnote['type'] == 'documentation':
-            icon_type = "insert_drive_file"
-            text = get_link(footnote['documentation'])
-        elif footnote['type'] == 'video':
-            icon_type = "play_circle_filled"
-            text = get_link(footnote['video'])
-        footnote_item.add(i(icon_type, _class="material-icons"))
-        footnote_item.add(text)
-        return footnote_item
-
-    def get_date(self, date):
-        start_date = time.strptime(date['start'], "%Y-%m-%d")
-        text = time.strftime("%B %Y", start_date)
-        if 'end' in date:
-            end_date = time.strptime(date['end'], "%Y-%m-%d")
-            text += " to " + time.strftime("%B %Y", end_date)
-        return text
-
-    def get_location(self, location):
-        return location['city'] + ", " + location['country']
-
-    def get_link(self, web_link):
-        return a(web_link['title'], href=web_link['source'])
-
     def get_experience(self, file):
         data = read_json_file(file)
         experience_div = self.get_div_and_heading(data['title'], data['icon'])
@@ -260,51 +213,6 @@ class WebpageGenerator:
             count += 1
         return projects_div
 
-    def get_project_card(self, project):
-        with div(_class="card hoverable") as project_card:
-            self.get_card_activator(project['image'])
-            self.get_card_content(project['name'], project['tags'])
-            self.get_card_action(project['footnotes'])
-            self.get_card_reveal(project['name'], project['description'])
-        return project_card
-
-    def get_card_activator(self, image):
-        activator_div = div(_class="card-image waves-effect waves-block waves-light")
-        activator_div.add(img(src=image, _class="activator"))
-        return activator_div
-
-    def get_card_content(self, name, tags):
-        with div(_class="card-content") as card_content_div:
-            self.get_card_title_span(name, "more_vert")
-            self.get_project_tags(tags)
-        return card_content_div
-
-    def get_card_title_span(self, name, icon):
-        with span(_class="card-title activator grey-text text-darken-4") as card_title_span:
-            b(name)
-            i(icon,_class="material-icons right")
-        return card_title_span
-
-    def get_project_tags(self, tags):
-        with div(_class="project-tags") as project_tags_divs:
-            for tag in tags:
-                self.get_project_tag(tag)
-        return project_tags_divs
-
-    def get_project_tag(self, tag):
-        return  div(tag['tag'], _class="chip " + tag['type'].lower())
-
-    def get_card_action(self, footnotes):
-        card_action_div = div(_class="card-action")
-        card_action_div.add(self.get_footnotes(footnotes))
-        return card_action_div
-
-    def get_card_reveal(self, name, description):
-        with div(_class="card-reveal") as card_reveal_div:
-            self.get_card_title_span(name, "close")
-            p(description)
-        return card_reveal_div
-
     def get_timeline(self, file):
         data = read_json_file(file)
         timeline_div = self.get_div_and_heading(data['title'], data['icon'])
@@ -339,21 +247,6 @@ def get_meta_tag(name, content):
 
 def read_json_file(filename):
     return json.loads(open(filename).read())
-
-def get_date(date):
-    start_date = time.strptime(date['start'], "%Y-%m-%d")
-    text = time.strftime("%B %Y", start_date)
-    if 'end' in date:
-        end_date = time.strptime(date['end'], "%Y-%m-%d")
-        text += " to " + time.strftime("%B %Y", end_date)
-    return text
-
-def get_location(location):
-    return location['city'] + ", " + location['country']
-
-def get_link(link):
-    return a(link['title'], href=link['source'])
-
 
 class ProjectCard(HtmlWidget):
 
