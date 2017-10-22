@@ -3,6 +3,13 @@ import time
 import math
 import dominate
 from dominate.tags import *
+from abc import ABCMeta, abstractmethod
+
+class HtmlWidget:
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
+    def get_html(self): pass
 
 class WebpageGenerator:
     headings = []
@@ -39,7 +46,7 @@ class WebpageGenerator:
             self.get_body_content()
             self.get_table_of_contents()
         return body(container)
-        
+     
     def get_body_content(self):
         with div(_class="col m12 l10") as content_div: 
             self.get_about_me("data/about-me.json")
@@ -315,7 +322,7 @@ class WebpageGenerator:
         for heading in headings:
             toc_list.add(self.get_toc_item(heading))
         return toc_list
-    
+
     def get_toc_item(self, heading):
         heading_id = self.get_heading_item_id(heading)
         return li(a(heading, href="#"+heading_id))
@@ -348,8 +355,8 @@ def get_link(link):
     return a(link['title'], href=link['source'])
 
 
-class ProjectCard:
-    
+class ProjectCard(HtmlWidget):
+
     def __init__(self, project):
         self.project = project
 
@@ -378,7 +385,7 @@ class ProjectCard:
     def __get_card_title_span(self, name, icon):
         with span(_class="card-title activator grey-text text-darken-4") as card_title_span:
             b(name)
-            i(icon,_class="material-icons right")
+            i(icon, _class="material-icons right")
         return card_title_span
 
     def __get_project_tags(self, tags):
@@ -386,7 +393,7 @@ class ProjectCard:
             for tag in tags:
                 self.__get_project_tag(tag)
         return project_tags_divs
-    
+ 
     def __get_project_tag(self, tag):
         return  div(tag['tag'], _class="chip " + tag['type'].lower())
 
@@ -401,5 +408,45 @@ class ProjectCard:
             p(description)
         return card_reveal_div
 
+class Footnotes(HtmlWidget):
+
+    def __init__(self, footnotes):
+        self.footnotes = footnotes
+  
+    def get_html(self):
+        return __get_footnotes(self.footnotes)
+
+    def __get_footnotes(self, footnotes):
+        with div(_class="flex-list") as footnotes_list_div:
+            with ul():
+                for footnote in footnotes:
+                    self.__get_footnote(footnote)
+        return footnotes_list_div
+
+    def __get_footnote(self, footnote):
+        footnote_item = li()
+        icon_type = ""
+        text = ""
+        if footnote['type'] == 'time':
+            icon_type = "date_range"
+            text = get_date(footnote['time'])
+        elif footnote['type'] == 'location':
+            icon_type = "place"
+            text = get_location(footnote['location'])
+        elif footnote['type'] == 'link':
+            icon_type = "link"
+            text = get_link(footnote['link'])
+        elif footnote['type'] == 'code':
+            icon_type = "code"
+            text = get_link(footnote['code'])
+        elif footnote['type'] == 'documentation':
+            icon_type = "insert_drive_file"
+            text = get_link(footnote['documentation'])
+        elif footnote['type'] == 'video':
+            icon_type = "play_circle_filled"
+            text = get_link(footnote['video'])
+        footnote_item.add(i(icon_type, _class="material-icons"))
+        footnote_item.add(text)
+        return footnote_item
 
 WebpageGenerator()
