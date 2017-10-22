@@ -254,11 +254,11 @@ class webpage_generator:
         return projects_div
 
     def get_project_card(self, project):
-        project_card = div(_class="card hoverable")
-        project_card.add(self.get_card_activator(project['image']))
-        project_card.add(self.get_card_content(project['name'], project['tags']))
-        project_card.add(self.get_card_action(project['footnotes']))
-        project_card.add(self.get_card_reveal(project['name'], project['description']))
+        with div(_class="card hoverable") as project_card:
+            self.get_card_activator(project['image'])
+            self.get_card_content(project['name'], project['tags'])
+            self.get_card_action(project['footnotes'])
+            self.get_card_reveal(project['name'], project['description'])
         return project_card
 
     def get_card_activator(self, image):
@@ -267,21 +267,21 @@ class webpage_generator:
         return activator_div
 
     def get_card_content(self, name, tags):
-        card_content_div = div(_class="card-content")
-        card_content_div.add(self.get_card_title_span(name, "more_vert"))
-        card_content_div.add(self.get_project_tags(tags))
+        with div(_class="card-content") as card_content_div:
+            self.get_card_title_span(name, "more_vert")
+            self.get_project_tags(tags)
         return card_content_div
 
     def get_card_title_span(self, name, icon):
-        card_title_span = span(_class="card-title activator grey-text text-darken-4")
-        card_title_span.add(b(name))
-        card_title_span.add(i(icon,_class="material-icons right"))
+        with span(_class="card-title activator grey-text text-darken-4") as card_title_span:
+            b(name)
+            i(icon,_class="material-icons right")
         return card_title_span
 
     def get_project_tags(self, tags):
-        project_tags_divs = div(_class="project-tags")
-        for tag in tags:
-            project_tags_divs.add(self.get_project_tag(tag))
+        with div(_class="project-tags") as project_tags_divs:
+            for tag in tags:
+                self.get_project_tag(tag)
         return project_tags_divs
     
     def get_project_tag(self, tag):
@@ -293,9 +293,9 @@ class webpage_generator:
         return card_action_div
 
     def get_card_reveal(self, name, description):
-        card_reveal_div = div(_class="card-reveal")
-        card_reveal_div.add(self.get_card_title_span(name, "close"))
-        card_reveal_div.add(p(description))
+        with div(_class="card-reveal") as card_reveal_div:
+            self.get_card_title_span(name, "close")
+            p(description)
         return card_reveal_div
 
     def get_timeline(self, file):
