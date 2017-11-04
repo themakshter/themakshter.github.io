@@ -301,7 +301,7 @@
           "type":"documentation",
           "documentation":{
             "title":"User Manual",
-            "source":"https://ideaboardapp.herokuapp.com/userManual.html"
+            "source":"https://ideaboardapp.herokuapp.com/manuals/userManual.html"
           }
         },
         {
@@ -375,7 +375,7 @@
           "type":"documentation",
           "documentation":{
             "title":"Project Report",
-            "source":"https://infinite-tundra-1304.herokuapp.com/manuals/technicalManual.html"
+            "source":"./files/privacy_matters_report.pdf"
           }
         }
       ]

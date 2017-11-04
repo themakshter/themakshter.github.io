@@ -316,8 +316,6 @@ class Footnotes(HtmlWidget):
                     Footnote(footnote).get_html()
         return footnotes_list_div
 
-
-
 class Footnote(HtmlWidget):
 
     def __init__(self, footnote):
