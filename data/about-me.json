@@ -1,42 +1,47 @@
 {
-  "name":"Mohammad Ali Khan",
-  "picture":"ali.jpg",
-  "social-icons":[
+  "name": "Mohammad Ali Khan",
+  "picture": "ali.jpg",
+  "social-icons": [
     {
-      "name":"Facebook",
-      "link":"https://www.facebook.com/themakshter",
-      "image":"facebook.jpg"
+      "name": "Facebook",
+      "link": "https://www.facebook.com/themakshter",
+      "image": "facebook.jpg"
     },
     {
-      "name":"Twitter",
-      "link":"https://twitter.com/themakshter",
-      "image":"twitter.jpg"
+      "name": "Twitter",
+      "link": "https://twitter.com/themakshter",
+      "image": "twitter.jpg"
     },
     {
-      "name":"LinkedIn",
-      "link":"https://www.linkedin.com/in/themakshter",
-      "image":"linkedin.jpg"
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com/in/themakshter",
+      "image": "linkedin.jpg"
     },
     {
-      "name":"Github",
-      "link":"https://github.com/themakshter",
-      "image":"github.jpg"
+      "name": "Github",
+      "link": "https://github.com/themakshter",
+      "image": "github.jpg"
     },
     {
-      "name":"Steam",
-      "link":"https://steamcommunity.com/id/themakshter/",
-      "image":"steam.jpg"
+      "name": "Steam",
+      "link": "https://steamcommunity.com/id/themakshter/",
+      "image": "steam.jpg"
     },
     {
-      "name":"Dotabuff",
-      "link":"http://www.dotabuff.com/players/66853428",
-      "image":"dotabuff.jpg"
+      "name": "Dotabuff",
+      "link": "http://www.dotabuff.com/players/66853428",
+      "image": "dotabuff.jpg"
     },
     {
-      "name":"Email",
-      "link":"mailto:mohammad_ali93@live.com",
-      "image":"email.jpg"
+      "name": "Email",
+      "link": "mailto:mohammad_ali93@live.com",
+      "image": "email.jpg"
+    },
+    {
+      "name": "Resume",
+      "link": "./files/resume-mohammad-ali-khan.pdf",
+      "image": "resume.jpg"
     }
   ],
-  "description":"I am a computer scientist who is passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I consider myself most proficient in Java but I have a considerable amount of experience in web-related technologies by taking part in numerous web development projects over the years. Outside of development,  I enjoy reading books, playing video games and watching football as well as playing it myself."
+  "description": "I am a computer scientist who is passionate about web development and data visualisation. I graduated from the University of Southampton and now work as a Software Engineer at FactSet in London. I have a considerable amount of experience in web-related technologies across the full web stack by taking part in numerous web development projects over the years. Outside of development,  I enjoy reading books, playing video games and watching football as well as playing it myself."
 }

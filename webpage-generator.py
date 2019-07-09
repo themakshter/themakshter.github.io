@@ -9,7 +9,8 @@ class HtmlWidget:
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def get_html(self): pass
+    def get_html(self):
+        pass
 
 class WebpageGenerator:
     headings = []

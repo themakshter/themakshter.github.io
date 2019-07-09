@@ -1,154 +1,186 @@
 [
   {
-    "start":"2011-09-25",
-    "end":"2015-05-22",
-    "label":"University of Southampton",
-    "description":"Studied MEng Computer Science, graduating with First Class Honours",
-    "type":"education",
-    "shortlabel":"University of Southampton"
+    "start": "2011-09-25",
+    "end": "2015-05-22",
+    "label": "University of Southampton",
+    "description": "Studied MEng Computer Science, graduating with First Class Honours",
+    "type": "education",
+    "shortlabel": "University of Southampton"
   },
   {
-    "start":"2013-06-24",
-    "end":"2013-08-30",
-    "label":"Micro Focus Ltd.",
-    "description":"Interned as Product Development Intern",
-    "type":"experience",
-    "shortlabel":"Micro Focus Ltd."
+    "start": "2013-06-24",
+    "end": "2013-08-30",
+    "label": "Micro Focus Ltd.",
+    "description": "Interned as Product Development Intern",
+    "type": "experience",
+    "shortlabel": "Micro Focus Ltd."
   },
   {
-    "start":"2014-06-23",
-    "end":"2014-08-29",
-    "label":"J. P. Morgan",
-    "description":"Interned as Project Manager",
-    "type":"experience",
-    "shortlabel":"J.P. Morgan"
+    "start": "2014-06-23",
+    "end": "2014-08-29",
+    "label": "J. P. Morgan",
+    "description": "Interned as Project Manager",
+    "type": "experience",
+    "shortlabel": "J.P. Morgan"
   },
   {
-    "start":"2015-08-15",
-    "end":"now",
-    "label":"FactSet Europe Ltd.",
-    "description":"Working as Software Engineer",
-    "type":"experience",
-    "shortlabel":"FactSet Europe Ltd."
+    "start": "2017-11-15",
+    "end": "2019-01-20",
+    "label": "PCs4Kids",
+    "description": "Volunteered part-time as Full-stack Web Developer",
+    "type": "experience",
+    "shortlabel": "PCs4Kids"
   },
   {
-    "start":"2011-12-05",
-    "end":"",
-    "label":"Personal Website version 1",
-    "description":"First version of this website",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2015-08-15",
+    "end": "now",
+    "label": "FactSet Europe Ltd.",
+    "description": "Working as Software Engineer",
+    "type": "experience",
+    "shortlabel": "FactSet Europe Ltd."
   },
   {
-    "start":"2012-04-04",
-    "end":"",
-    "label":"Fractal Viewer",
-    "description":"Visualisation of a Mandelbrot Set and Julia Set viewer",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2011-12-05",
+    "end": "",
+    "label": "Personal Website version 1",
+    "description": "First version of this website",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2012-05-08",
-    "end":"",
-    "label":"Crossword Puzzle",
-    "description":"Implmentation of a simple crossword puzzle with clues",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2012-04-04",
+    "end": "",
+    "label": "Fractal Viewer",
+    "description": "Visualisation of a Mandelbrot Set and Julia Set viewer",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2013-05-10",
-    "end":"",
-    "label":"KNN Data Classifier",
-    "description":"K-nearest neighbour classifer to identify different types of fish",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2012-05-08",
+    "end": "",
+    "label": "Crossword Puzzle",
+    "description": "Implmentation of a simple crossword puzzle with clues",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2013-04-15",
-    "end":"",
-    "label":"LittleNic to Java cross-compiler",
-    "description":"Cross compiler to convert LittleNic code to correct Java code",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2013-05-10",
+    "end": "",
+    "label": "KNN Data Classifier",
+    "description": "K-nearest neighbour classifer to identify different types of fish",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2014-01-05",
-    "end":"",
-    "label":"Clangers",
-    "description":"Implmentation of a virtual world themed from the old BBC show Clangers",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2013-04-15",
+    "end": "",
+    "label": "LittleNic to Java cross-compiler",
+    "description": "Cross compiler to convert LittleNic code to correct Java code",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2014-01-10",
-    "end":"",
-    "label":"Type Pong",
-    "description":"Web pong game mixed with typing as a group project",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2014-01-05",
+    "end": "",
+    "label": "Clangers",
+    "description": "Implmentation of a virtual world themed from the old BBC show Clangers",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2013-10-01",
-    "end":"2014-06-05",
-    "label":"Privacy Matters",
-    "description":"Individual project, involving visualisation of company privacy policies",
-    "type":"projects",
-    "shortlabel":"Privacy Matters"
+    "start": "2014-01-10",
+    "end": "",
+    "label": "Type Pong",
+    "description": "Web pong game mixed with typing as a group project",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2014-11-01",
-    "end":"",
-    "label":"Personal Website version 2",
-    "description":"Second version of this website",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2013-10-01",
+    "end": "2014-06-05",
+    "label": "Privacy Matters",
+    "description": "Individual project, involving visualisation of company privacy policies",
+    "type": "projects",
+    "shortlabel": "Privacy Matters"
   },
   {
-    "start":"2015-01-07",
-    "end":"",
-    "label":"Agent Elman",
-    "description":"Agent designed as group to compete with others in the TAC",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2014-11-01",
+    "end": "",
+    "label": "Personal Website version 2",
+    "description": "Second version of this website",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2014-12-09",
-    "end":"",
-    "label":"Idea Board",
-    "description":"Note taking application implementing a board abstraction, as a group project",
-    "type":"projects",
-    "shortlabel":""
+    "start": "2015-01-07",
+    "end": "",
+    "label": "Agent Elman",
+    "description": "Agent designed as group to compete with others in the TAC",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2014-10-02",
-    "end":"2015-01-11",
-    "label":"Mobile Intervention Authoring",
-    "description":"Masters year GDP, improving intervention authoring tool and creating intervention",
-    "type":"projects",
-    "shortlabel":"Mobile Interventions"
+    "start": "2014-12-09",
+    "end": "",
+    "label": "Idea Board",
+    "description": "Note taking application implementing a board abstraction, as a group project",
+    "type": "projects",
+    "shortlabel": ""
   },
   {
-    "start":"2015-03-01",
-    "end":"2015-04-25",
-    "label":"NHS Waiting Times Applications",
-    "description":"Application using open data to show A & E Hospitals with lowest waiting time as a group project",
-    "type":"projects",
-    "shortlabel":"NHS App"
+    "start": "2014-10-02",
+    "end": "2015-01-11",
+    "label": "Mobile Intervention Authoring",
+    "description": "Masters year GDP, improving intervention authoring tool and creating intervention",
+    "type": "projects",
+    "shortlabel": "Mobile Interventions"
   },
   {
-    "start":"2015-11-25",
-    "end":"2016-06-16",
-    "label":"Personal Website version 3",
-    "description":"Third and current version of this website",
-    "type":"projects",
-    "shortlabel":"Personal Website v3"
+    "start": "2015-03-01",
+    "end": "2015-04-25",
+    "label": "NHS Waiting Times Applications",
+    "description": "Application using open data to show A & E Hospitals with lowest waiting time as a group project",
+    "type": "projects",
+    "shortlabel": "NHS App"
   },
   {
-    "start":"2017-03-15",
-    "end":"",
-    "label":"Outcome Graph library",
-    "description":"Convert SDQ sessions into radar chart",
-    "type":"projects",
-    "shortlabel":"outcome-graph"
+    "start": "2015-11-25",
+    "end": "2016-06-16",
+    "label": "Personal Website version 3",
+    "description": "Third and current version of this website",
+    "type": "projects",
+    "shortlabel": "Personal Website v3"
+  },
+  {
+    "start": "2017-03-15",
+    "end": "",
+    "label": "Outcome Graph library",
+    "description": "Convert SDQ sessions into radar chart",
+    "type": "projects",
+    "shortlabel": "outcome-graph"
+  },
+  {
+    "start": "2018-11-27",
+    "end": "",
+    "label": "Basic Custom Map",
+    "description": "Generate interactive map from images",
+    "type": "projects",
+    "shortlabel": "basic-custom-map"
+  },
+  {
+    "start": "2018-11-27",
+    "end": "",
+    "label": "Round The World",
+    "description": "Convert created game into runnable library",
+    "type": "projects",
+    "shortlabel": "round-the-world"
+  },
+  {
+    "start": "2019-01-12",
+    "end": "",
+    "label": "World",
+    "description": "Tie together the activities and map for navigation",
+    "type": "projects",
+    "shortlabel": "world"
   }
 ]

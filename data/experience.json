@@ -1,73 +1,117 @@
 {
   "title": "Experience",
-  "icon":"business_center",
-  "experiences": [{
-    "company": "FactSet Europe Ltd.",
-    "position": "Software Engineer",
-    "description": "",
-    "footnotes": [{
-      "type": "time",
-      "time": {
-        "start": "2015-08-17"
-      }
-    }, {
-      "type": "location",
-      "location": {
-        "city": "London",
-        "country": "United Kingdom"
-      }
-    }, {
-      "type": "link",
-      "link": {
-        "title": "Website",
-        "source": "http://www.factset.com/"
-      }
-    }]
-  }, {
-    "company": "J.P. Morgan Chase & Co.",
-    "position": "Technology Intern",
-    "description": "",
-    "footnotes": [{
-      "type": "time",
-      "time": {
-        "start": "2014-06-23",
-        "end": "2014-08-29"
-      }
-    }, {
-      "type": "location",
-      "location": {
-        "city": "London",
-        "country": "United Kingdom"
-      }
-    }, {
-      "type": "link",
-      "link": {
-        "title": "Website",
-        "source": "https://www.jpmorgan.com"
-      }
-    }]
-  }, {
-    "company": "Micro Focus Ltd.",
-    "position": "Product Development Intern",
-    "description": "",
-    "footnotes": [{
-      "type": "time",
-      "time": {
-        "start": "2013-06-23",
-        "end": "2013-08-30"
-      }
-    }, {
-      "type": "location",
-      "location": {
-        "city": "Newbury",
-        "country": "United Kingdom"
-      }
-    }, {
-      "type": "link",
-      "link": {
-        "title": "Website",
-        "source": "https://www.microfocus.com/"
-      }
-    }]
-  }]
+  "icon": "business_center",
+  "experiences": [
+    {
+      "company": "FactSet Europe Ltd.",
+      "position": "Software Engineer",
+      "description": "",
+      "footnotes": [
+        {
+          "type": "time",
+          "time": {
+            "start": "2015-08-17"
+          }
+        },
+        {
+          "type": "location",
+          "location": {
+            "city": "London",
+            "country": "United Kingdom"
+          }
+        },
+        {
+          "type": "link",
+          "link": {
+            "title": "Website",
+            "source": "http://www.factset.com/"
+          }
+        }
+      ]
+    },
+    {
+      "company": "PCs4Kids",
+      "position": "Part-time Volunteer Full-Stack Web Developer",
+      "description": "",
+      "footnotes": [
+        {
+          "type": "time",
+          "time": {
+            "start": "2017-11-15",
+            "end": "2019-01-20"
+          }
+        },
+        {
+          "type": "location",
+          "location": {
+            "city": "London",
+            "country": "United Kingdom"
+          }
+        },
+        {
+          "type": "link",
+          "link": {
+            "title": "Website",
+            "source": "https://pcs4kids.org/"
+          }
+        }
+      ]
+    },
+    {
+      "company": "J.P. Morgan Chase & Co.",
+      "position": "Technology Intern",
+      "description": "",
+      "footnotes": [
+        {
+          "type": "time",
+          "time": {
+            "start": "2014-06-23",
+            "end": "2014-08-29"
+          }
+        },
+        {
+          "type": "location",
+          "location": {
+            "city": "London",
+            "country": "United Kingdom"
+          }
+        },
+        {
+          "type": "link",
+          "link": {
+            "title": "Website",
+            "source": "https://www.jpmorgan.com"
+          }
+        }
+      ]
+    },
+    {
+      "company": "Micro Focus Ltd.",
+      "position": "Product Development Intern",
+      "description": "",
+      "footnotes": [
+        {
+          "type": "time",
+          "time": {
+            "start": "2013-06-23",
+            "end": "2013-08-30"
+          }
+        },
+        {
+          "type": "location",
+          "location": {
+            "city": "Newbury",
+            "country": "United Kingdom"
+          }
+        },
+        {
+          "type": "link",
+          "link": {
+            "title": "Website",
+            "source": "https://www.microfocus.com/"
+          }
+        }
+      ]
+    }
+  ]
 }
