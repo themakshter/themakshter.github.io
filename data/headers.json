@@ -21,6 +21,10 @@
   ],
   "links":[
     {
+      "type": "icon",
+      "source":"./favicon.ico"
+    },
+    {
       "type":"font",
       "source":"http://fonts.googleapis.com/icon?family=Material+Icons"
     },

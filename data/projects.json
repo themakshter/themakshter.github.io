@@ -157,15 +157,11 @@
       "description": "This webpage; the current website is version number 3. The initial version of this website was done in 2011, soon after starting university, using a website template and can be found here. That was then revamped in September of 2014, started from scratch and created using bootstrap, with a mobile-friendly version too. This has been worked on since the start of this year, changing the layout and framework behind it (twitter boostrap to material design materialize), as well as adding new features such as the timeline.",
       "tags": [
         {
-          "tag": "HTML",
-          "type": "language"
-        },
-        {
-          "tag": "CSS",
-          "type": "language"
-        },
-        {
           "tag": "JavaScript",
+          "type": "language"
+        },
+        {
+          "tag": "Python",
           "type": "language"
         },
         {
@@ -220,14 +216,6 @@
       "description": "A group project application which, given a location, finds the closest hospitals with the least amount of waiting times for Accident and Emergency departments (A &amp; E). It uses open data from the NHS in the form of percentage of patients seen in the first four hours as well as hospital ratings and combines this with OpenStreetMap to provide locations on the map. It can be used on the web or on a mobile phone just as easily. ",
       "tags": [
         {
-          "tag": "HTML",
-          "type": "language"
-        },
-        {
-          "tag": "CSS",
-          "type": "language"
-        },
-        {
           "tag": "JavaScript",
           "type": "language"
         },
@@ -268,14 +256,6 @@
       "image": "img/intervention_editor.jpg",
       "description": "A group development project (GDP) improving and extending a mobile intervention editor to create an intervention for cochlear implant users so that they can do regular hearing check ups in the comfort of their homes. This project involved implementing features to add media files on the web-based intervention editor and functionality to play these media files on the intervention client application. Lastly, the intervention was created with numerous optimisations on the editor and run on the client application. The intervention editor was written mostly in CoffeeScript with BackboneJS and the client application was for Android devices.",
       "tags": [
-        {
-          "tag": "HTML",
-          "type": "language"
-        },
-        {
-          "tag": "CSS",
-          "type": "language"
-        },
         {
           "tag": "CoffeeScript",
           "type": "language"
@@ -359,14 +339,6 @@
       "description": "A group project to create a note-taking web applicaiton for a web development module. Attempted abstraction of the idea board model, a board where people stick a number of post-it notes on to help visualise their thoughts. This application allows people to create boards and have notes in a column of their choosing. The notes themselves can be customised in relation to text formatting and colour.",
       "tags": [
         {
-          "tag": "HTML",
-          "type": "language"
-        },
-        {
-          "tag": "CSS",
-          "type": "language"
-        },
-        {
           "tag": "JavaScript",
           "type": "language"
         },
@@ -376,10 +348,6 @@
         },
         {
           "tag": "NodeJS",
-          "type": "framework"
-        },
-        {
-          "tag": "BackboneJS",
           "type": "framework"
         },
         {
@@ -441,14 +409,6 @@
       "description": "Individual project of an online resource showing the information companies in the United Kingdomstore and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies.",
       "tags": [
         {
-          "tag": "HTML",
-          "type": "language"
-        },
-        {
-          "tag": "CSS",
-          "type": "language"
-        },
-        {
           "tag": "JavaScript",
           "type": "language"
         },
@@ -500,14 +460,6 @@
       "image": "img/type_pong.jpg",
       "description": "A group project web application aiming to improve typing speeds where users play pong while typing. Correctly typed words allow users to move the paddle to meet the ball. Users can play against the AI in levels, where AI gets better with levels, or in challenge mode, where the AI is perfect, never missing a balll and users try to last as long as possible. Users can also play against each other and view their high scores in these different game modes. ",
       "tags": [
-        {
-          "tag": "HTML",
-          "type": "language"
-        },
-        {
-          "tag": "CSS",
-          "type": "language"
-        },
         {
           "tag": "JavaScript",
           "type": "language"

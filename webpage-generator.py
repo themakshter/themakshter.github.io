@@ -39,6 +39,9 @@ class WebpageGenerator:
                     script(src=import_link['source'], type='text/javascript')
                 elif import_link['type'] == 'font':
                     link(href=import_link['source'], rel='stylesheet')
+                elif import_link['type'] == 'icon':
+                    link(href=import_link['source'], rel='icon', type='image/x-icon')
+                    link(href=import_link['source'], rel='shortcut icon', type='image/x-icon')
         return page_header
 
     def get_body(self):
