@@ -113,3 +113,7 @@ p {
 .stars{
   display: inline;
 }
+
+.card-image{
+  border: 1px solid black;
+}
