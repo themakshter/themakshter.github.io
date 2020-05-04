@@ -191,6 +191,7 @@ class WebpageGenerator:
         return rating_div
 
     def get_stars(self, number, icon):
+        number = int(number)
         stars_div = div(_class="stars")
         for index in range(number):
             stars_div += i(icon, _class="small material-icons")
