@@ -399,7 +399,7 @@
     {
       "name": "Privacy Matters",
       "image": "img/privacy_matters.jpg",
-      "description": "Individual project of an online resource showing the information companies in the United Kingdomstore and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies.",
+      "description": "Individual project of an online resource showing the information companies in the United Kingdom store and share. Users can search for the desired companies and view the reasons for processing data, the data processed, whom it is processed from and whom it is shared with. There are also data visualisations provided, such as an overview of the information collected as compared to the general median/average. Moreover, users can view similar companies. This project is now deprecated.",
       "tags": [
         {
           "tag": "JavaScript",
@@ -444,6 +444,13 @@
           "documentation": {
             "title": "Project Report",
             "source": "./files/privacy_matters_report.pdf"
+          }
+        },
+        {
+          "type": "link",
+          "link": {
+            "title": "Demo Video (Zip)",
+            "source": "./files/privacy-matters-demo.zip"
           }
         }
       ]
