@@ -3,6 +3,36 @@
   "icon": "lightbulb_outline",
   "projects": [
     {
+      "name": "Ventilator App",
+      "image": "img/ventilator-app.jpg",
+      "description": "Lead work on Android application written in React Native to allow connecting to a ventilator via cable and show information about ventilation. This app also alarms based on certain problems.",
+      "tags": [
+        {
+          "tag": "TypeScript",
+          "type": "language"
+        },
+        {
+          "tag": "React Native",
+          "type": "framework"
+        }
+      ],
+      "footnotes": [
+        {
+          "type": "time",
+          "time": {
+            "start": "2020-05-25"
+          }
+        },
+        {
+          "type": "code",
+          "code": {
+            "title": "GitHub",
+            "source": "https://github.com/OpenVentPk/ventilator-app"
+          }
+        }
+      ]
+    },
+    {
       "name": "World",
       "image": "img/world.jpg",
       "description": "The main application for PCs4Kids, presenting an interactive map for the kids to explore, each different location leading a different educational activity.",

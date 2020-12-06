@@ -182,5 +182,13 @@
     "description": "Tie together the activities and map for navigation",
     "type": "projects",
     "shortlabel": "world"
+  },
+  {
+    "start": "2020-05-15",
+    "end": "",
+    "label": "OpenVentPk Ventilator App",
+    "description": "React Native app for open source ventilator project",
+    "type": "projects",
+    "shortlabel": "ventilator-app"
   }
 ]
